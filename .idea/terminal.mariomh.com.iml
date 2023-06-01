@@ -3,9 +3,15 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludePattern pattern=".idea" />
-      <excludePattern pattern=".yarn" />
-      <excludePattern pattern=".cert" />
+      <excludePattern pattern=".*" />
+      <excludePattern pattern="LICENSE" />
+      <excludePattern pattern="tsconfig.*" />
+      <excludePattern pattern="vite.*" />
+      <excludePattern pattern="babel.*" />
+      <excludePattern pattern="*.lock" />
+      <excludePattern pattern="nest-cli.json" />
+      <excludePattern pattern="webpack.config.js" />
+      <excludePattern pattern="renovate.json" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
