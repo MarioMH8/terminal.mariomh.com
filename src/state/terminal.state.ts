@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 export interface TerminalState {
 	handlePromptChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	hints: [string[], Dispatch<SetStateAction<string[]>>];
 	promptPointer: [number, Dispatch<SetStateAction<number>>];
 	promptRef: MutableRefObject<HTMLInputElement | null>;
 	promptValue: [string, Dispatch<SetStateAction<string>>];
@@ -16,12 +17,15 @@ const useTerminalState = (): TerminalState => {
 	const [pointer, setPointer] = useState(-1);
 	const [, setRerender] = useState(false);
 
+
+	const [hints, setHints] = useState<string[]>([]);
+
 	const handlePromptChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			setRerender(false);
 			setPromptValue(e.target.value);
 		},
-		[promptValue]
+		[promptValue],
 	);
 
 	// For caret position at the end
@@ -47,6 +51,7 @@ const useTerminalState = (): TerminalState => {
 
 	return {
 		handlePromptChange,
+		hints: [hints, setHints],
 		promptPointer: [pointer, setPointer],
 		promptRef,
 		promptValue: [promptValue, setPromptValue],
