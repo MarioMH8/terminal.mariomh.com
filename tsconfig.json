@@ -2,7 +2,9 @@
 	"extends": "@hexatool/tsconfig",
 	"compilerOptions": {
 		"lib": ["dom", "es2022"],
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"esModuleInterop": true
 	},
+	"include": ["src"],
 	"exclude": ["node_modules", "dist"]
 }
