@@ -1,0 +1,24 @@
+{
+	"extends": [
+		"@hexatool/eslint-config-typescript"
+	],
+	"overrides": [
+		{
+			"files": [
+				"**/test/**/*.ts",
+				"**/spec/**/*.ts"
+			],
+
+			"parserOptions": {
+				"project": [
+					"./tsconfig.json"
+				]
+			},
+			"rules": {
+				"@typescript-eslint/ban-ts-comment": "off",
+				"@typescript-eslint/no-unsafe-return": "off",
+				"@typescript-eslint/unbound-method": "off"
+			}
+		}
+	]
+}

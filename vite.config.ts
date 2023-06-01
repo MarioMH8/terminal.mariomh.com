@@ -1,0 +1,35 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
+import * as fs from 'node:fs';
+
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+
+function readKey(name: string) {
+	try {
+		return fs.readFileSync(`./.cert/${name}.pem`);
+	} catch {
+		return undefined;
+	}
+}
+
+// https://vitejs.dev/config/
+export default defineConfig({
+	plugins: [
+		react(),
+		VitePWA({
+			registerType: 'autoUpdate',
+		}),
+	],
+	test: {
+		globals: true,
+		environment: 'jsdom',
+		setupFiles: './src/test/setup.ts',
+	},
+	server: {
+		host: 'local.terminal.mariomh.com',
+		port: 8000,
+	},
+});
