@@ -1,0 +1,54 @@
+{
+	"name": "@mariomh8/terminal-portfolio",
+	"version": "0.0.0",
+	"description": "Mario Menéndez portfolio",
+	"keywords": [
+		"github",
+		"react",
+		"portfolio",
+		"typescript",
+		"terminal",
+		"styled-components",
+		"reactjs",
+		"learn",
+		"terminal-portfolio",
+		"terminal-style-website",
+		"terminal-styled"
+	],
+	"homepage": "https://github.com/MarioMH8/terminal.mariomh.com",
+	"bugs": {
+		"url": "https://github.com/MarioMH8/terminal.mariomh.com/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MarioMH8/terminal.mariomh.com"
+	},
+	"author": "MarioMH8",
+	"license": "PRIVATE",
+	"scripts": {
+		"dev": "vite",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix ."
+	},
+	"dependencies": {
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@hexatool/eslint-config-typescript": "1.0.10",
+		"@hexatool/tsconfig": "20.0.1",
+		"@types/react": "18.2.7",
+		"@types/react-dom": "18.2.4",
+		"@vitejs/plugin-react": "4.0.0",
+		"eslint": "8.41.0",
+		"typescript": "5.0.4",
+		"vite": "4.3.9",
+		"vite-plugin-pwa": "0.14.7",
+		"vitest": "0.31.4"
+	},
+	"volta": {
+		"node": "20.1.0",
+		"yarn": "3.5.1"
+	},
+	"packageManager": "yarn@3.5.1"
+}
