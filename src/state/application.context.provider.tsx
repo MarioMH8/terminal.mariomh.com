@@ -1,11 +1,10 @@
-import type { FC, ReactElement } from 'react';
-import React from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 
 import { ApplicationContext } from './application.context';
 import { useApplicationState } from './application.state';
 
 export interface ApplicationContextProviderProps {
-	children: React.JSX.Element;
+	children: ReactNode;
 }
 
 export const ApplicationProvider: FC<ApplicationContextProviderProps> = ({

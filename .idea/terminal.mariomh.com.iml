@@ -12,6 +12,7 @@
       <excludePattern pattern="nest-cli.json" />
       <excludePattern pattern="webpack.config.js" />
       <excludePattern pattern="renovate.json" />
+      <excludePattern pattern="dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

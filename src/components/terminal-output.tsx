@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import Clear from '../commands/clear';
@@ -6,6 +6,7 @@ import Echo from '../commands/echo';
 import GeneralOutput from '../commands/general-output';
 import Help from '../commands/help';
 import History from '../commands/history';
+import Welcome from '../commands/welcome';
 import { useApplicationContext, useExecutedCommandContext } from '../state';
 import { TerminalUsage } from './terminal-usage';
 
@@ -18,7 +19,7 @@ interface TerminalOutputProps {
 	index: number;
 }
 
-export default function TerminalOutput({ command, index }: TerminalOutputProps): React.JSX.Element {
+const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
 	const {
 		info: { user },
 	} = useApplicationContext();
@@ -42,9 +43,12 @@ export default function TerminalOutput({ command, index }: TerminalOutputProps):
 					help: <Help />,
 					history: <History />,
 					pwd: <GeneralOutput>${home}</GeneralOutput>,
+					welcome: <Welcome />,
 					whoami: <GeneralOutput>${user}</GeneralOutput>,
 				}[command]
 			}
 		</TerminalOutputContainer>
 	);
-}
+};
+
+export default TerminalOutput;

@@ -1,5 +1,6 @@
-import _ from 'lodash';
-import React from 'react';
+import drop from 'lodash/drop';
+import uniqueId from 'lodash/uniqueId';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import type { ExecutedCommandState } from '../state';
@@ -17,7 +18,7 @@ export const EmptyCommand = styled.div`
 	margin-bottom: 0.25rem;
 `;
 
-export default function TerminalHistory(): React.JSX.Element {
+const TerminalHistory: FC = () => {
 	const {
 		command: {
 			available,
@@ -33,7 +34,7 @@ export default function TerminalHistory(): React.JSX.Element {
 				const commands = sanitize.split(' ');
 				const command = available.find(c => c.cmd === commands[0]);
 				const contextValue: ExecutedCommandState = {
-					arg: _.drop(commands),
+					arg: drop(commands),
 					history,
 					rerender,
 					index,
@@ -41,7 +42,7 @@ export default function TerminalHistory(): React.JSX.Element {
 				};
 
 				return (
-					<div key={_.uniqueId(`${cmd}_`)}>
+					<div key={uniqueId(`${cmd}_`)}>
 						<div>
 							<TerminalInfo />
 							<MobileBr />
@@ -64,4 +65,6 @@ export default function TerminalHistory(): React.JSX.Element {
 			})}
 		</>
 	);
-}
+};
+
+export default TerminalHistory;

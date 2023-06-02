@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { useApplicationContext } from '../state';
@@ -16,7 +16,7 @@ const User = styled.span`
 	color: ${({ theme }) => theme.colors.secondary};
 `;
 
-export default function TerminalInfo(): React.JSX.Element {
+const TerminalInfo: FC = () => {
 	const {
 		info: { domain, user, separator },
 	} = useApplicationContext();
@@ -27,4 +27,6 @@ export default function TerminalInfo(): React.JSX.Element {
 			{separator}
 		</Wrapper>
 	);
-}
+};
+
+export default TerminalInfo;

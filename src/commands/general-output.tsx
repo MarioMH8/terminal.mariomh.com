@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 type Props = {
-	children: React.ReactNode;
+	children: ReactNode;
 };
 
-const GeneralOutput: React.FC<Props> = ({ children }) => <Wrapper>{children}</Wrapper>;
+const GeneralOutput: FC<Props> = ({ children }) => <Wrapper>{children}</Wrapper>;
 export default GeneralOutput;
