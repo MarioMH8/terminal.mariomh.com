@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
+import { argTab } from '../fn';
 import type { CommandState } from './command.state';
 
 export interface TerminalState {
@@ -17,6 +19,7 @@ export interface TerminalState {
 const useTerminalState = ({
 	hints: [, setHints],
 	history: [history, setHistory, clearHistory],
+	available,
 }: CommandState): TerminalState => {
 	const terminalRef = useRef<HTMLDivElement>(null);
 	const promptRef = useRef<HTMLInputElement>(null);
@@ -47,14 +50,45 @@ const useTerminalState = ({
 	const handlePromptKeyDown = useCallback(
 		(e: React.KeyboardEvent<HTMLInputElement>) => {
 			setRerender(false);
-			// const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
+			const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
 			const ctrlL = e.ctrlKey && e.key.toLowerCase() === 'l';
-			// const tab = e.key === 'Tab';
+			const tab = e.key === 'Tab';
 			const arrowUp = e.key === 'ArrowUp';
 			const arrowDown = e.key === 'ArrowDown';
 
-			// if Ctrl + L
-			if (ctrlL) {
+			// if Tab or Ctrl + I
+			if (tab || ctrlI) {
+				e.preventDefault();
+				if (!promptValue) {
+					return;
+				}
+
+				let hintsCmds: string[] = [];
+				available.forEach(({ cmd }) => {
+					if (_.startsWith(cmd, promptValue)) {
+						hintsCmds = [...hintsCmds, cmd];
+					}
+				});
+
+				const returnedHints = argTab(promptValue, setPromptValue, setHints, hintsCmds);
+				hintsCmds = returnedHints ? [...hintsCmds, ...returnedHints] : hintsCmds;
+
+				// if there are many command to autocomplete
+				if (hintsCmds.length > 1) {
+					setHints(hintsCmds);
+				}
+				// if only one command to autocomplete
+				else if (hintsCmds.length === 1) {
+					const currentCmd = _.split(promptValue, ' ');
+					setPromptValue(
+						currentCmd.length !== 1
+							? `${currentCmd[0] ?? ''} ${currentCmd[1] ?? ''} ${hintsCmds[0] ?? ''}`
+							: hintsCmds[0] ?? ''
+					);
+
+					setHints([]);
+				}
+			} else if (ctrlL) {
 				clearHistory();
 			} else if (arrowUp) {
 				if (pointer >= history.length) {
