@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useApplicationContext } from '../state';
 
+import { useApplicationContext } from '../state';
 import TerminalInfo from './terminal-info';
 import { MobileBr, MobileSpan } from './terminal-mobile';
 
