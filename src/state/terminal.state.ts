@@ -1,14 +1,22 @@
-import _ from 'lodash';
-import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import split from 'lodash/split';
+import startsWith from 'lodash/startsWith';
+import type {
+	ChangeEvent,
+	Dispatch,
+	FormEvent,
+	KeyboardEvent,
+	MutableRefObject,
+	SetStateAction,
+} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { argTab } from '../fn';
 import type { CommandState } from './command.state';
 
 export interface TerminalState {
-	handlePromptChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	handlePromptKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+	handlePromptChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	handlePromptKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
+	handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 	promptPointer: [number, Dispatch<SetStateAction<number>>];
 	promptRef: MutableRefObject<HTMLInputElement | null>;
 	promptValue: [string, Dispatch<SetStateAction<string>>];
@@ -28,7 +36,7 @@ const useTerminalState = ({
 	const [rerender, setRerender] = useState(false);
 
 	const handlePromptChange = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
+		(e: ChangeEvent<HTMLInputElement>) => {
 			setRerender(false);
 			setPromptValue(e.target.value);
 		},
@@ -36,7 +44,7 @@ const useTerminalState = ({
 	);
 
 	const handleSubmit = useCallback(
-		(e: React.FormEvent<HTMLFormElement>) => {
+		(e: FormEvent<HTMLFormElement>) => {
 			e.preventDefault();
 			setHistory([promptValue, ...history]);
 			setPromptValue('');
@@ -48,7 +56,7 @@ const useTerminalState = ({
 	);
 
 	const handlePromptKeyDown = useCallback(
-		(e: React.KeyboardEvent<HTMLInputElement>) => {
+		(e: KeyboardEvent<HTMLInputElement>) => {
 			setRerender(false);
 			const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
 			const ctrlL = e.ctrlKey && e.key.toLowerCase() === 'l';
@@ -65,7 +73,7 @@ const useTerminalState = ({
 
 				let hintsCmds: string[] = [];
 				available.forEach(({ cmd }) => {
-					if (_.startsWith(cmd, promptValue)) {
+					if (startsWith(cmd, promptValue)) {
 						hintsCmds = [...hintsCmds, cmd];
 					}
 				});
@@ -79,7 +87,7 @@ const useTerminalState = ({
 				}
 				// if only one command to autocomplete
 				else if (hintsCmds.length === 1) {
-					const currentCmd = _.split(promptValue, ' ');
+					const currentCmd = split(promptValue, ' ');
 					setPromptValue(
 						currentCmd.length !== 1
 							? `${currentCmd[0] ?? ''} ${currentCmd[1] ?? ''} ${hintsCmds[0] ?? ''}`

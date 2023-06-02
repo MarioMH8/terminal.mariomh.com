@@ -1,12 +1,13 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
+
 import { useApplicationContext } from '../state';
 
 const Hints = styled.span`
 	margin-right: 0.875rem;
 `;
 
-export default function TerminalHints(): React.JSX.Element {
+const TerminalHints: FC = () => {
 	const {
 		command: {
 			hints: [hints],
@@ -24,4 +25,6 @@ export default function TerminalHints(): React.JSX.Element {
 			)}
 		</>
 	);
-}
+};
+
+export default TerminalHints;

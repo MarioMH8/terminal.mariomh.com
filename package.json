@@ -1,6 +1,6 @@
 {
 	"name": "@mariomh8/terminal-portfolio",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Mario Menéndez portfolio",
 	"keywords": [
 		"github",
@@ -26,6 +26,7 @@
 	"author": "MarioMH8",
 	"license": "PRIVATE",
 	"scripts": {
+		"build": "vite build",
 		"dev": "vite",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix ."

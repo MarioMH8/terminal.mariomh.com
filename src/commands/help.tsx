@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { generateTabs } from '../fn';
@@ -39,7 +39,7 @@ const KeyContainer = styled.div`
 	}
 `;
 
-const Help: React.FC = () => {
+const Help: FC = () => {
 	const {
 		command: { available },
 	} = useApplicationContext();

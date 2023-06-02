@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { useApplicationContext } from '../state';
@@ -19,7 +19,7 @@ const Input = styled.input`
 	}
 `;
 
-export default function TerminalPrompt(): React.JSX.Element {
+const TerminalPrompt: FC = () => {
 	const {
 		terminal: {
 			promptRef,
@@ -52,4 +52,6 @@ export default function TerminalPrompt(): React.JSX.Element {
 			/>
 		</Form>
 	);
-}
+};
+
+export default TerminalPrompt;

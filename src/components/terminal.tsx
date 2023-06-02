@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 import { useApplicationContext } from '../state';
@@ -15,7 +15,7 @@ const TerminalWrapper = styled.div`
 	overflow-y: auto;
 `;
 
-export default function Terminal(): React.JSX.Element {
+const Terminal: FC = () => {
 	const {
 		terminal: { terminalRef },
 	} = useApplicationContext();
@@ -27,4 +27,6 @@ export default function Terminal(): React.JSX.Element {
 			<TerminalHistory />
 		</TerminalWrapper>
 	);
-}
+};
+
+export default Terminal;

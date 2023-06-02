@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
 
 const InternalMobileSpan = styled.span`
@@ -16,6 +16,6 @@ export const MobileBr = styled.br`
 	}
 `;
 
-export function MobileSpan(): React.JSX.Element {
+export const MobileSpan: FC = () => {
 	return <InternalMobileSpan>&#62;</InternalMobileSpan>;
-}
+};
