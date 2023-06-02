@@ -1,3 +1,1 @@
-import uniqueId from './unique-id';
-
-export { uniqueId };
+export * from './generate-tabs';
