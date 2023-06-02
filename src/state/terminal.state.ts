@@ -10,6 +10,7 @@ export interface TerminalState {
 	promptPointer: [number, Dispatch<SetStateAction<number>>];
 	promptRef: MutableRefObject<HTMLInputElement | null>;
 	promptValue: [string, Dispatch<SetStateAction<string>>];
+	rerender: boolean;
 	terminalRef: MutableRefObject<HTMLDivElement | null>;
 }
 
@@ -21,7 +22,7 @@ const useTerminalState = ({
 	const promptRef = useRef<HTMLInputElement>(null);
 	const [promptValue, setPromptValue] = useState('');
 	const [pointer, setPointer] = useState(-1);
-	const [, setRerender] = useState(false);
+	const [rerender, setRerender] = useState(false);
 
 	const handlePromptChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -116,6 +117,7 @@ const useTerminalState = ({
 		promptRef,
 		promptValue: [promptValue, setPromptValue],
 		terminalRef,
+		rerender,
 	};
 };
 
