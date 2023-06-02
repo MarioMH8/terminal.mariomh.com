@@ -42,9 +42,9 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 					echo: <Echo />,
 					help: <Help />,
 					history: <History />,
-					pwd: <GeneralOutput>${home}</GeneralOutput>,
+					pwd: <GeneralOutput>{home}</GeneralOutput>,
 					welcome: <Welcome />,
-					whoami: <GeneralOutput>${user}</GeneralOutput>,
+					whoami: <GeneralOutput>{user}</GeneralOutput>,
 				}[command]
 			}
 		</TerminalOutputContainer>
