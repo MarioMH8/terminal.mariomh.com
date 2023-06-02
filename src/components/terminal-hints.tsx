@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { useApplicationState } from '../state/application.state';
+import { useApplicationContext } from '../state';
 
 const Hints = styled.span`
 	margin-right: 0.875rem;
@@ -9,10 +8,10 @@ const Hints = styled.span`
 
 export default function TerminalHints(): React.JSX.Element {
 	const {
-		terminal: {
+		command: {
 			hints: [hints],
 		},
-	} = useApplicationState();
+	} = useApplicationContext();
 
 	return (
 		<>

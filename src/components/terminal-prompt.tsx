@@ -1,23 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useApplicationContext } from '../state';
 
-import { useApplicationState } from '../state/application.state';
 import TerminalInfo from './terminal-info';
-
-const MobileSpan = styled.span`
-	line-height: 1.5rem;
-	margin-right: 0.75rem;
-
-	@media (min-width: 550px) {
-		display: none;
-	}
-`;
-
-const MobileBr = styled.br`
-	@media (min-width: 550px) {
-		display: none;
-	}
-`;
+import { MobileBr, MobileSpan } from './terminal-mobile';
 
 const Form = styled.form`
 	@media (min-width: 550px) {
@@ -39,15 +25,17 @@ export default function TerminalPrompt(): React.JSX.Element {
 			promptRef,
 			promptValue: [promptValue],
 			handlePromptChange,
+			handlePromptKeyDown,
+			handleSubmit,
 		},
-	} = useApplicationState();
+	} = useApplicationContext();
 
 	return (
-		<Form>
+		<Form onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='terminal-input'>
 				<TerminalInfo />
 				<MobileBr />
-				<MobileSpan>&#62;</MobileSpan>
+				<MobileSpan />
 			</label>
 			<Input
 				title='terminal-input'
@@ -60,6 +48,7 @@ export default function TerminalPrompt(): React.JSX.Element {
 				ref={promptRef}
 				value={promptValue}
 				onChange={handlePromptChange}
+				onKeyDown={handlePromptKeyDown}
 			/>
 		</Form>
 	);
