@@ -3,13 +3,13 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Terminal from './components/terminal';
-import { useApplicationState } from './state/application.state';
+import { useApplicationContext } from './state';
 import GlobalStyle from './style';
 
 const App: FC = (): React.JSX.Element => {
 	const {
 		theme: { loaded, theme },
-	} = useApplicationState();
+	} = useApplicationContext();
 
 	return (
 		<ThemeProvider theme={theme}>

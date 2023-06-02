@@ -1,5 +1,3 @@
-import type { DefaultTheme } from 'styled-components';
-
 export const THEMES_ALLOWED_VALUES = [
 	'dark',
 	'light',

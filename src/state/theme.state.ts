@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import type { DefaultTheme } from 'styled-components';
 
 import { getLocalStorage, setLocalStorage } from '../storage';
-import type { AvailableApplicationThemes } from '../themes';
-import themes from '../themes';
+import type { AvailableApplicationThemes } from '../style/themes';
+import themes from '../style/themes';
 
 export interface ThemeState {
 	loaded: boolean;

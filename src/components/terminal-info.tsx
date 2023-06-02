@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useApplicationState } from '../state/application.state';
+import { useApplicationContext } from '../state';
 
 const Wrapper = styled.span`
 	display: inline-block;
@@ -19,7 +19,7 @@ const User = styled.span`
 export default function TerminalInfo(): React.JSX.Element {
 	const {
 		info: { domain, user, separator },
-	} = useApplicationState();
+	} = useApplicationContext();
 
 	return (
 		<Wrapper>

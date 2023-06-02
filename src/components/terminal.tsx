@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useApplicationState } from '../state/application.state';
+import { useApplicationContext } from '../state';
 import TerminalHints from './terminal-hints';
 import TerminalHistory from './terminal-history';
 import TerminalPrompt from './terminal-prompt';
@@ -18,7 +18,7 @@ const TerminalWrapper = styled.div`
 export default function Terminal(): React.JSX.Element {
 	const {
 		terminal: { terminalRef },
-	} = useApplicationState();
+	} = useApplicationContext();
 
 	return (
 		<TerminalWrapper data-testid='terminal-wrapper' ref={terminalRef}>
