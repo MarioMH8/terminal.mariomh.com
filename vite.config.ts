@@ -4,7 +4,7 @@
 import * as fs from 'node:fs';
 
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 function readKey(name: string) {
@@ -22,6 +22,7 @@ export default defineConfig({
 		VitePWA({
 			registerType: 'autoUpdate',
 		}),
+		splitVendorChunkPlugin(),
 	],
 	test: {
 		globals: true,
