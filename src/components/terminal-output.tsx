@@ -1,18 +1,13 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
 
-import Clear from '../commands/clear';
-import Echo from '../commands/echo';
-import GeneralOutput from '../commands/general-output';
-import Help from '../commands/help';
-import History from '../commands/history';
-import Welcome from '../commands/welcome';
 import { useApplicationContext, useExecutedCommandContext } from '../state';
-import { TerminalUsage } from './terminal-usage';
-
-const TerminalOutputContainer = styled.div`
-	padding-bottom: 0.25rem;
-`;
+import Clear from './commands/clear';
+import Echo from './commands/echo';
+import GeneralOutput from './commands/general-output';
+import Help from './commands/help';
+import History from './commands/history';
+import Welcome from './commands/welcome';
+import { TerminalLine } from './styled/terminal.styled';
 
 interface TerminalOutputProps {
 	command: string;
@@ -29,13 +24,13 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 
 	// return 'Usage: <command>' if command arg is not valid
 	if (!especialCommands.includes(command) && arg.length > 0) {
-		return <TerminalUsage data-testid='usage-output'>Usage: {command}</TerminalUsage>;
+		return <TerminalLine data-testid='usage-output'>Usage: {command}</TerminalLine>;
 	}
 
 	const home = `/home/${user}`;
 
 	return (
-		<TerminalOutputContainer data-testid={index === 0 ? 'latest-output' : null}>
+		<div data-testid={index === 0 ? 'latest-output' : null}>
 			{
 				{
 					clear: <Clear />,
@@ -47,7 +42,7 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 					whoami: <GeneralOutput>{user}</GeneralOutput>,
 				}[command]
 			}
-		</TerminalOutputContainer>
+		</div>
 	);
 };
 

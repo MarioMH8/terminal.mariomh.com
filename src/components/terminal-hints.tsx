@@ -1,11 +1,8 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
 
 import { useApplicationContext } from '../state';
-
-const Hints = styled.span`
-	margin-right: 0.875rem;
-`;
+import { TerminalLine } from './styled/terminal.styled';
+import { Hints } from './styled/terminal-hints.styled';
 
 const TerminalHints: FC = () => {
 	const {
@@ -17,11 +14,11 @@ const TerminalHints: FC = () => {
 	return (
 		<>
 			{hints.length > 1 && (
-				<div>
+				<TerminalLine>
 					{hints.map(hint => (
 						<Hints key={hint}>{hint}</Hints>
 					))}
-				</div>
+				</TerminalLine>
 			)}
 		</>
 	);

@@ -3,7 +3,7 @@ import slice from 'lodash/slice';
 import uniqueId from 'lodash/uniqueId';
 import type { FC } from 'react';
 
-import { useExecutedCommandContext } from '../state';
+import { useExecutedCommandContext } from '../../state';
 import { Wrapper } from './general-output';
 
 const History: FC = () => {

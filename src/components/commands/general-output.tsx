@@ -10,5 +10,5 @@ type Props = {
 	children: ReactNode;
 };
 
-const GeneralOutput: FC<Props> = ({ children }) => <Wrapper>{children}</Wrapper>;
+const GeneralOutput: FC<Props> = ({ children }) => <div>{children}</div>;
 export default GeneralOutput;
