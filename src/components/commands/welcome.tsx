@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import pkg from '../../package.json';
+import pkg from '../../../package.json';
 
 const HeroContainer = styled.div`
 	display: flex;

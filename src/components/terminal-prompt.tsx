@@ -1,25 +1,16 @@
 import type { FC } from 'react';
-import styled from 'styled-components';
 
 import { useApplicationContext } from '../state';
+import { TerminalLine } from './styled/terminal.styled';
+import { PromptForm, PromptInput } from './styled/terminal-prompt.styled';
+import { MobileBr, MobileSpan } from './styled/terminal-prompt-mobile.styled';
 import TerminalInfo from './terminal-info';
-import { MobileBr, MobileSpan } from './terminal-mobile';
 
-const Form = styled.form`
-	@media (min-width: 550px) {
-		display: flex;
-	}
-`;
+interface TerminalPrompt {
+	command?: string;
+}
 
-const Input = styled.input`
-	flex-grow: 1;
-
-	@media (max-width: 550px) {
-		min-width: 85%;
-	}
-`;
-
-const TerminalPrompt: FC = () => {
+const TerminalPrompt: FC<TerminalPrompt> = ({ command }) => {
 	const {
 		terminal: {
 			promptRef,
@@ -30,14 +21,21 @@ const TerminalPrompt: FC = () => {
 		},
 	} = useApplicationContext();
 
-	return (
-		<Form onSubmit={e => handleSubmit(e)}>
+	return command || command === '' ? (
+		<TerminalLine>
+			<TerminalInfo />
+			<MobileBr />
+			<MobileSpan />
+			<span data-testid='input-command'>{command}</span>
+		</TerminalLine>
+	) : (
+		<PromptForm onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='terminal-input'>
 				<TerminalInfo />
 				<MobileBr />
 				<MobileSpan />
 			</label>
-			<Input
+			<PromptInput
 				title='terminal-input'
 				type='text'
 				id='terminal-input'
@@ -50,7 +48,7 @@ const TerminalPrompt: FC = () => {
 				onChange={handlePromptChange}
 				onKeyDown={handlePromptKeyDown}
 			/>
-		</Form>
+		</PromptForm>
 	);
 };
 

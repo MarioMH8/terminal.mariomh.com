@@ -2,7 +2,7 @@ import join from 'lodash/join';
 import trim from 'lodash/trim';
 import type { FC } from 'react';
 
-import { useExecutedCommandContext } from '../state';
+import { useExecutedCommandContext } from '../../state';
 import { Wrapper } from './general-output';
 
 const Echo: FC = () => {

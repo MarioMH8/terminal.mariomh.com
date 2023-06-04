@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import styled from 'styled-components';
 
-import { generateTabs } from '../fn';
-import { useApplicationContext } from '../state';
+import { generateTabs } from '../../fn';
+import { useApplicationContext } from '../../state';
 
 const HelpWrapper = styled.div`
 	margin-top: 0.25rem;

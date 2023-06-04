@@ -1,18 +1,18 @@
 import { useState } from 'react';
 
 export interface InfoState {
-	domain: string;
+	host: string;
 	separator: string;
 	user: string;
 }
 
 const useInfoState = (): InfoState => {
-	const [domain] = useState(window.location.hostname);
+	const [host] = useState(window.location.hostname);
 	const [separator] = useState(':~$');
 	const [user] = useState('visitor');
 
 	return {
-		domain,
+		host,
 		separator,
 		user,
 	};

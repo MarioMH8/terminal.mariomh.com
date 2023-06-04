@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import { useEffect } from 'react';
 
-import { TerminalUsage } from '../components/terminal-usage';
-import { useExecutedCommandContext } from '../state';
+import { TerminalLine } from '../styled/terminal.styled';
+import { useExecutedCommandContext } from '../../state';
 
 const Clear: FC = () => {
 	const { arg, clearHistory } = useExecutedCommandContext();
@@ -12,7 +12,7 @@ const Clear: FC = () => {
 		}
 	}, []);
 
-	return arg.length > 0 ? <TerminalUsage>Usage: clear</TerminalUsage> : <></>;
+	return arg.length > 0 ? <TerminalLine>Usage: clear</TerminalLine> : <></>;
 };
 
 export default Clear;
