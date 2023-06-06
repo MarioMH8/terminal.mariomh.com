@@ -14,9 +14,8 @@ const TerminalHistory: FC = () => {
 	const {
 		command: {
 			available,
-			history: [history, , clearHistory],
+			history: [history],
 		},
-		terminal: { rerender },
 	} = useApplicationContext();
 
 	return (
@@ -27,10 +26,7 @@ const TerminalHistory: FC = () => {
 				const command = available.find(c => c.cmd === commands[0]);
 				const contextValue: ExecutedCommandState = {
 					arg: drop(commands),
-					history,
-					rerender,
 					index,
-					clearHistory,
 				};
 
 				return (

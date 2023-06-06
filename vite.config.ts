@@ -1,19 +1,9 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import * as fs from 'node:fs';
-
 import react from '@vitejs/plugin-react';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-
-function readKey(name: string) {
-	try {
-		return fs.readFileSync(`./.cert/${name}.pem`);
-	} catch {
-		return undefined;
-	}
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({

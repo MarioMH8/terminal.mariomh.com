@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useApplicationContext, useExecutedCommandContext } from '../state';
 import Clear from './commands/clear';
 import Echo from './commands/echo';
-import GeneralOutput from './commands/general-output';
 import Help from './commands/help';
 import History from './commands/history';
 import Welcome from './commands/welcome';
@@ -42,9 +41,9 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 					echo: <Echo />,
 					help: <Help />,
 					history: <History />,
-					pwd: <GeneralOutput>{home}</GeneralOutput>,
+					pwd: <div>{home}</div>,
 					welcome: <Welcome />,
-					whoami: <GeneralOutput>{user}</GeneralOutput>,
+					whoami: <div>{user}</div>,
 				}[command]
 			}
 		</div>
