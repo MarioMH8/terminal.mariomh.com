@@ -4,39 +4,34 @@ import styled from 'styled-components';
 
 import { generateTabs } from '../../fn';
 import { useApplicationContext } from '../../state';
+import { TerminalLineHistorySm } from '../styled/terminal.styled';
 
-const HelpWrapper = styled.div`
-	margin-top: 0.25rem;
-	margin-bottom: 0.75rem;
-`;
-
-const CmdList = styled.div`
-	margin-bottom: 0.25rem;
-`;
-
-const Cmd = styled.span`
+const CmdName = styled.span`
 	color: ${({ theme }) => theme.colors.primary};
 `;
 
 const CmdDesc = styled.span`
 	color: ${({ theme }) => theme.colors.text[200]};
-	margin-bottom: 0.75rem;
 
 	@media (max-width: 550px) {
 		display: block;
 	}
 `;
 
-const KeyContainer = styled.div`
+const Autocomplete = styled.div`
 	font-size: 0.875rem;
-	margin-top: 1rem;
 
 	@media (max-width: 550px) {
 		display: none;
 	}
+`;
 
-	div {
-		margin-top: 0.25rem;
+const AutocompleteFirst = styled.div`
+	font-size: 0.875rem;
+	margin-top: 0.5rem;
+
+	@media (max-width: 550px) {
+		display: none;
 	}
 `;
 
@@ -47,32 +42,30 @@ const Help: FC = () => {
 	} = useApplicationContext();
 
 	return (
-		<HelpWrapper data-testid='help'>
+		<TerminalLineHistorySm data-testid='help'>
 			{available.map(({ cmd, desc, tab }) => (
-				<CmdList key={cmd}>
-					<Cmd>{cmd}</Cmd>
+				<div key={cmd}>
+					<CmdName>{cmd}</CmdName>
 					{generateTabs(tab)}
 					<CmdDesc>- {desc}</CmdDesc>
-				</CmdList>
+				</div>
 			))}
-			<KeyContainer>
-				<div>
-					{t('help.tab_ctrl')}
-					{generateTabs(0)}=&gt;&nbsp;
-					{t('help.tab_ctrl_desc')}
-				</div>
-				<div>
-					{t('help.up_arrow')}
-					{generateTabs(7)}=&gt;&nbsp;
-					{t('help.up_arrow_desc')}
-				</div>
-				<div>
-					{t('help.ctrl_l')}
-					{generateTabs(7)}=&gt;&nbsp;
-					{t('help.ctrl_l_desc')}
-				</div>
-			</KeyContainer>
-		</HelpWrapper>
+			<AutocompleteFirst>
+				{t('help.tab_ctrl')}
+				{generateTabs(0)}=&gt;&nbsp;
+				{t('help.tab_ctrl_desc')}
+			</AutocompleteFirst>
+			<Autocomplete>
+				{t('help.up_arrow')}
+				{generateTabs(7)}=&gt;&nbsp;
+				{t('help.up_arrow_desc')}
+			</Autocomplete>
+			<Autocomplete>
+				{t('help.ctrl_l')}
+				{generateTabs(7)}=&gt;&nbsp;
+				{t('help.ctrl_l_desc')}
+			</Autocomplete>
+		</TerminalLineHistorySm>
 	);
 };
 

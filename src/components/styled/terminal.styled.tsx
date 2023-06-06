@@ -20,3 +20,11 @@ export const TerminalLineHistory = styled.div`
 
 	width: 100%;
 `;
+
+export const TerminalLineHistorySm = styled.div`
+	display: flex;
+	row-gap: 5px;
+	flex-direction: column;
+
+	width: 100%;
+`;
