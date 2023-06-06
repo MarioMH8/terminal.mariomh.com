@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useApplicationContext, useExecutedCommandContext } from '../state';
 import Clear from './commands/clear';
@@ -17,14 +18,18 @@ interface TerminalOutputProps {
 const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
 	const {
 		info: { user },
+		command: { commandsWithArgs },
 	} = useApplicationContext();
 	const { arg } = useExecutedCommandContext();
-
-	const especialCommands = ['projects', 'socials', 'themes', 'echo'];
+	const { t } = useTranslation();
 
 	// return 'Usage: <command>' if command arg is not valid
-	if (!especialCommands.includes(command) && arg.length > 0) {
-		return <TerminalLine data-testid='usage-output'>Usage: {command}</TerminalLine>;
+	if (!commandsWithArgs.includes(command) && arg.length > 0) {
+		return (
+			<TerminalLine data-testid='usage-output'>
+				{t('usage')}: {command}
+			</TerminalLine>
+		);
 	}
 
 	const home = `/home/${user}`;

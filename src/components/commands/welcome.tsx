@@ -1,3 +1,5 @@
+import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import pkg from '../../../package.json';
@@ -30,7 +32,7 @@ const HeroContainer = styled.div`
 `;
 
 const PreName = styled.pre`
-	margin: 1rem 0;
+	margin-bottom: 1rem;
 	@media (max-width: 550px) {
 		display: none;
 	}
@@ -40,7 +42,7 @@ const PreName = styled.pre`
 `;
 
 const PreNameMobile = styled.pre`
-	margin: 1rem auto;
+	margin: 0 auto 1rem;
 	@media (min-width: 550px) {
 		display: none;
 	}
@@ -69,7 +71,9 @@ const Link = styled.a`
 	}
 `;
 
-const Welcome: React.FC = () => {
+const Welcome: FC = () => {
+	const { t } = useTranslation();
+
 	return (
 		<HeroContainer data-testid='welcome'>
 			<div className='info-section'>
@@ -97,18 +101,18 @@ const Welcome: React.FC = () => {
     | |  | || | | |        
     \\_|  |_/\\_| |_/`}
 				</PreNameMobile>
-				<div>Welcome to my terminal portfolio. (Version {pkg.version})</div>
+				<div>{t('welcome.title', { version: pkg.version })}</div>
 				<div>----</div>
 				<div>
-					This project's source code can be found in this project's{' '}
+					{t('welcome.project_source')}
 					<Link target='_blank' href='https://github.com/MarioMH8/terminal.mariomh.com'>
-						GitHub repo
+						{t('welcome.repo')}
 					</Link>
 					.
 				</div>
 				<div>----</div>
 				<div>
-					For a list of available commands, type `<Cmd>help</Cmd>`.
+					{t('welcome.available_commands')}`<Cmd>help</Cmd>`.
 				</div>
 			</div>
 			<div className='illu-section'>

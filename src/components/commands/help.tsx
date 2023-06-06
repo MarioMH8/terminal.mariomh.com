@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { generateTabs } from '../../fn';
@@ -40,6 +41,7 @@ const KeyContainer = styled.div`
 `;
 
 const Help: FC = () => {
+	const { t } = useTranslation();
 	const {
 		command: { available },
 	} = useApplicationContext();
@@ -54,9 +56,21 @@ const Help: FC = () => {
 				</CmdList>
 			))}
 			<KeyContainer>
-				<div>Tab or Ctrl + i&nbsp; =&gt; autocompletes the command</div>
-				<div>Up Arrow {generateTabs(5)} =&gt; go back to previous command</div>
-				<div>Ctrl + l {generateTabs(5)} =&gt; clear the terminal</div>
+				<div>
+					{t('help.tab_ctrl')}
+					{generateTabs(0)}=&gt;&nbsp;
+					{t('help.tab_ctrl_desc')}
+				</div>
+				<div>
+					{t('help.up_arrow')}
+					{generateTabs(7)}=&gt;&nbsp;
+					{t('help.up_arrow_desc')}
+				</div>
+				<div>
+					{t('help.ctrl_l')}
+					{generateTabs(7)}=&gt;&nbsp;
+					{t('help.ctrl_l_desc')}
+				</div>
 			</KeyContainer>
 		</HelpWrapper>
 	);
