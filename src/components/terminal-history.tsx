@@ -1,14 +1,16 @@
 import drop from 'lodash/drop';
 import uniqueId from 'lodash/uniqueId';
 import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { ExecutedCommandState } from '../state';
 import { ExecutedCommandContext, useApplicationContext } from '../state';
-import { TerminalLineHistory, TerminalLine } from './styled/terminal.styled';
+import { TerminalLine, TerminalLineHistory } from './styled/terminal.styled';
 import TerminalOutput from './terminal-output';
 import TerminalPrompt from './terminal-prompt';
 
 const TerminalHistory: FC = () => {
+	const { t } = useTranslation();
 	const {
 		command: {
 			available,
@@ -42,7 +44,7 @@ const TerminalHistory: FC = () => {
 							<></>
 						) : (
 							<TerminalLine data-testid={`not-found-${index}`}>
-								command not found: {cmd}
+								{t('command_not_found')}: {cmd}
 							</TerminalLine>
 						)}
 					</TerminalLineHistory>
