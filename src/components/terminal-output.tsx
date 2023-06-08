@@ -7,7 +7,6 @@ import Echo from './commands/echo';
 import Help from './commands/help';
 import History from './commands/history';
 import Welcome from './commands/welcome';
-import { TerminalLine } from './styled/terminal.styled';
 
 interface TerminalOutputProps {
 	command: string;
@@ -25,9 +24,9 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 	// return 'Usage: <command>' if command arg is not valid
 	if (!commandsWithArgs.includes(command) && arg.length > 0) {
 		return (
-			<TerminalLine data-testid='usage-output'>
+			<div data-testid='usage-output'>
 				{t('usage')}: {command}
-			</TerminalLine>
+			</div>
 		);
 	}
 

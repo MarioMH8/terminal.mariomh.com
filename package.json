@@ -8,7 +8,6 @@
 		"portfolio",
 		"typescript",
 		"terminal",
-		"styled-components",
 		"reactjs",
 		"learn",
 		"terminal-portfolio",
@@ -34,12 +33,10 @@
 	"dependencies": {
 		"i18next": "22.5.0",
 		"lodash": "4.17.21",
+		"normalize.css": "8.0.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-i18next": "12.3.1",
-		"react-is": "18.2.0",
-		"styled-components": "5.3.11",
-		"styled-normalize": "8.0.7"
+		"react-i18next": "12.3.1"
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.10",
@@ -47,7 +44,6 @@
 		"@types/lodash": "4.14.195",
 		"@types/react": "18.2.7",
 		"@types/react-dom": "18.2.4",
-		"@types/styled-components": "5.1.26",
 		"@vitejs/plugin-react": "4.0.0",
 		"eslint": "8.41.0",
 		"typescript": "5.0.4",
