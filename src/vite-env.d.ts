@@ -4,25 +4,6 @@ import 'styled-components';
 
 import { resources } from './i18n';
 
-declare module 'styled-components' {
-	export interface DefaultTheme {
-		colors: {
-			body: string;
-			primary: string;
-			scrollHandle: string;
-			scrollHandleHover: string;
-			secondary: string;
-			text: {
-				100: string;
-				200: string;
-				300: string;
-			};
-		};
-		id: string;
-		name: string;
-	}
-}
-
 declare module 'i18next' {
 	interface CustomTypeOptions {
 		resources: (typeof resources)['en'];

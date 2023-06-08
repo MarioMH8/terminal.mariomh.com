@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 
 import { useApplicationContext } from '../state';
-import { PromptInfo, PromptUser, TerminalHost } from './styled/terminal-prompt.styled';
 
 const TerminalInfo: FC = () => {
 	const {
@@ -9,10 +8,11 @@ const TerminalInfo: FC = () => {
 	} = useApplicationContext();
 
 	return (
-		<PromptInfo>
-			<PromptUser>{user}</PromptUser>@<TerminalHost>{host}</TerminalHost>
+		<span className='prompt-info'>
+			<span className='prompt-user'>{user}</span>@
+			<span className='terminal-host'>{host}</span>
 			{separator}
-		</PromptInfo>
+		</span>
 	);
 };
 

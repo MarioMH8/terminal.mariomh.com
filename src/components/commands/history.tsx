@@ -4,7 +4,6 @@ import uniqueId from 'lodash/uniqueId';
 import type { FC } from 'react';
 
 import { useApplicationContext, useExecutedCommandContext } from '../../state';
-import { TerminalLineHistorySm } from '../styled/terminal.styled';
 
 const History: FC = () => {
 	const {
@@ -16,11 +15,11 @@ const History: FC = () => {
 	const currentHistory = reverse(slice(history, index));
 
 	return (
-		<TerminalLineHistorySm data-testid='history'>
+		<div className='terminal-line-history sm' data-testid='history'>
 			{currentHistory.map(cmd => (
 				<div key={uniqueId(`${cmd}_`)}>{cmd}</div>
 			))}
-		</TerminalLineHistorySm>
+		</div>
 	);
 };
 

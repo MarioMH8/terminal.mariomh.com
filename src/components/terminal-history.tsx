@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import type { ExecutedCommandState } from '../state';
 import { ExecutedCommandContext, useApplicationContext } from '../state';
-import { TerminalLine, TerminalLineHistory } from './styled/terminal.styled';
 import TerminalOutput from './terminal-output';
 import TerminalPrompt from './terminal-prompt';
 
@@ -30,7 +29,7 @@ const TerminalHistory: FC = () => {
 				};
 
 				return (
-					<TerminalLineHistory key={uniqueId(`${cmd}_`)}>
+					<div className='terminal-line-history' key={uniqueId(`${cmd}_`)}>
 						<TerminalPrompt command={cmd} />
 						{command && commands[0] ? (
 							<ExecutedCommandContext.Provider value={contextValue}>
@@ -39,11 +38,11 @@ const TerminalHistory: FC = () => {
 						) : cmd === '' ? (
 							<></>
 						) : (
-							<TerminalLine data-testid={`not-found-${index}`}>
+							<div data-testid={`not-found-${index}`}>
 								{t('command_not_found')}: {cmd}
-							</TerminalLine>
+							</div>
 						)}
-					</TerminalLineHistory>
+					</div>
 				);
 			})}
 		</>

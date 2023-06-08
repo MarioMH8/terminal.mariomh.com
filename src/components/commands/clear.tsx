@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useApplicationContext, useExecutedCommandContext } from '../../state';
-import { TerminalLine } from '../styled/terminal.styled';
 
 const Clear: FC = () => {
 	const { t } = useTranslation();
@@ -19,7 +18,7 @@ const Clear: FC = () => {
 		}
 	}, []);
 
-	return arg.length > 0 ? <TerminalLine>{t('usage')}: clear</TerminalLine> : <></>;
+	return arg.length > 0 ? <div>{t('usage')}: clear</div> : <></>;
 };
 
 export default Clear;

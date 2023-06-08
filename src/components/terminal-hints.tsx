@@ -1,8 +1,8 @@
+import './terminal-hints.css';
+
 import type { FC } from 'react';
 
 import { useApplicationContext } from '../state';
-import { TerminalLine } from './styled/terminal.styled';
-import { Hints } from './styled/terminal-hints.styled';
 
 const TerminalHints: FC = () => {
 	const {
@@ -14,11 +14,13 @@ const TerminalHints: FC = () => {
 	return (
 		<>
 			{hints.length > 1 && (
-				<TerminalLine>
+				<div>
 					{hints.map(hint => (
-						<Hints key={hint}>{hint}</Hints>
+						<span className='hints' key={hint}>
+							{hint}
+						</span>
 					))}
-				</TerminalLine>
+				</div>
 			)}
 		</>
 	);
