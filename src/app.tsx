@@ -1,25 +1,31 @@
-import './i18n';
 import './main.css';
 
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Terminal from './components/terminal';
+import { i18n } from './i18n';
 import { useApplicationContext } from './state';
 
+const messages = i18n('app', {
+	title: 'Terminal portfolio',
+});
+
 const App: FC = () => {
-	const { t, ready } = useTranslation();
 	const {
 		theme: { loaded },
 	} = useApplicationContext();
+	const t = useStore(messages);
 
-	return (
+	return loaded && !i18n.loading.get() ? (
 		<>
 			<h1 className='sr-only' aria-label='Terminal Portfolio'>
-				{t('title')}
+				{t.title}
 			</h1>
-			{loaded && ready && <Terminal />}
+			<Terminal />
 		</>
+	) : (
+		<></>
 	);
 };
 

@@ -1,6 +1,8 @@
+import { useStore } from '@nanostores/react';
 import type { Dispatch, SetStateAction } from 'react';
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import { i18n } from '../i18n';
 
 type Command = {
 	cmd: string;
@@ -8,6 +10,23 @@ type Command = {
 	hasArgs?: true;
 	tab: number;
 };
+
+const messages = i18n('commands', {
+	about: 'about MarioMH',
+	clear: 'clear the terminal',
+	echo: 'print out anything',
+	education: 'my education background',
+	email: 'send an email to me',
+	gui: 'go to my portfolio in GUI',
+	help: 'check available commands',
+	history: 'view command history',
+	projects: "view projects that I've coded",
+	pwd: 'print current working directory',
+	socials: 'check out my social accounts',
+	themes: 'check available themes',
+	welcome: 'display hero section',
+	whoami: 'about current user',
+});
 
 const commands: Command[] = [
 	{ cmd: 'about', desc: 'about MarioMH', tab: 8 },
@@ -34,7 +53,7 @@ export interface CommandState {
 }
 
 const useCommandState = (): CommandState => {
-	const { t } = useTranslation();
+	const t = useStore(messages);
 	const [hints, setHints] = useState<string[]>([]);
 	const [history, setHistory] = useState<string[]>(['welcome']);
 	const available: Command[] = useMemo(
@@ -43,7 +62,7 @@ const useCommandState = (): CommandState => {
 				...c,
 				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 				// @ts-ignore
-				desc: t(`commands.${c.cmd}`) as string,
+				desc: t[c.cmd] as string,
 			})),
 		[t]
 	);

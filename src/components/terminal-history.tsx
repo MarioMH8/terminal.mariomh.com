@@ -1,15 +1,20 @@
+import { useStore } from '@nanostores/react';
 import drop from 'lodash/drop';
 import uniqueId from 'lodash/uniqueId';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { i18n } from '../i18n';
 import type { ExecutedCommandState } from '../state';
 import { ExecutedCommandContext, useApplicationContext } from '../state';
 import TerminalOutput from './terminal-output';
 import TerminalPrompt from './terminal-prompt';
 
+const messages = i18n('not_found', {
+	command: 'command not found',
+});
+
 const TerminalHistory: FC = () => {
-	const { t } = useTranslation();
+	const t = useStore(messages);
 	const {
 		command: {
 			available,
@@ -39,7 +44,7 @@ const TerminalHistory: FC = () => {
 							<></>
 						) : (
 							<div data-testid={`not-found-${index}`}>
-								{t('command_not_found')}: {cmd}
+								{t.command}: {cmd}
 							</div>
 						)}
 					</div>

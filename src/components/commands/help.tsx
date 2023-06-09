@@ -1,13 +1,23 @@
 import './help.css';
 
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { generateTabs } from '../../fn';
+import { i18n } from '../../i18n';
 import { useApplicationContext } from '../../state';
 
+const messages = i18n('help', {
+	tab_ctrl: 'Tab or Ctrl + i',
+	tab_ctrl_desc: 'autocompletes the command',
+	up_arrow: 'Up Arrow',
+	up_arrow_desc: 'go back to previous command',
+	ctrl_l: 'Ctrl + l',
+	ctrl_l_desc: 'clear the terminal',
+});
+
 const Help: FC = () => {
-	const { t } = useTranslation();
+	const t = useStore(messages);
 	const {
 		command: { available },
 	} = useApplicationContext();
@@ -22,19 +32,19 @@ const Help: FC = () => {
 				</div>
 			))}
 			<div className='autocomplete first'>
-				{t('help.tab_ctrl')}
+				{t.tab_ctrl}
 				{generateTabs(0)}=&gt;&nbsp;
-				{t('help.tab_ctrl_desc')}
+				{t.tab_ctrl_desc}
 			</div>
 			<div className='autocomplete'>
-				{t('help.up_arrow')}
+				{t.up_arrow}
 				{generateTabs(7)}=&gt;&nbsp;
-				{t('help.up_arrow_desc')}
+				{t.up_arrow_desc}
 			</div>
 			<div className='autocomplete'>
-				{t('help.ctrl_l')}
+				{t.ctrl_l}
 				{generateTabs(7)}=&gt;&nbsp;
-				{t('help.ctrl_l_desc')}
+				{t.ctrl_l_desc}
 			</div>
 		</div>
 	);
