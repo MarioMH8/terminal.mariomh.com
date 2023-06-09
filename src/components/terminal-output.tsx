@@ -1,6 +1,7 @@
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { i18n } from '../i18n';
 import { useApplicationContext, useExecutedCommandContext } from '../state';
 import Clear from './commands/clear';
 import Echo from './commands/echo';
@@ -13,19 +14,23 @@ interface TerminalOutputProps {
 	index: number;
 }
 
+const messages = i18n('usage', {
+	command: 'Usage',
+});
+
 const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
 	const {
 		info: { user },
 		command: { commandsWithArgs },
 	} = useApplicationContext();
 	const { arg } = useExecutedCommandContext();
-	const { t } = useTranslation();
+	const t = useStore(messages);
 
 	// return 'Usage: <command>' if command arg is not valid
 	if (!commandsWithArgs.includes(command) && arg.length > 0) {
 		return (
 			<div data-testid='usage-output'>
-				{t('usage')}: {command}
+				{t.command}: {command}
 			</div>
 		);
 	}

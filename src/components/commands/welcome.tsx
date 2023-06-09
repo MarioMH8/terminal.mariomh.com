@@ -1,12 +1,21 @@
 import './welcome.css';
 
+import { params } from '@nanostores/i18n';
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import pkg from '../../../package.json';
+import { i18n } from '../../i18n';
+
+const messages = i18n('welcome', {
+	title: params<{ version: string }>('Welcome to my terminal portfolio. (Version {version})'),
+	project_source: "This project's source code can be found in this project's ",
+	repo: 'GitHub repo',
+	available_commands: 'For a list of available commands, type ',
+});
 
 const Welcome: FC = () => {
-	const { t } = useTranslation();
+	const t = useStore(messages);
 
 	return (
 		<div className='hero' data-testid='welcome'>
@@ -35,21 +44,21 @@ const Welcome: FC = () => {
     | |  | || | | |        
     \\_|  |_/\\_| |_/`}
 				</pre>
-				<div>{t('welcome.title', { version: pkg.version })}</div>
+				<div>{t.title({ version: pkg.version })}</div>
 				<div>----</div>
 				<div>
-					{t('welcome.project_source')}
+					{t.project_source}
 					<a
 						className='link'
 						target='_blank'
 						href='https://github.com/MarioMH8/terminal.mariomh.com'>
-						{t('welcome.repo')}
+						{t.repo}
 					</a>
 					.
 				</div>
 				<div>----</div>
 				<div>
-					{t('welcome.available_commands')}`<span className='command'>help</span>`.
+					{t.available_commands}`<span className='command'>help</span>`.
 				</div>
 			</div>
 			<div className='illu-section'>

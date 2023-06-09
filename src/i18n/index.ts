@@ -1,15 +1,26 @@
-import i18next from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import { browser, createI18n, localeFrom } from '@nanostores/i18n';
+import type { ComponentsJSON } from '@nanostores/i18n/create-i18n';
+import { persistentAtom } from '@nanostores/persistent';
 
-import translation from './en/translation.json';
+export const setting = persistentAtom<string | undefined>('locale', undefined);
 
-export const resources = {
-	en: {
-		translation,
+export const locale = localeFrom(
+	setting,
+	browser({
+		available: ['en', 'es-ES'],
+		fallback: 'en',
+	})
+);
+
+export const i18n = createI18n(locale, {
+	async get(code) {
+		const response = await fetch(`/translations/${code}.json`);
+		if (response.ok) {
+			const jsonData = (await response.json()) as ComponentsJSON;
+
+			return Promise.resolve(jsonData);
+		}
+
+		return Promise.resolve({});
 	},
-};
-
-void i18next.use(initReactI18next).init({
-	lng: 'en',
-	resources,
 });
