@@ -2,11 +2,11 @@ import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
 import { useEffect } from 'react';
 
-import { i18n } from '../../i18n';
-import { useApplicationContext, useExecutedCommandContext } from '../../state';
+import { i18n, useApplicationContext, useExecutedCommandContext } from '../../state';
 
 const messages = i18n('usage', {
-	command: 'Usage',
+	command: 'Uso',
+	eg: 'Ejemplo',
 });
 
 const Clear: FC = () => {

@@ -4,11 +4,10 @@ import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
 
 import Terminal from './components/terminal';
-import { i18n } from './i18n';
-import { useApplicationContext } from './state';
+import { useApplicationContext, i18n } from './state';
 
 const messages = i18n('app', {
-	title: 'Terminal portfolio',
+	title: 'Portfolio en linea de comandos',
 });
 
 const App: FC = () => {

@@ -5,13 +5,15 @@ import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
 
 import pkg from '../../../package.json';
-import { i18n } from '../../i18n';
+import { i18n } from '../../state';
 
 const messages = i18n('welcome', {
-	title: params<{ version: string }>('Welcome to my terminal portfolio. (Version {version})'),
-	project_source: "This project's source code can be found in this project's ",
-	repo: 'GitHub repo',
-	available_commands: 'For a list of available commands, type ',
+	title: params<{ version: string }>(
+		'Bienvenido a mi portfolio en linea de comandos. (Versión {version})'
+	),
+	project_source: 'Puedes ver el código fuente del proyecto en el siguiente ',
+	repo: 'repositorio de GitHub',
+	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',
 });
 
 const Welcome: FC = () => {

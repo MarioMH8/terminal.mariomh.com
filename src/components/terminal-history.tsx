@@ -3,14 +3,13 @@ import drop from 'lodash/drop';
 import uniqueId from 'lodash/uniqueId';
 import type { FC } from 'react';
 
-import { i18n } from '../i18n';
 import type { ExecutedCommandState } from '../state';
-import { ExecutedCommandContext, useApplicationContext } from '../state';
+import { ExecutedCommandContext, i18n, useApplicationContext } from '../state';
 import TerminalOutput from './terminal-output';
 import TerminalPrompt from './terminal-prompt';
 
 const messages = i18n('not_found', {
-	command: 'command not found',
+	command: 'comando invalido',
 });
 
 const TerminalHistory: FC = () => {

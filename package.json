@@ -28,7 +28,8 @@
 		"build": "vite build",
 		"dev": "vite",
 		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+		"lint:fix": "eslint --fix .",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@nanostores/i18n": "0.10.0",
