@@ -1,0 +1,53 @@
+{
+	"app": {
+		"title": "Terminal portfolio"
+	},
+	"about": {
+		"hi": "Hi, my name is",
+		"im": "I'm",
+		"developer": "a javascript developer",
+		"based": "based in Madrid, Spain.",
+		"description": "I am passionate about writing codes and developing web applications to solve real-life challenges."
+	},
+	"welcome": {
+		"title": "Welcome to my terminal portfolio. (Version {version})",
+		"project_source": "This project's source code can be found in this project's ",
+		"repo": "GitHub repo",
+		"available_commands": "For a list of available commands, type "
+	},
+	"usage": {
+		"command": "Usage",
+		"eg": "eg"
+	},
+	"help": {
+		"tab_ctrl": "Tab or Ctrl + i",
+		"tab_ctrl_desc": "autocompletes the command",
+		"up_arrow": "Up Arrow",
+		"up_arrow_desc": "go back to previous command",
+		"ctrl_l": "Ctrl + l",
+		"ctrl_l_desc": "clear the terminal"
+	},
+	"not_found": {
+		"command": "command not found"
+	},
+	"commands": {
+		"about": "about MarioMH",
+		"clear": "clear the terminal",
+		"echo": "print out anything",
+		"education": "my education background",
+		"email": "send an email to me",
+		"gui": "go to my portfolio in GUI",
+		"help": "check available commands",
+		"history": "view command history",
+		"locale": "check available locales",
+		"projects": "view projects that I've coded",
+		"pwd": "print current working directory",
+		"socials": "check out my social accounts",
+		"themes": "check available themes",
+		"welcome": "display hero section",
+		"whoami": "about current user"
+	},
+	"gui": {
+		"link": "Link to my GUI version"
+	}
+}

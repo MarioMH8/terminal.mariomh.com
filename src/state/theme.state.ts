@@ -6,7 +6,10 @@ export interface ThemeState {
 	loaded: boolean;
 	setTheme: (mode: string) => void;
 	theme?: string | undefined;
+	themes: string[];
 }
+
+export const AVAILABLE_THEMES = ['dark', 'light'];
 
 const metaThemeColor = document.querySelector("meta[name='theme-color']");
 const maskIcon = document.querySelector("link[rel='mask-icon']");
@@ -43,6 +46,7 @@ const useThemeState = (): ThemeState => {
 		theme,
 		setTheme,
 		loaded,
+		themes: AVAILABLE_THEMES,
 	};
 };
 

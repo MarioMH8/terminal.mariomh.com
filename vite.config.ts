@@ -2,9 +2,9 @@
 /// <reference types="vite/client" />
 
 import preact from '@preact/preset-vite';
-import paths from 'vite-tsconfig-paths';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import paths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,7 +30,17 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					nanostores: ['nanostores', '@nanostores/react', '@nanostores/i18n'],
-					lodash: ['lodash/keys', 'lodash/split', 'lodash/startsWith', 'lodash/join', 'lodash/trim', 'lodash/reverse', 'lodash/slice', 'lodash/uniqueId', 'lodash/drop'],
+					lodash: [
+						'lodash/keys',
+						'lodash/split',
+						'lodash/startsWith',
+						'lodash/join',
+						'lodash/trim',
+						'lodash/reverse',
+						'lodash/slice',
+						'lodash/uniqueId',
+						'lodash/drop',
+					],
 					preact: ['preact'],
 				},
 			},

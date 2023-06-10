@@ -1,12 +1,16 @@
 import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
 
-import { i18n } from '../i18n';
-import { useApplicationContext, useExecutedCommandContext } from '../state';
+import { i18n, useApplicationContext, useExecutedCommandContext } from '../state';
+import About from './commands/about';
 import Clear from './commands/clear';
 import Echo from './commands/echo';
+import Email from './commands/email';
+import Gui from './commands/gui';
 import Help from './commands/help';
 import History from './commands/history';
+import Locale from './commands/locale';
+import Themes from './commands/themes';
 import Welcome from './commands/welcome';
 
 interface TerminalOutputProps {
@@ -14,8 +18,11 @@ interface TerminalOutputProps {
 	index: number;
 }
 
+
+
 const messages = i18n('usage', {
-	command: 'Usage',
+	command: 'Uso',
+	eg: 'Ejemplo',
 });
 
 const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
@@ -41,11 +48,16 @@ const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOut
 		<div data-testid={index === 0 ? 'latest-output' : null}>
 			{
 				{
+					about: <About />,
 					clear: <Clear />,
 					echo: <Echo />,
+					email: <Email />,
+					gui: <Gui />,
 					help: <Help />,
 					history: <History />,
+					locale: <Locale />,
 					pwd: <div>{home}</div>,
+					themes: <Themes />,
 					welcome: <Welcome />,
 					whoami: <div>{user}</div>,
 				}[command]

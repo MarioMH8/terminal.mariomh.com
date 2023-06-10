@@ -22,3 +22,7 @@
 .terminal-line-history.sm {
 	row-gap: 5px;
 }
+
+.font-sm {
+	font-size: 0.875rem;
+}
