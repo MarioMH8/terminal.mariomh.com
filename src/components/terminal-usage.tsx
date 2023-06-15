@@ -1,5 +1,6 @@
 import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
+
 import { i18n } from '../state';
 
 type Props = {
@@ -23,7 +24,7 @@ const Usage: FC<Props> = ({ cmd }) => {
 	const t = useStore(messages);
 	const action = cmd === 'themes' || cmd === 'locale' ? 'set' : 'go';
 	const info = arg[cmd];
-console.log(t)
+
 	return (
 		<div className='terminal-line-history sm' data-testid={`${cmd}-invalid-arg`}>
 			<span>
