@@ -18,8 +18,6 @@ interface TerminalOutputProps {
 	index: number;
 }
 
-
-
 const messages = i18n('usage', {
 	command: 'Uso',
 	eg: 'Ejemplo',

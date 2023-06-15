@@ -1,8 +1,8 @@
 import split from 'lodash/split';
 import startsWith from 'lodash/startsWith';
 import type { SetStateAction } from 'react';
-import { AVAILABLE_LOCALES } from '../state/locale.state';
 
+import { AVAILABLE_LOCALES } from '../state/locale.state';
 import { AVAILABLE_THEMES } from '../state/theme.state';
 
 /**
