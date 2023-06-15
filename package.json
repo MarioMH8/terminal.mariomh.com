@@ -1,6 +1,6 @@
 {
 	"name": "@mariomh8/terminal-portfolio",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Mario Menéndez portfolio",
 	"keywords": [
 		"github",
@@ -8,7 +8,6 @@
 		"portfolio",
 		"typescript",
 		"terminal",
-		"styled-components",
 		"reactjs",
 		"learn",
 		"terminal-portfolio",
@@ -29,33 +28,36 @@
 		"build": "vite build",
 		"dev": "vite",
 		"lint": "eslint .",
-		"lint:fix": "eslint --fix ."
+		"lint:fix": "eslint --fix .",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@nanostores/i18n": "0.10.0",
+		"@nanostores/persistent": "0.9.0",
+		"@nanostores/react": "0.7.1",
 		"lodash": "4.17.21",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-is": "18.2.0",
-		"styled-components": "5.3.11",
-		"styled-normalize": "8.0.7"
+		"nanostores": "0.9.2",
+		"normalize.css": "8.0.1",
+		"preact": "10.15.1"
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.10",
 		"@hexatool/tsconfig": "20.0.1",
+		"@preact/preset-vite": "2.5.0",
 		"@types/lodash": "4.14.195",
-		"@types/react": "18.2.7",
-		"@types/react-dom": "18.2.4",
-		"@types/styled-components": "5.1.26",
+		"@types/react": "18.2.12",
+		"@types/react-dom": "18.2.5",
 		"@vitejs/plugin-react": "4.0.0",
-		"eslint": "8.41.0",
+		"eslint": "8.42.0",
 		"typescript": "5.0.4",
 		"vite": "4.3.9",
-		"vite-plugin-pwa": "0.14.7",
-		"vitest": "0.31.4"
+		"vite-plugin-pwa": "0.16.4",
+		"vite-tsconfig-paths": "4.2.0",
+		"vitest": "0.32.0"
 	},
 	"volta": {
-		"node": "20.1.0",
-		"yarn": "3.5.1"
+		"node": "20.3.0",
+		"yarn": "3.6.0"
 	},
-	"packageManager": "yarn@3.5.1"
+	"packageManager": "yarn@3.6.0"
 }
