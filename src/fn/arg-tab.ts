@@ -1,9 +1,9 @@
-import keys from 'lodash/keys';
 import split from 'lodash/split';
 import startsWith from 'lodash/startsWith';
 import type { SetStateAction } from 'react';
+import { AVAILABLE_LOCALES } from '../state/locale.state';
 
-import theme from '../style/themes';
+import { AVAILABLE_THEMES } from '../state/theme.state';
 
 /**
  * Perform advanced tab actions
@@ -40,14 +40,14 @@ export const argTab = (
 
 	// 3) if input is 'themes set '
 	if (inputVal === 'themes set ') {
-		setHints(keys(theme));
+		setHints(AVAILABLE_THEMES);
 
 		return [];
 	}
 
 	// 4) if input starts with 'themes set ' + theme
 	if (startsWith(inputVal, 'themes set ')) {
-		keys(theme).forEach(t => {
+		AVAILABLE_THEMES.forEach(t => {
 			if (startsWith(t, split(inputVal, ' ')[2])) {
 				internalHints = [...internalHints, t];
 			}
@@ -88,6 +88,24 @@ export const argTab = (
 		);
 
 		return internalHints;
+	}
+
+	// 9) if input is 'locale s'
+	if (
+		startsWith('locale', split(inputVal, ' ')[0]) &&
+		split(inputVal, ' ')[1] !== 'set' &&
+		startsWith('set', split(inputVal, ' ')[1])
+	) {
+		setInputVal(`locale set`);
+
+		return [];
+	}
+
+	// 10) if input is 'themes set '
+	if (inputVal === 'locale set ') {
+		setHints(AVAILABLE_LOCALES);
+
+		return [];
 	}
 
 	return undefined;

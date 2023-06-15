@@ -1,53 +1,68 @@
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import styled from 'styled-components';
 
-import Clear from '../commands/clear';
-import Echo from '../commands/echo';
-import GeneralOutput from '../commands/general-output';
-import Help from '../commands/help';
-import History from '../commands/history';
-import Welcome from '../commands/welcome';
-import { useApplicationContext, useExecutedCommandContext } from '../state';
-import { TerminalUsage } from './terminal-usage';
-
-const TerminalOutputContainer = styled.div`
-	padding-bottom: 0.25rem;
-`;
+import { i18n, useApplicationContext, useExecutedCommandContext } from '../state';
+import About from './commands/about';
+import Clear from './commands/clear';
+import Echo from './commands/echo';
+import Email from './commands/email';
+import Gui from './commands/gui';
+import Help from './commands/help';
+import History from './commands/history';
+import Locale from './commands/locale';
+import Themes from './commands/themes';
+import Welcome from './commands/welcome';
 
 interface TerminalOutputProps {
 	command: string;
 	index: number;
 }
 
+
+
+const messages = i18n('usage', {
+	command: 'Uso',
+	eg: 'Ejemplo',
+});
+
 const TerminalOutput: FC<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
 	const {
 		info: { user },
+		command: { commandsWithArgs },
 	} = useApplicationContext();
 	const { arg } = useExecutedCommandContext();
-
-	const especialCommands = ['projects', 'socials', 'themes', 'echo'];
+	const t = useStore(messages);
 
 	// return 'Usage: <command>' if command arg is not valid
-	if (!especialCommands.includes(command) && arg.length > 0) {
-		return <TerminalUsage data-testid='usage-output'>Usage: {command}</TerminalUsage>;
+	if (!commandsWithArgs.includes(command) && arg.length > 0) {
+		return (
+			<div data-testid='usage-output'>
+				{t.command}: {command}
+			</div>
+		);
 	}
 
 	const home = `/home/${user}`;
 
 	return (
-		<TerminalOutputContainer data-testid={index === 0 ? 'latest-output' : null}>
+		<div data-testid={index === 0 ? 'latest-output' : null}>
 			{
 				{
+					about: <About />,
 					clear: <Clear />,
 					echo: <Echo />,
+					email: <Email />,
+					gui: <Gui />,
 					help: <Help />,
 					history: <History />,
-					pwd: <GeneralOutput>${home}</GeneralOutput>,
+					locale: <Locale />,
+					pwd: <div>{home}</div>,
+					themes: <Themes />,
 					welcome: <Welcome />,
-					whoami: <GeneralOutput>${user}</GeneralOutput>,
+					whoami: <div>{user}</div>,
 				}[command]
 			}
-		</TerminalOutputContainer>
+		</div>
 	);
 };
 
