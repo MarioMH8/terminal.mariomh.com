@@ -1,23 +1,30 @@
+import './main.css';
+
+import { useStore } from '@nanostores/react';
 import type { FC } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 import Terminal from './components/terminal';
-import { useApplicationContext } from './state';
-import GlobalStyle from './style';
+import { useApplicationContext, i18n } from './state';
+
+const messages = i18n('app', {
+	title: 'Portfolio en linea de comandos',
+});
 
 const App: FC = () => {
 	const {
-		theme: { loaded, theme },
+		theme: { loaded },
 	} = useApplicationContext();
+	const t = useStore(messages);
 
-	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyle />
+	return loaded && !i18n.loading.get() ? (
+		<>
 			<h1 className='sr-only' aria-label='Terminal Portfolio'>
-				Terminal Portfolio
+				{t.title}
 			</h1>
-			{loaded && <Terminal />}
-		</ThemeProvider>
+			<Terminal />
+		</>
+	) : (
+		<></>
 	);
 };
 

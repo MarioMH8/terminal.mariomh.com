@@ -1,32 +1,32 @@
 import { useEffect, useState } from 'react';
-import type { DefaultTheme } from 'styled-components';
 
 import { getLocalStorage, setLocalStorage } from '../storage';
-import type { AvailableApplicationThemes } from '../style/themes';
-import themes from '../style/themes';
 
 export interface ThemeState {
 	loaded: boolean;
-	setTheme: (mode: DefaultTheme) => void;
-	theme: DefaultTheme;
+	setTheme: (mode: string) => void;
+	theme?: string | undefined;
+	themes: string[];
 }
+
+export const AVAILABLE_THEMES = ['dark', 'light'];
 
 const metaThemeColor = document.querySelector("meta[name='theme-color']");
 const maskIcon = document.querySelector("link[rel='mask-icon']");
 const metaMsTileColor = document.querySelector("meta[name='msapplication-TileColor']");
 
 const useThemeState = (): ThemeState => {
-	const [theme, setInternalTheme] = useState<DefaultTheme>(themes.dark);
+	const [theme, setInternalTheme] = useState<string | undefined>();
 	const [loaded, setLoaded] = useState(false);
 
-	const setTheme = (mode: DefaultTheme) => {
-		setLocalStorage('theme', mode.name);
-		setInternalTheme(mode);
+	const setTheme = (name: string) => {
+		setLocalStorage('theme', name);
+		setInternalTheme(name);
 	};
 
 	useEffect(() => {
-		const localThemeName = getLocalStorage<AvailableApplicationThemes>('tsn-theme');
-		localThemeName ? setInternalTheme(themes[localThemeName]) : setInternalTheme(themes.dark);
+		const localThemeName = getLocalStorage<string>('theme');
+		localThemeName ? setInternalTheme(localThemeName) : undefined;
 		setLoaded(true);
 	}, []);
 
@@ -35,7 +35,7 @@ const useThemeState = (): ThemeState => {
 		if (!loaded) {
 			return;
 		}
-		const themeColor = theme.colors.body;
+		const themeColor = '#1D2A35';
 
 		metaThemeColor?.setAttribute('content', themeColor);
 		metaMsTileColor?.setAttribute('content', themeColor);
@@ -46,6 +46,7 @@ const useThemeState = (): ThemeState => {
 		theme,
 		setTheme,
 		loaded,
+		themes: AVAILABLE_THEMES,
 	};
 };
 

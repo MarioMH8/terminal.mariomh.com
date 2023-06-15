@@ -1,27 +1,20 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import * as fs from 'node:fs';
-
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import preact from '@preact/preset-vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-
-function readKey(name: string) {
-	try {
-		return fs.readFileSync(`./.cert/${name}.pem`);
-	} catch {
-		return undefined;
-	}
-}
+import paths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
-		react(),
+		preact(),
+		paths(),
 		VitePWA({
 			registerType: 'autoUpdate',
 		}),
+		splitVendorChunkPlugin(),
 	],
 	test: {
 		globals: true,
@@ -31,5 +24,26 @@ export default defineConfig({
 	server: {
 		host: 'local.terminal.mariomh.com',
 		port: 8000,
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					nanostores: ['nanostores', '@nanostores/react', '@nanostores/i18n'],
+					lodash: [
+						'lodash/keys',
+						'lodash/split',
+						'lodash/startsWith',
+						'lodash/join',
+						'lodash/trim',
+						'lodash/reverse',
+						'lodash/slice',
+						'lodash/uniqueId',
+						'lodash/drop',
+					],
+					preact: ['preact'],
+				},
+			},
+		},
 	},
 });
