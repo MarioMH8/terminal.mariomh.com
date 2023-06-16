@@ -5,10 +5,12 @@ import compress from 'astro-compress';
 import zip from 'astro-compressor';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
+import preact from '@astrojs/preact';
 
 export default defineConfig({
 	site: 'https://terminal.mariomh.com',
 	integrations: [
+		preact(),
 		sitemap(),
 		robotsTxt(),
 		webmanifest({
