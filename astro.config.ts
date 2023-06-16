@@ -7,7 +7,7 @@ import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
 
 export default defineConfig({
-	site: 'https://mariomh.com',
+	site: 'https://terminal.mariomh.com',
 	integrations: [
 		sitemap(),
 		robotsTxt(),
