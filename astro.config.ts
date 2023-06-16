@@ -1,4 +1,3 @@
-import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import AstroPWA from '@vite-pwa/astro'
 import { defineConfig } from 'astro/config';
@@ -16,7 +15,7 @@ export default defineConfig({
 			/**
 			 * required
 			 **/
-			name: 'MarioMH | Desarrollador JavaScript',
+			name: 'MarioMH | Línea de comandos',
 
 			/**
 			 * optional
@@ -24,7 +23,7 @@ export default defineConfig({
 			icon: 'public/favicon.svg',
 
 			short_name: 'MarioMH',
-			description: 'MarioMH es un desarrollador Full Stack especializado en JavaScript.',
+			description: 'Portfolio de MarioMH en línea de comandos.',
 			start_url: '/',
 			theme_color: '#C6F118',
 			background_color: '#FDFFF5',
@@ -35,7 +34,6 @@ export default defineConfig({
 				insertThemeColorMeta: false,
 			},
 		}),
-		prefetch(),
 		AstroPWA({
 			includeAssets: ['fonts/**/*.otf', '**/*.svg', '**/*.png'],
 			registerType: 'autoUpdate',
