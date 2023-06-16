@@ -1,0 +1,73 @@
+<style is:global>
+	:root {
+		--font-family-primary: Archia, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+		--font-weight-base: 300;
+
+		--size-2xs: clamp(0.512rem, -0.1026557vw + 0.5376639rem, 0.4555394rem);
+		--size-xs: clamp(0.64rem, -0.0040816vw + 0.6410204rem, 0.6377551rem);
+		--size-sm: clamp(0.8rem, 0.1688312vw + 0.7577922rem, 0.8928571rem);
+		--size-base: clamp(1rem, 0.4545455vw + 0.8863636rem, 1.25rem);
+		--size-lg: clamp(1.25rem, 0.9090909vw + 1.0227273rem, 1.75rem);
+		--size-xl: clamp(1.5625rem, 1.6136364vw + 1.1590909rem, 2.45rem);
+		--size-2xl: clamp(1.953125rem, 2.6852273vw + 1.2818182rem, 3.43rem);
+		--size-3xl: clamp(2.4414063rem, 4.2919886vw + 1.3684091rem, 4.802rem);
+		--size-4xl: clamp(3.0517578rem, 6.6746222vw + 1.3831023rem, 6.7228rem);
+
+
+		--color-background: #fdfff5;
+		--color-foreground: #001C16;
+	}
+
+	@media (prefers-color-scheme: dark) {
+
+		:root {
+			--color-background: #001B16;
+			--color-foreground: #fdfff5;
+		}
+	}
+
+	body {
+		background-color: var(--color-background);
+		font-weight: var(--font-weight-base);
+		font-size: var(--size-base);
+		font-family: var(--font-family-primary);
+		color: var(--color-foreground);
+
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	body::-webkit-scrollbar {
+		display: none;
+	}
+
+	h6 {
+		font-size: var(--size-sm)
+	}
+
+	h5 {
+		font-size: var(--size-base)
+	}
+
+	h4 {
+		font-size: var(--size-lg)
+	}
+
+	h3 {
+		font-size: var(--size-xl)
+	}
+
+	h2 {
+		font-size: var(--size-2xl)
+	}
+
+	h1 {
+		font-size: var(--size-3xl)
+	}
+
+</style>
