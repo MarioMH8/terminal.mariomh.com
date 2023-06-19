@@ -1,0 +1,37 @@
+
+.prompt-input {
+    flex-grow: 1;
+}
+
+.prompt-user {
+    color: var(--color-secondary)
+}
+
+.prompt-info {
+    display: inline-block;
+    margin-right: 0.75rem;
+}
+
+.terminal-host {
+    color: var(--color-primary)
+}
+
+.mobile-span {
+    line-height: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+@media (min-width: 550px) {
+	.prompt-form {
+		display: flex ;
+	}
+    .mobile-span, .mobile-br {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+	.prompt-input {
+        min-width: 85%;
+	}
+}

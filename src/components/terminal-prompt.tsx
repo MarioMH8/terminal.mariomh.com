@@ -1,0 +1,47 @@
+import './terminal-prompt.css';
+
+import type { JSX } from 'preact';
+
+import usePromptState from './state/prompt';
+import TerminalInfo from './terminal-info';
+
+interface TerminalPrompt {
+	command?: string;
+}
+
+const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
+	const { value, ref, onSubmit, onPromptChange, onKeyDown } = usePromptState();
+
+	return command || command === '' ? (
+		<div>
+			<TerminalInfo />
+			<br className='mobile-br' />
+			<span className='mobile-span'>&#62;</span>
+			<span data-testid='input-command'>{command}</span>
+		</div>
+	) : (
+		<form className='prompt-form' onSubmit={onSubmit}>
+			<label htmlFor='terminal-input'>
+				<TerminalInfo />
+				<br className='mobile-br' />
+				<span className='mobile-span'>&#62;</span>
+			</label>
+			<input
+				className='prompt-input'
+				title='terminal-input'
+				type='text'
+				id='terminal-input'
+				autoComplete='off'
+				spellCheck={false}
+				autoFocus
+				autoCapitalize='off'
+				ref={ref}
+				value={value}
+				onChange={onPromptChange}
+				onKeyDown={onKeyDown}
+			/>
+		</form>
+	);
+};
+
+export default TerminalPrompt;
