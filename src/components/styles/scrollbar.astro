@@ -1,16 +1,20 @@
 <style is:global>
-    body::-webkit-scrollbar {
-        display: none;
+    /* ===== Custom Scroll Bar ===== */
+    /* width */
+    ::-webkit-scrollbar {
+        width: var(--size-xs);
     }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--color-background);
     }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: var(--color-scroll-handle);
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-scroll-handle-hover);
     }
 </style>
