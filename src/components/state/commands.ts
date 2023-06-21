@@ -6,6 +6,7 @@ import commands from '../commands';
 
 export interface CommandComponentProps {
 	args?: string[];
+	index: number;
 }
 
 interface BaseCommand {
