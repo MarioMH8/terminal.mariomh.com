@@ -2,7 +2,7 @@
 	"about": {
 		"hi": "Hi, my name is",
 		"im": "I'm",
-		"developer": "a javascript developer",
+		"developer": "a JavaScript developer",
 		"based": "based in Madrid, Spain.",
 		"description": "I am passionate about writing codes and developing web applications to solve real-life challenges."
 	},
@@ -23,6 +23,12 @@
 		"welcome": "display hero section",
 		"whoami": "about current user"
 	},
+	"email": {
+		"caption": "write some lineas at "
+	},
+	"gui": {
+		"link": "Link to my GUI version"
+	},
 	"help": {
 		"alias": "alias",
 		"tab_ctrl": "Tab or Ctrl + i",
@@ -34,6 +40,10 @@
 	},
 	"not_found": {
 		"command": "command not found"
+	},
+	"usage": {
+		"command": "Usage",
+		"eg": "eg"
 	},
 	"welcome": {
 		"title": "Welcome to my terminal portfolio. (Version {version})",

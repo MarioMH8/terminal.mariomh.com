@@ -2,9 +2,9 @@ import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 
 export interface HintsState {
-	addHints: (command: string) => void;
 	clearHints: () => void;
 	hints: string[];
+	setHints: (command: string[]) => void;
 }
 
 const $hints = atom<string[]>([]);
@@ -17,8 +17,8 @@ export default function useHintsState(): HintsState {
 		clearHints() {
 			$hints.set([]);
 		},
-		addHints(command: string) {
-			$hints.set([...$hints.get(), command]);
+		setHints(command: string[]) {
+			$hints.set(command);
 		},
 	};
 }

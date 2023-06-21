@@ -8,6 +8,7 @@ import HistoryCommand from './history';
 import PwdCommand from './pwd';
 import WelcomeCommand from './welcome';
 import WhoiamCommand from './whoami';
+import LocaleCommand from './locale';
 
 const commands = [
 	AboutCommand,
@@ -17,6 +18,7 @@ const commands = [
 	GuiCommand,
 	HelpCommand,
 	HistoryCommand,
+	LocaleCommand,
 	PwdCommand,
 	WelcomeCommand,
 	WhoiamCommand,
