@@ -1,18 +1,13 @@
-import type { FunctionalComponent } from 'preact';
+import type { ActionCommand } from '../state/commands';
+import useHistoryState from '../state/history';
 
-import type { CommandComponentProps, WebCommand } from '../state/commands';
-
-const Clear: FunctionalComponent<CommandComponentProps> = ({ args }) => {
-	console.log(args);
-
-	return <></>;
-};
-
-const ClearCommand: WebCommand = {
+const ClearCommand: ActionCommand = {
 	command: 'clear',
-	description: 'limpia la terminal',
 	alias: 'cls',
-	component: Clear,
+	action: () => {
+		const { clearHistory } = useHistoryState();
+		clearHistory();
+	},
 };
 
 export default ClearCommand;
