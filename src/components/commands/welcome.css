@@ -1,7 +1,3 @@
-.hero p {
-    margin: 0;
-}
-
 .hero {
     display: flex;
     flex-wrap: wrap-reverse;
