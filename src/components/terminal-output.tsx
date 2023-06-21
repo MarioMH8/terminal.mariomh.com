@@ -21,11 +21,12 @@ const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({
 	const sanitize = command.trim();
 	const splitCommands = sanitize.split(' ');
 	const first = splitCommands[0] ?? '';
+	const args = splitCommands.slice(1);
 
 	const found = commands.get(first);
 	if (found) {
 		if ('component' in found) {
-			return found.component({});
+			return found.component({ args });
 		}
 		if ('action' in found) {
 			found.action();

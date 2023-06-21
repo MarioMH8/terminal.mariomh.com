@@ -1,0 +1,22 @@
+.command-name {
+	color: var(--color-primary)
+}
+
+.autocomplete {
+    margin-top: 0.2rem;
+}
+
+.autocomplete.first {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 550px) {
+    .command-description {
+
+        display: block;
+    }
+
+    .autocomplete {
+        display: none;
+    }
+}

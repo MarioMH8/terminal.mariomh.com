@@ -26,6 +26,7 @@ export type WebCommand = ActionCommand | ComponentCommand;
 export interface CommandsState {
 	available: string[];
 	commands: Map<string, WebCommand>;
+	list: WebCommand[];
 }
 
 const $commands = atom<WebCommand[]>(commands);
@@ -63,5 +64,6 @@ export default function useCommandsState(): CommandsState {
 
 			return prev;
 		}, new Map<string, WebCommand>()),
+		list: commands,
 	};
 }
