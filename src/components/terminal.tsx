@@ -3,6 +3,7 @@ import './terminal.css';
 import type { JSX } from 'preact';
 
 import TerminalHints from './terminal-hints';
+import TerminalHistory from './terminal-history';
 import TerminalPrompt from './terminal-prompt';
 
 const Terminal = (): JSX.Element => {
@@ -10,6 +11,7 @@ const Terminal = (): JSX.Element => {
 		<section className='terminal-wrapper' data-testid='terminal-wrapper'>
 			<TerminalHints />
 			<TerminalPrompt />
+			<TerminalHistory />
 		</section>
 	);
 };

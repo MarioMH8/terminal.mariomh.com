@@ -11,16 +11,21 @@ export interface CommandComponentProps {
 interface BaseCommand {
 	alias?: string[] | string;
 	command: string;
-	description: string;
 }
 
-export interface WebCommand extends BaseCommand {
+export interface ComponentCommand extends BaseCommand {
 	component: FunctionalComponent<CommandComponentProps>;
 }
 
+export interface ActionCommand extends BaseCommand {
+	action: () => void;
+}
+
+export type WebCommand = ActionCommand | ComponentCommand;
+
 export interface CommandsState {
 	available: string[];
-	commands: WebCommand[];
+	commands: Map<string, WebCommand>;
 }
 
 const $commands = atom<WebCommand[]>(commands);
@@ -29,7 +34,34 @@ export default function useCommandsState(): CommandsState {
 	const commands = useStore($commands);
 
 	return {
-		available: commands.map(c => c.command),
-		commands,
+		available: commands
+			.map(c => {
+				const arr = [c.command];
+				if (c.alias) {
+					if (typeof c.alias === 'string') {
+						arr.push(c.alias);
+					} else {
+						arr.push(...c.alias);
+					}
+				}
+
+				return arr;
+			})
+			.flat(),
+		commands: commands.reduce((prev, c) => {
+			if (c.alias) {
+				if (typeof c.alias === 'string') {
+					prev.set(c.alias, c);
+				} else {
+					c.alias.forEach(alias => {
+						prev.set(alias, c);
+					});
+				}
+			}
+
+			prev.set(c.command, c);
+
+			return prev;
+		}, new Map<string, WebCommand>()),
 	};
 }

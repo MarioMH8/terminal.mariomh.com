@@ -5,7 +5,7 @@ import type { JSX } from 'preact';
 import useHintsState from './state/hints';
 
 const TerminalHints = (): JSX.Element => {
-	const hints = useHintsState();
+	const { hints } = useHintsState();
 
 	return (
 		<>

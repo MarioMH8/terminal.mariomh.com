@@ -7,12 +7,12 @@
         --size-sm: clamp(0.7rem, 0.26vw + 0.63rem, 0.84rem);
         --size-base: clamp(0.88rem, 0.45vw + 0.76rem, 1.13rem);
 
-        --color-text-100: #001B16;
+        --color-text-100: #334155;
         --color-text-200: #475569;
         --color-text-300: #64748b;
 
         --color-background: #fdfff5;
-        --color-foreground: var(--color-text-100);
+        --color-foreground: var(--color-text-300);
         --color-primary: #83AC2A;
         --color-secondary: #FF9D00;
         --color-scroll-handle: #C1C1C1;
@@ -28,7 +28,7 @@
             --color-text-300: #64748b;
 
             --color-background: #1D2A35;
-            --color-foreground: var(--color-text-100);
+            --color-foreground: var(--color-text-300);
             --color-primary: #05CE91;
             --color-secondary: #FF9D00;
             --color-scroll-handle: #19252E;
@@ -50,6 +50,22 @@
 		-ms-user-select: none;
 		user-select: none;
 	}
+
+    *, ::before, ::after {
+        border-width: 0;
+        border-style: solid;
+        border-color: currentColor;
+    }
+
+    input[type=text] {
+        background-color: var(--color-background);
+        color: var(--color-text-100);
+        caret-color: var(--color-primary);
+    }
+
+    input[type=text]:focus-visible {
+        outline: none;
+    }
 
     .sr-only {
         position: absolute;

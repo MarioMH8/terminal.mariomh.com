@@ -10,6 +10,7 @@
 .prompt-info {
     display: inline-block;
     margin-right: 0.75rem;
+    color: var(--color-text-100);
 }
 
 .terminal-host {

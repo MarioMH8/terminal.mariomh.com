@@ -1,6 +1,6 @@
 import type { FunctionalComponent } from 'preact';
 
-import type { CommandComponentProps, WebCommand } from '../state/commands';
+import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 import useInfoState from '../state/info';
 
 const Pwd: FunctionalComponent<CommandComponentProps> = () => {
@@ -9,10 +9,8 @@ const Pwd: FunctionalComponent<CommandComponentProps> = () => {
 	return <div>{home}</div>;
 };
 
-const PwdCommand: WebCommand = {
-	command: 'clear',
-	description: 'muestra el directorio actual',
-	alias: 'cls',
+const PwdCommand: ComponentCommand = {
+	command: 'pwd',
 	component: Pwd,
 };
 

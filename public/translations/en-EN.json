@@ -1,0 +1,11 @@
+{
+	"not_found": {
+		"command": "command not found"
+	},
+	"welcome": {
+		"title": "Welcome to my terminal portfolio. (Version {version})",
+		"project_source": "This project's source code can be found in this project's ",
+		"repo": "GitHub repo",
+		"available_commands": "For a list of available commands, type "
+	}
+}

@@ -1,6 +1,8 @@
 import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 
+import WelcomeCommand from '../commands/welcome';
+
 export interface HistoryState {
 	addHistory: (command: string) => void;
 	clearHistory: () => void;
@@ -11,7 +13,7 @@ export interface HistoryState {
 	setPointer: (value: number) => void;
 }
 
-const $history = atom<string[]>([]);
+const $history = atom<string[]>([WelcomeCommand.command]);
 const $pointer = atom<number>(-1);
 
 export default function useHistoryState(): HistoryState {
@@ -25,7 +27,7 @@ export default function useHistoryState(): HistoryState {
 			$history.set([]);
 		},
 		addHistory(command: string) {
-			$history.set([...$history.get(), command]);
+			$history.set([command, ...$history.get()]);
 		},
 		setPointer(value: number) {
 			$pointer.set(value);
