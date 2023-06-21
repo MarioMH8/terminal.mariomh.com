@@ -26,7 +26,7 @@ const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({
 	const found = commands.get(first);
 	if (found) {
 		if ('component' in found) {
-			return found.component({ args });
+			return found.component({ args, index });
 		}
 		if ('action' in found) {
 			found.action();
