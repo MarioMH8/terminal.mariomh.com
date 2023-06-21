@@ -10,7 +10,7 @@ export interface CommandComponentProps {
 }
 
 interface BaseCommand {
-	alias?: string[] | string;
+	alias?: string[];
 	command: string;
 }
 

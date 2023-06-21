@@ -7,7 +7,7 @@ import HelpCommand from './help';
 import HistoryCommand from './history';
 import PwdCommand from './pwd';
 import WelcomeCommand from './welcome';
-import WhoiamCommand from './whoiam';
+import WhoiamCommand from './whoami';
 
 const commands = [
 	AboutCommand,

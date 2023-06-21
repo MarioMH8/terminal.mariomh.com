@@ -3,15 +3,15 @@ import type { FunctionalComponent } from 'preact';
 import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 import useInfoState from '../state/info';
 
-const Whoiam: FunctionalComponent<CommandComponentProps> = () => {
+const Whoami: FunctionalComponent<CommandComponentProps> = () => {
 	const { user } = useInfoState();
 
 	return <div>{user}</div>;
 };
 
-const WhoiamCommand: ComponentCommand = {
-	command: 'whoiam',
-	component: Whoiam,
+const WhoamiCommand: ComponentCommand = {
+	command: 'whoami',
+	component: Whoami,
 };
 
-export default WhoiamCommand;
+export default WhoamiCommand;

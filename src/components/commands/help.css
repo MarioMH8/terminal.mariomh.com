@@ -9,6 +9,9 @@
 .autocomplete.first {
     margin-top: 0.5rem;
 }
+.command-alias {
+    color: var(--color-text-200)
+}
 
 @media (max-width: 550px) {
     .command-description {
