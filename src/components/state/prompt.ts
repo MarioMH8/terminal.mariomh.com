@@ -5,6 +5,8 @@ import { createRef } from 'preact';
 import type { TargetedEvent } from 'preact/compat';
 import { useEffect } from 'preact/hooks';
 
+import getHints from '../fn/get-hints';
+import useCommandsState from './commands';
 import useHintsState from './hints';
 import useHistoryState from './history';
 import useRenderState from './rerender';
@@ -31,8 +33,9 @@ export default function usePromptState(): PromptState {
 		incrementPointer,
 		decrementPointer,
 	} = useHistoryState();
-	const { clearHints } = useHintsState();
+	const { clearHints, setHints } = useHintsState();
 	const { setRerender } = useRenderState();
+	const { commands } = useCommandsState();
 
 	const onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement, Event>> = (
 		e: TargetedEvent<HTMLFormElement, Event>
@@ -50,15 +53,28 @@ export default function usePromptState(): PromptState {
 		e: JSX.TargetedKeyboardEvent<HTMLInputElement>
 	) => {
 		setRerender(false);
-		// const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
+		const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
 		const ctrlL = e.ctrlKey && e.key.toLowerCase() === 'l';
-		// const tab = e.key === 'Tab';
+		const tab = e.key === 'Tab';
 		const arrowUp = e.key === 'ArrowUp';
 		const arrowDown = e.key === 'ArrowDown';
 
-		if (ctrlL) {
+		if (ctrlI || tab) {
+			e.preventDefault();
+			const actualValue = $prompt.get().trim().split(' ');
+			const actualValueWithoutLast = actualValue.slice(0, actualValue.length - 2);
+			const hints = getHints(actualValue, commands);
+			if (hints.length === 1) {
+				const hit = hints[0] ?? '';
+				actualValueWithoutLast.push(hit);
+				$prompt.set(`${actualValueWithoutLast.join(' ')}`);
+			} else {
+				setHints(hints);
+			}
+		} else if (ctrlL) {
 			clearHistory();
 		} else if (arrowUp) {
+			e.preventDefault();
 			if (pointer >= history.length) {
 				return;
 			}
@@ -71,6 +87,7 @@ export default function usePromptState(): PromptState {
 			incrementPointer();
 			ref.current?.blur();
 		} else if (arrowDown) {
+			e.preventDefault();
 			if (pointer < 0) {
 				return;
 			}

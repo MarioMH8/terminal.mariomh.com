@@ -2,10 +2,10 @@ import { useStore } from '@nanostores/preact';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
 
+import type { ComponentCommand } from '../state/commands';
 import useHistoryState from '../state/history';
 import { i18n } from '../state/locale';
 import useRerenderState from '../state/rerender';
-import type { ComponentCommand } from '../state/commands';
 
 const messages = i18n('gui', {
 	link: 'Enlace a mi portfolio web',
@@ -27,11 +27,11 @@ const Gui: FunctionalComponent = () => {
 
 	return (
 		<span>
-			{t.link}
-			{': '}
+			{t.link}{' '}
 			<a className='link' target='_blank' href='https://mariomh.com'>
 				mariomh.com
 			</a>
+			.
 		</span>
 	);
 };

@@ -9,8 +9,8 @@ import { i18n } from '../state/locale';
 const messages = i18n('about', {
 	hi: 'Hola, me llamo',
 	im: `Soy`,
-	developer: `un desarrollador javascript`,
-	based: `trabajando desde Madrid, Spain.`,
+	developer: `un desarrollador JavaScript`,
+	based: `que trabaja desde Madrid, España.`,
 	description: `Apasionado de la programación. Me encanta desarrollar aplicaciones que resuelvan problemas del día a día.`,
 });
 
@@ -20,7 +20,7 @@ const About: FunctionalComponent = () => {
 	return (
 		<div className='terminal-line-history'>
 			<p>
-				{t.hi} <span className='highlight'>Mario Men&eacute;ndez</span>!
+				{t.hi} <span className='highlight'>Mario Men&eacute;ndez Hidalgo</span>!
 			</p>
 			<p>
 				{t.im} <span className='highlight'>{t.developer}</span> {t.based}

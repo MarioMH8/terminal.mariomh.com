@@ -68,17 +68,17 @@ const Help: FunctionalComponent = () => {
 					) : undefined}
 				</>
 			))}
-			<div className='autocomplete font-sm first'>
+			<div className='autocomplete font-sm text-200 first'>
 				{h.tab_ctrl}
 				{generateTabs(MAX_COLUMNS_AUTOCOMPLETE - h.tab_ctrl.length)}-&nbsp;
 				{h.tab_ctrl_desc}
 			</div>
-			<div className='autocomplete font-sm'>
+			<div className='autocomplete font-sm text-200'>
 				{h.up_arrow}
 				{generateTabs(MAX_COLUMNS_AUTOCOMPLETE - h.up_arrow.length)}-&nbsp;
 				{h.up_arrow_desc}
 			</div>
-			<div className='autocomplete font-sm'>
+			<div className='autocomplete font-sm text-200'>
 				{h.ctrl_l}
 				{generateTabs(MAX_COLUMNS_AUTOCOMPLETE - h.ctrl_l.length)}-&nbsp;
 				{h.ctrl_l_desc}
