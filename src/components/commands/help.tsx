@@ -8,6 +8,7 @@ import useCommandsState, { ComponentCommand } from '../state/commands';
 import { i18n } from '../state/locale';
 
 const helpMessages = i18n('help', {
+	alias: 'alias',
 	tab_ctrl: 'Tab o Ctrl + i',
 	tab_ctrl_desc: 'autocompleta el comando',
 	up_arrow: 'Flecha arriba',
@@ -44,14 +45,28 @@ const Help: FunctionalComponent = () => {
 
 	return (
 		<div className='terminal-line-history sm' data-testid='help'>
-			{list.map(({ command }) => (
-				<div key={command}>
-					<span className='command-name'>{command}</span>
-					{generateTabs(MAX_COLUMNS_COMMANDS - command.length)}
-					{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-					{/* @ts-ignore */}
-					<span className='command-description'>- {d[command]}</span>
-				</div>
+			{list.map(({ command, alias }) => (
+				<>
+					<div key={command}>
+						<span className='command-name'>{command}</span>
+						{generateTabs(MAX_COLUMNS_COMMANDS - command.length)}
+						{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+						{/* @ts-ignore */}
+						<span className='command-description'>- {d[command]}</span>
+					</div>
+					{alias ? (
+						<div key={`${command}-alias`}>
+							{generateTabs(MAX_COLUMNS_COMMANDS + 2)}
+							<span>{h.alias}: </span>
+							{alias.map((a, i, array) => (
+								<>
+									<span class='command-name'>{a}</span>
+									{i !== array.length - 1 ? ', ' : undefined}
+								</>
+							))}
+						</div>
+					) : undefined}
+				</>
 			))}
 			<div className='autocomplete font-sm first'>
 				{h.tab_ctrl}

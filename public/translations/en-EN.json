@@ -23,6 +23,15 @@
 		"welcome": "display hero section",
 		"whoami": "about current user"
 	},
+	"help": {
+		"alias": "alias",
+		"tab_ctrl": "Tab or Ctrl + i",
+		"tab_ctrl_desc": "autocompletes the command",
+		"up_arrow": "Up Arrow",
+		"up_arrow_desc": "go back to previous command",
+		"ctrl_l": "Ctrl + l",
+		"ctrl_l_desc": "clear the terminal"
+	},
 	"not_found": {
 		"command": "command not found"
 	},
