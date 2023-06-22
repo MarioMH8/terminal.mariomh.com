@@ -10,14 +10,16 @@ jobs:
         steps:
             -   name: Checkout
                 uses: actions/checkout@v3
-            -   name: Install
-                run: yarn install
-            -   name: Lint
-                run: yarn lint
-            -   name: Typecheck
-                run: yarn typecheck
+
+            -   name: Setup Volta
+                uses: volta-cli/action@v4
+
+            -   name: Install dependencies
+                run: yarn install --immutable
+
             -   name: Build
                 run: yarn build
+
             -   name: Deploy to Firebase
                 uses: FirebaseExtended/action-hosting-deploy@v0
                 with:
