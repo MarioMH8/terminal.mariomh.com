@@ -37,7 +37,7 @@ export default defineConfig({
 			},
 		}),
 		AstroPWA({
-			includeAssets: ['fonts/**/*.otf', '**/*.svg', '**/*.png'],
+			includeAssets: ['fonts/**/*.otf', 'fonts/**/*.woff2', '**/*.svg', '**/*.png'],
 			registerType: 'autoUpdate',
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,svg,png}'],
