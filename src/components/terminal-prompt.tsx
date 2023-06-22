@@ -17,7 +17,9 @@ const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
 			<TerminalInfo />
 			<br className='mobile-br' />
 			<span className='mobile-span'>&#62;</span>
-			<span data-testid='input-command' className='input-command'>{command}</span>
+			<span data-testid='input-command' className='input-command'>
+				{command}
+			</span>
 		</div>
 	) : (
 		<form className='prompt-form' onSubmit={onSubmit}>

@@ -1,11 +1,11 @@
+import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
-import AstroPWA from '@vite-pwa/astro'
+import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import zip from 'astro-compressor';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
-import preact from '@astrojs/preact';
 
 export default defineConfig({
 	site: 'https://terminal.mariomh.com',
@@ -41,7 +41,7 @@ export default defineConfig({
 			registerType: 'autoUpdate',
 			workbox: {
 				globPatterns: ['**/*.{js,css,html,svg,png}'],
-			}
+			},
 		}),
 		compress(),
 		zip(),

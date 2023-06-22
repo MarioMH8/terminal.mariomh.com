@@ -5,10 +5,11 @@ import EmailCommand from './email';
 import GuiCommand from './gui';
 import HelpCommand from './help';
 import HistoryCommand from './history';
+import LocaleCommand from './locale';
 import PwdCommand from './pwd';
+import ThemeCommand from './theme';
 import WelcomeCommand from './welcome';
 import WhoiamCommand from './whoami';
-import LocaleCommand from './locale';
 
 const commands = [
 	AboutCommand,
@@ -20,6 +21,7 @@ const commands = [
 	HistoryCommand,
 	LocaleCommand,
 	PwdCommand,
+	ThemeCommand,
 	WelcomeCommand,
 	WhoiamCommand,
 ];

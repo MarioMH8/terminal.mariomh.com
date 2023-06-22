@@ -1,11 +1,11 @@
+import { useStore } from '@nanostores/preact';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
 
 import type { ComponentCommand } from '../state/commands';
 import useHistoryState from '../state/history';
-import useRerenderState from '../state/rerender';
 import { i18n } from '../state/locale';
-import { useStore } from '@nanostores/preact';
+import useRerenderState from '../state/rerender';
 
 const EMAIL = 'hola@mariomh.com';
 const MAIL_TO = `mailto:${EMAIL}`;

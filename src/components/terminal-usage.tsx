@@ -10,7 +10,7 @@ type Props = {
 
 const arg = {
 	locale: { placeholder: 'locale', example: 'es-ES' },
-	themes: { placeholder: 'theme', example: 'ubuntu' },
+	themes: { placeholder: 'themes', example: 'ubuntu' },
 	projects: { placeholder: 'project', example: '4' },
 	socials: { placeholder: 'social', example: '1' },
 };
