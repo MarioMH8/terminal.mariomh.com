@@ -1,11 +1,9 @@
-import type { FC } from 'react';
+import type { JSX } from 'preact';
 
-import { useApplicationContext } from '../state';
+import useInfoState from './state/info';
 
-const TerminalInfo: FC = () => {
-	const {
-		info: { host, user, separator },
-	} = useApplicationContext();
+const TerminalInfo = (): JSX.Element => {
+	const { host, user, separator } = useInfoState();
 
 	return (
 		<span className='prompt-info'>

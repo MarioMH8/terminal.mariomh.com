@@ -1,29 +1,13 @@
-import { useStore } from '@nanostores/react';
-import type { FC } from 'react';
-import { useEffect } from 'react';
+import type { ActionCommand } from '../state/commands';
+import useHistoryState from '../state/history';
 
-import { i18n, useApplicationContext, useExecutedCommandContext } from '../../state';
-
-const messages = i18n('usage', {
-	command: 'Uso',
-	eg: 'Ejemplo',
-});
-
-const Clear: FC = () => {
-	const t = useStore(messages);
-	const {
-		command: {
-			history: [, , clearHistory],
-		},
-	} = useApplicationContext();
-	const { arg } = useExecutedCommandContext();
-	useEffect(() => {
-		if (arg.length < 1) {
-			clearHistory();
-		}
-	}, []);
-
-	return arg.length > 0 ? <div>{t.command}: clear</div> : <></>;
+const ClearCommand: ActionCommand = {
+	command: 'clear',
+	alias: ['cls'],
+	action: () => {
+		const { clearHistory } = useHistoryState();
+		clearHistory();
+	},
 };
 
-export default Clear;
+export default ClearCommand;

@@ -1,20 +1,19 @@
-import { useStore } from '@nanostores/react';
+import { useStore } from '@nanostores/preact';
 import split from 'lodash/split';
-import type { FC } from 'react';
+import type { FunctionalComponent } from 'preact';
 
-import { i18n, useApplicationContext } from '../../state';
+import type { ComponentCommand } from '../state/commands';
+import useHistoryState from '../state/history';
+import { i18n } from '../state/locale';
+import useRerenderState from '../state/rerender';
 
 const messages = i18n('gui', {
 	link: 'Enlace a mi portfolio web',
 });
 
-const Gui: FC = () => {
-	const {
-		command: {
-			history: [history],
-		},
-		terminal: { rerender },
-	} = useApplicationContext();
+const Gui: FunctionalComponent = () => {
+	const { rerender } = useRerenderState();
+	const { history } = useHistoryState();
 
 	const t = useStore(messages);
 
@@ -28,13 +27,18 @@ const Gui: FC = () => {
 
 	return (
 		<span>
-			{t.link}
-			{': '}
+			{t.link}{' '}
 			<a className='link' target='_blank' href='https://mariomh.com'>
 				mariomh.com
 			</a>
+			.
 		</span>
 	);
 };
 
-export default Gui;
+const GuiCommand: ComponentCommand = {
+	command: 'gui',
+	component: Gui,
+};
+
+export default GuiCommand;

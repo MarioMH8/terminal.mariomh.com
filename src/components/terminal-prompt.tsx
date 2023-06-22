@@ -1,34 +1,28 @@
 import './terminal-prompt.css';
 
-import type { FC } from 'react';
+import type { JSX } from 'preact';
 
-import { useApplicationContext } from '../state';
+import usePromptState from './state/prompt';
 import TerminalInfo from './terminal-info';
 
 interface TerminalPrompt {
 	command?: string;
 }
 
-const TerminalPrompt: FC<TerminalPrompt> = ({ command }) => {
-	const {
-		terminal: {
-			promptRef,
-			promptValue: [promptValue],
-			handlePromptChange,
-			handlePromptKeyDown,
-			handleSubmit,
-		},
-	} = useApplicationContext();
+const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
+	const { value, ref, onSubmit, onPromptChange, onKeyDown } = usePromptState();
 
 	return command || command === '' ? (
 		<div>
 			<TerminalInfo />
 			<br className='mobile-br' />
 			<span className='mobile-span'>&#62;</span>
-			<span data-testid='input-command'>{command}</span>
+			<span data-testid='input-command' className='input-command'>
+				{command}
+			</span>
 		</div>
 	) : (
-		<form className='prompt-form' onSubmit={e => handleSubmit(e)}>
+		<form className='prompt-form' onSubmit={onSubmit}>
 			<label htmlFor='terminal-input'>
 				<TerminalInfo />
 				<br className='mobile-br' />
@@ -40,13 +34,13 @@ const TerminalPrompt: FC<TerminalPrompt> = ({ command }) => {
 				type='text'
 				id='terminal-input'
 				autoComplete='off'
-				spellCheck='false'
+				spellCheck={false}
 				autoFocus
 				autoCapitalize='off'
-				ref={promptRef}
-				value={promptValue}
-				onChange={handlePromptChange}
-				onKeyDown={handlePromptKeyDown}
+				ref={ref}
+				value={value}
+				onInput={onPromptChange}
+				onKeyDown={onKeyDown}
 			/>
 		</form>
 	);

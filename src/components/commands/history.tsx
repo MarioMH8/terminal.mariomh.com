@@ -1,17 +1,13 @@
 import reverse from 'lodash/reverse';
 import slice from 'lodash/slice';
 import uniqueId from 'lodash/uniqueId';
-import type { FC } from 'react';
+import type { FunctionalComponent } from 'preact';
 
-import { useApplicationContext, useExecutedCommandContext } from '../../state';
+import type { CommandComponentProps, ComponentCommand } from '../state/commands';
+import useHistoryState from '../state/history';
 
-const History: FC = () => {
-	const {
-		command: {
-			history: [history],
-		},
-	} = useApplicationContext();
-	const { index } = useExecutedCommandContext();
+const History: FunctionalComponent<CommandComponentProps> = ({ index }) => {
+	const { history } = useHistoryState();
 	const currentHistory = reverse(slice(history, index));
 
 	return (
@@ -23,4 +19,9 @@ const History: FC = () => {
 	);
 };
 
-export default History;
+const HistoryCommand: ComponentCommand = {
+	command: 'history',
+	component: History,
+};
+
+export default HistoryCommand;
