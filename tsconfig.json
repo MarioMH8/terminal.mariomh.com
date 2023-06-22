@@ -1,11 +1,8 @@
 {
-	"extends": "@hexatool/tsconfig",
+	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
-		"lib": ["dom", "es2022"],
 		"jsx": "preserve",
-		"esModuleInterop": true,
-		"resolveJsonModule": true
-	},
-	"include": ["src", "vite.config.ts"],
-	"exclude": ["node_modules", "dist"]
+		"jsxFactory": "h",
+		"jsxImportSource": "preact"
+	}
 }

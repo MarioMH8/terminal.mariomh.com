@@ -1,18 +1,21 @@
 import join from 'lodash/join';
 import trim from 'lodash/trim';
-import type { FC } from 'react';
+import type { FunctionalComponent } from 'preact';
 
-import { useExecutedCommandContext } from '../../state';
+import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 
-const Echo: FC = () => {
-	const { arg } = useExecutedCommandContext();
-
-	let outputStr = join(arg, ' ');
+const Echo: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
+	let outputStr = join(args, ' ');
 	outputStr = trim(outputStr, "'"); // remove trailing single quotes ''
 	outputStr = trim(outputStr, '"'); // remove trailing double quotes ""
 	outputStr = trim(outputStr, '`'); // remove trailing backtick ``
 
-	return <div>{outputStr}</div>;
+	return <div className='terminal-line-history'>{outputStr}</div>;
 };
 
-export default Echo;
+const EchoCommand: ComponentCommand = {
+	command: 'echo',
+	component: Echo,
+};
+
+export default EchoCommand;

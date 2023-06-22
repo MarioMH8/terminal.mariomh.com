@@ -27,19 +27,6 @@
     margin: 0 auto 1rem;
 }
 
-.link {
-    display: inline-block;
-    color: var(--color-secondary);
-    text-decoration: none;
-    line-height: 1.5rem;
-    white-space: nowrap;
-    border-bottom: 2px dashed var(--color-secondary);
-}
-
-.link:hover {
-    border-bottom-style: solid;
-}
-
 @media (min-width: 550px) {
     .name-mobile {
         display: none;
@@ -58,8 +45,12 @@
 
 @media (min-width: 1024px) {
 
-    .hero > div {
-        flex-basis: 50%;
+    .hero > div:first-child {
+        flex-basis: 55%;
+    }
+
+    .hero > div:last-child {
+        flex-basis: 45%;
     }
 }
 

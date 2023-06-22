@@ -75,4 +75,4 @@ Here are some inspiration for this kind of terminal website. Only some features 
 
 ## Author
 
-- [@MarioMH](https://mariomh.com)
+- [@MarioMH](https://terminal.mariomh.com)

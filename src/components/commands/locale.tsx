@@ -1,34 +1,30 @@
-import type { FC } from 'react';
-import { useEffect } from 'react';
+import split from 'lodash/split';
+import type { FunctionalComponent } from 'preact';
 
-import { checkLocaleSwitch, getCurrentCmdArray, isArgInvalid } from '../../fn';
-import { useApplicationContext, useExecutedCommandContext } from '../../state';
+import checkLocaleSwitch from '../fn/check-locale-switch';
+import isArgInvalid from '../fn/is-arg-invalid';
+import type { CommandComponentProps, ComponentCommand } from '../state/commands';
+import useHistoryState from '../state/history';
+import useLocaleState from '../state/locale';
+import useRerenderState from '../state/rerender';
 import Usage from '../terminal-usage';
 
-const Locale: FC = () => {
-	const { arg } = useExecutedCommandContext();
-	const {
-		command: {
-			history: [history],
-		},
-		terminal: { rerender },
-		locale: { setLocale, locales },
-	} = useApplicationContext();
+const Locale: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
+	const { rerender } = useRerenderState();
+	const { history } = useHistoryState();
+	const { locales, setLocale } = useLocaleState();
 
 	/* ===== get current command ===== */
-	const currentCommand = getCurrentCmdArray(history);
+	const currentCommand = split(history[0], ' ');
 
-	/* ===== check current command makes redirect ===== */
-	useEffect(() => {
-		if (checkLocaleSwitch(rerender, currentCommand, locales)) {
-			setLocale(currentCommand[2] as string);
-		}
-	}, [arg, rerender, currentCommand]);
+	if (checkLocaleSwitch(rerender, currentCommand, locales)) {
+		setLocale(currentCommand[2] as string);
+	}
 
 	/* ===== check arg is valid ===== */
-	const checkArg = () => (isArgInvalid(arg, 'set', locales) ? <Usage cmd='locale' /> : null);
+	const checkArg = () => (isArgInvalid(args, 'set', locales) ? <Usage cmd='locale' /> : null);
 
-	return arg.length > 0 || arg.length > 2 ? (
+	return args.length > 0 || args.length > 2 ? (
 		checkArg()
 	) : (
 		<div className='terminal-line-history' data-testid='locales'>
@@ -44,4 +40,9 @@ const Locale: FC = () => {
 	);
 };
 
-export default Locale;
+const LocaleCommand: ComponentCommand = {
+	command: 'locale',
+	component: Locale,
+};
+
+export default LocaleCommand;

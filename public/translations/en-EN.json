@@ -1,34 +1,10 @@
 {
-	"app": {
-		"title": "Terminal portfolio"
-	},
 	"about": {
 		"hi": "Hi, my name is",
 		"im": "I'm",
-		"developer": "a javascript developer",
+		"developer": "a JavaScript developer",
 		"based": "based in Madrid, Spain.",
 		"description": "I am passionate about writing codes and developing web applications to solve real-life challenges."
-	},
-	"welcome": {
-		"title": "Welcome to my terminal portfolio. (Version {version})",
-		"project_source": "This project's source code can be found in this project's ",
-		"repo": "GitHub repo",
-		"available_commands": "For a list of available commands, type "
-	},
-	"usage": {
-		"command": "Usage",
-		"eg": "eg"
-	},
-	"help": {
-		"tab_ctrl": "Tab or Ctrl + i",
-		"tab_ctrl_desc": "autocompletes the command",
-		"up_arrow": "Up Arrow",
-		"up_arrow_desc": "go back to previous command",
-		"ctrl_l": "Ctrl + l",
-		"ctrl_l_desc": "clear the terminal"
-	},
-	"not_found": {
-		"command": "command not found"
 	},
 	"commands": {
 		"about": "about MarioMH",
@@ -47,7 +23,32 @@
 		"welcome": "display hero section",
 		"whoami": "about current user"
 	},
+	"email": {
+		"caption": "write some lineas at "
+	},
 	"gui": {
 		"link": "Link to my GUI version"
+	},
+	"help": {
+		"alias": "alias",
+		"tab_ctrl": "Tab or Ctrl + i",
+		"tab_ctrl_desc": "autocompletes the command",
+		"up_arrow": "Up Arrow",
+		"up_arrow_desc": "go back to previous command",
+		"ctrl_l": "Ctrl + l",
+		"ctrl_l_desc": "clear the terminal"
+	},
+	"not_found": {
+		"command": "command not found"
+	},
+	"usage": {
+		"command": "Usage",
+		"eg": "eg"
+	},
+	"welcome": {
+		"title": "Welcome to my terminal portfolio. (Version {version})",
+		"project_source": "This project's source code can be found in this project's ",
+		"repo": "GitHub repo",
+		"available_commands": "For a list of available commands, type "
 	}
 }

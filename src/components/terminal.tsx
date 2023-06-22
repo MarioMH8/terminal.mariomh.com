@@ -1,23 +1,21 @@
 import './terminal.css';
 
-import type { FC } from 'react';
+import type { JSX } from 'preact';
 
-import { useApplicationContext } from '../state';
+import useThemeState from './state/theme';
 import TerminalHints from './terminal-hints';
 import TerminalHistory from './terminal-history';
 import TerminalPrompt from './terminal-prompt';
 
-const Terminal: FC = () => {
-	const {
-		terminal: { terminalRef },
-	} = useApplicationContext();
+const Terminal = (): JSX.Element => {
+	useThemeState();
 
 	return (
-		<div className='terminal-wrapper' data-testid='terminal-wrapper' ref={terminalRef}>
+		<section className='terminal-wrapper' data-testid='terminal-wrapper'>
 			<TerminalHints />
 			<TerminalPrompt />
 			<TerminalHistory />
-		</div>
+		</section>
 	);
 };
 

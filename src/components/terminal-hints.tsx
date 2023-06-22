@@ -1,15 +1,11 @@
 import './terminal-hints.css';
 
-import type { FC } from 'react';
+import type { JSX } from 'preact';
 
-import { useApplicationContext } from '../state';
+import useHintsState from './state/hints';
 
-const TerminalHints: FC = () => {
-	const {
-		command: {
-			hints: [hints],
-		},
-	} = useApplicationContext();
+const TerminalHints = (): JSX.Element => {
+	const { hints } = useHintsState();
 
 	return (
 		<>

@@ -1,0 +1,46 @@
+---
+import { SEO } from "astro-seo";
+import AppStyles from '../styles/app.astro'
+import FontsStyles from '../styles/fonts.astro'
+import ResetStyles from '../styles/reset.astro'
+import ScrollbarStyles from '../styles/scrollbar.astro'
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<SEO
+		title="MarioMH | L&iacute;nea de comandos"
+		description="Portfolio de MarioMH en l&iacute;nea de comandos."
+		openGraph={{
+			basic: {
+				title: "MarioMH línea de comandos",
+				type: "website",
+				image: "/og/mariomh.png",
+			}
+		}}
+		twitter={{
+			creator: "@MarioMH8"
+		}}
+	/>
+	<link rel="sitemap" href="/sitemap-index.xml">
+
+	<meta name="theme-color" content="#fdfff5" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#001B16" media="(prefers-color-scheme: dark)">
+
+	<script src="/src/pwa.ts"></script>
+
+	<AppStyles/>
+	<FontsStyles/>
+	<ResetStyles/>
+	<ScrollbarStyles/>
+</head>
+<body>
+<main>
+	<slot/>
+</main>
+</body>
+</html>

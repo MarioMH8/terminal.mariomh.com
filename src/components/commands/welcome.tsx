@@ -1,11 +1,12 @@
 import './welcome.css';
 
 import { params } from '@nanostores/i18n';
-import { useStore } from '@nanostores/react';
-import type { FC } from 'react';
+import { useStore } from '@nanostores/preact';
+import type { FunctionalComponent } from 'preact';
 
 import pkg from '../../../package.json';
-import { i18n } from '../../state';
+import type { ComponentCommand } from '../state/commands';
+import { i18n } from '../state/locale';
 
 const messages = i18n('welcome', {
 	title: params<{ version: string }>(
@@ -16,7 +17,7 @@ const messages = i18n('welcome', {
 	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',
 });
 
-const Welcome: FC = () => {
+const Welcome: FunctionalComponent = () => {
 	const t = useStore(messages);
 
 	return (
@@ -46,9 +47,9 @@ const Welcome: FC = () => {
     | |  | || | | |        
     \\_|  |_/\\_| |_/`}
 				</pre>
-				<div>{t.title({ version: pkg.version })}</div>
-				<div>----</div>
-				<div>
+				<p>{t.title({ version: pkg.version })}</p>
+				<span>----</span>
+				<p>
 					{t.project_source}
 					<a
 						className='link'
@@ -57,32 +58,41 @@ const Welcome: FC = () => {
 						{t.repo}
 					</a>
 					.
-				</div>
-				<div>----</div>
-				<div>
+				</p>
+				<span>----</span>
+				<p>
 					{t.available_commands}`<span className='command'>help</span>`.
-				</div>
+				</p>
 			</div>
 			<div className='illu-section'>
 				<pre className='img'>
-					{`        :=+*#####*+=:                   
-     :*%%%%%%%%%%%%%%%*=+*###**=-.      
-   :#%%%%%%%%%%%%%%%%%%%#..+%%%%%%:     
-  +#.  .+%%%%%#:  .*%%%%+  :%%%%%%   :  
- +%=     #%%%%.    .%%%%+  :%%%%%%   #+ 
-:%%.     :%%%+      #%%%+            #%-
-+%*   =   *%#   =   =%%%+  .++++++   #%*
-+%-   #=   %-  :%.   %%%+  -%%%%%%   #%*
-:%   :%%   :   *%=   *%%+  -%%%%%%   #%-
- -   =%%*     -%%*   -%%%**%%%%%%%#*#%+ 
-     *%%%:    %%%%   .%%%%%%%%%%%%%%%=  
-    -%%%%#-.:*%%%%+::=%%%%%%%%%%%%#=    
-     :*%%%%%%%%%%%%%%%*=+*###**+-.      
-        :=+*#####*+=:`}
+					{`          ::::::        ::::::           
+         ::::::::      ::::::::         
+         ::::::::      ::::::::         
+         ::::::::      ::::::::         
+   .::::::      ::::::::      ::::::.   
+   :::::::      ::::::::      :::::::   
+   :::::::      ::::::::      :::::::   
+    .....        ......        .....    
+                                        
+                                        
+    .....        ......        .....    
+   :::::::      ::::::::      :::::::   
+   :::::::      ::::::::      :::::::   
+   :::::::      ::::::::      :::::::   
+         ::::::::      ::::::::         
+         ::::::::      ::::::::         
+         ::::::::      ::::::::         
+          ::::::        ::::::`}
 				</pre>
 			</div>
 		</div>
 	);
 };
 
-export default Welcome;
+const WelcomeCommand: ComponentCommand = {
+	command: 'welcome',
+	component: Welcome,
+};
+
+export default WelcomeCommand;
