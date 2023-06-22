@@ -1,5 +1,7 @@
-name: Deploy to Firebase Hosting on PR
+name: Continuous integration
+
 'on': pull_request
+
 jobs:
     check:
         name: Code check
