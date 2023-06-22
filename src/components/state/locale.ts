@@ -8,9 +8,10 @@ export interface LocaleState {
 	setLocale: (value: string) => void;
 }
 
+const SYSTEM_LOCALE = 'system';
 const DEFAULT_LOCALES = 'es-ES';
 const INTERNAL_AVAILABLE_LOCALES = [DEFAULT_LOCALES, 'en-EN'];
-export const AVAILABLE_LOCALES = ['system', ...INTERNAL_AVAILABLE_LOCALES];
+export const AVAILABLE_LOCALES = [SYSTEM_LOCALE, ...INTERNAL_AVAILABLE_LOCALES];
 const setting = persistentAtom<string | undefined>('locale', undefined);
 
 const locale = localeFrom(
@@ -20,6 +21,22 @@ const locale = localeFrom(
 		fallback: DEFAULT_LOCALES,
 	})
 );
+
+function updateLocale(v?: string) {
+	if (!v || v === SYSTEM_LOCALE) {
+		document.documentElement.setAttribute('lang', navigator.language);
+
+		return;
+	}
+
+	document.documentElement.setAttribute('lang', v);
+}
+
+updateLocale(locale.get());
+
+locale.listen(v => {
+	updateLocale(v);
+});
 
 export const i18n = createI18n(locale, {
 	baseLocale: DEFAULT_LOCALES,

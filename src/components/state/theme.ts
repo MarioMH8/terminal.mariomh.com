@@ -20,8 +20,6 @@ const INTERNAL_AVAILABLE_THEMES = [
 export const AVAILABLE_THEMES = [SYSTEM_THEME, ...INTERNAL_AVAILABLE_THEMES];
 const theme = persistentAtom<string | undefined>('theme', undefined);
 
-updateTheme(theme.get());
-
 function updateTheme(v?: string) {
 	if (!v || v === SYSTEM_THEME) {
 		document.body.className = '';
@@ -31,6 +29,8 @@ function updateTheme(v?: string) {
 
 	document.body.className = v;
 }
+
+updateTheme(theme.get());
 
 theme.listen(v => {
 	updateTheme(v);
