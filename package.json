@@ -62,7 +62,7 @@
 		"react-dom": "npm:@preact/compat@latest"
 	},
 	"volta": {
-		"node": "20.3.0",
+		"node": "20.9.0",
 		"yarn": "3.6.0"
 	},
 	"packageManager": "yarn@3.6.0"
