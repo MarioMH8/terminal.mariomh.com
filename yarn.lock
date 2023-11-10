@@ -1901,7 +1901,7 @@ __metadata:
     eslint: 8.43.0
     eslint-plugin-astro: 0.27.1
     lodash: 4.17.21
-    nanostores: 0.9.2
+    nanostores: 0.9.5
     normalize.css: 8.0.1
     preact: 10.15.1
     typescript: 5.0.4
@@ -6724,10 +6724,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanostores@npm:0.9.2":
-  version: 0.9.2
-  resolution: "nanostores@npm:0.9.2"
-  checksum: 12434c5b845889bd0a07e5a889360ff6029892344d2a05051f5335ddc140dcd530a543d190ffb0c53d4dad122092bca97ad750c103e1104550c6252fdebfe0bd
+"nanostores@npm:0.9.5":
+  version: 0.9.5
+  resolution: "nanostores@npm:0.9.5"
+  checksum: 22b44014535279f258976f2d15070ef48736254a370e43b8f1a6e613938c0c4bf0edbf584ca016a37bc7663a488d6f8a912ae9dc2333f88ae566dcf0af725f79
   languageName: node
   linkType: hard
 
