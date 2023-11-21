@@ -1890,7 +1890,7 @@ __metadata:
     "@nanostores/i18n": 0.10.0
     "@nanostores/persistent": 0.9.0
     "@nanostores/preact": 0.5.0
-    "@types/lodash": 4.14.195
+    "@types/lodash": 4.14.202
     "@vite-pwa/astro": 0.1.1
     astro: 2.6.6
     astro-compress: 1.1.47
@@ -2214,10 +2214,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.195":
-  version: 4.14.195
-  resolution: "@types/lodash@npm:4.14.195"
-  checksum: 39b75ca635b3fa943d17d3d3aabc750babe4c8212485a4df166fe0516e39288e14b0c60afc6e21913cc0e5a84734633c71e617e2bd14eaa1cf51b8d7799c432e
+"@types/lodash@npm:4.14.202":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: a91acf3564a568c6f199912f3eb2c76c99c5a0d7e219394294213b3f2d54f672619f0fde4da22b29dc5d4c31457cd799acc2e5cb6bd90f9af04a1578483b6ff7
   languageName: node
   linkType: hard
 
