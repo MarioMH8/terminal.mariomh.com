@@ -2,7 +2,6 @@
 	"hosting": {
 		"public": "dist",
 		"site": "mariomh-terminal",
-		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
 		"rewrites": [
 			{
 				"source": "**",
