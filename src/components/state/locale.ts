@@ -1,8 +1,8 @@
+import type { ComponentsJSON } from '@nanostores/i18n';
 import { browser, createI18n, localeFrom } from '@nanostores/i18n';
-import type { ComponentsJSON } from '@nanostores/i18n/create-i18n';
 import { persistentAtom } from '@nanostores/persistent';
 
-export interface LocaleState {
+interface LocaleState {
 	locale?: string;
 	locales: string[];
 	setLocale: (value: string) => void;
@@ -11,7 +11,7 @@ export interface LocaleState {
 const SYSTEM_LOCALE = 'system';
 const DEFAULT_LOCALES = 'es-ES';
 const INTERNAL_AVAILABLE_LOCALES = [DEFAULT_LOCALES, 'en-EN'];
-export const AVAILABLE_LOCALES = [SYSTEM_LOCALE, ...INTERNAL_AVAILABLE_LOCALES];
+const AVAILABLE_LOCALES = [SYSTEM_LOCALE, ...INTERNAL_AVAILABLE_LOCALES];
 const setting = persistentAtom<string | undefined>('locale', undefined);
 
 const locale = localeFrom(
@@ -38,7 +38,7 @@ locale.listen(v => {
 	updateLocale(v);
 });
 
-export const i18n = createI18n(locale, {
+const i18n = createI18n(locale, {
 	baseLocale: DEFAULT_LOCALES,
 	async get(code) {
 		const response = await fetch(`/translations/${code}.json`);
@@ -61,5 +61,9 @@ const useLocaleState = (): LocaleState => {
 		},
 	};
 };
+
+export type { LocaleState };
+
+export { AVAILABLE_LOCALES, i18n };
 
 export default useLocaleState;

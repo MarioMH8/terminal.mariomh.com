@@ -1,6 +1,4 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": [
-		"github>MarioMH8/renovate-config"
-	]
+	"extends": ["github>MarioMH8/renovate-config"]
 }

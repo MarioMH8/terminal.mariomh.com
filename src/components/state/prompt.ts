@@ -11,35 +11,26 @@ import useHintsState from './hints';
 import useHistoryState from './history';
 import useRenderState from './rerender';
 
+const $prompt = atom<string>('');
+
 export interface PromptState {
 	onKeyDown: JSX.KeyboardEventHandler<HTMLInputElement>;
 	onPromptChange: JSX.GenericEventHandler<HTMLInputElement>;
-	onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement, Event>>;
+	onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement>>;
 	ref: RefObject<HTMLInputElement>;
 	value: string;
 }
 
-const $prompt = atom<string>('');
-
 export default function usePromptState(): PromptState {
 	const value = useStore($prompt);
 	const ref = createRef<HTMLInputElement>();
-	const {
-		addHistory,
-		setPointer,
-		clearHistory,
-		pointer,
-		history,
-		incrementPointer,
-		decrementPointer,
-	} = useHistoryState();
+	const { addHistory, setPointer, clearHistory, pointer, history, incrementPointer, decrementPointer } =
+		useHistoryState();
 	const { clearHints, setHints } = useHintsState();
 	const { setRerender } = useRenderState();
 	const { commands } = useCommandsState();
 
-	const onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement, Event>> = (
-		e: TargetedEvent<HTMLFormElement, Event>
-	) => {
+	const onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement>> = (e: TargetedEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		addHistory($prompt.get());
@@ -49,9 +40,7 @@ export default function usePromptState(): PromptState {
 		setPointer(-1);
 	};
 
-	const onKeyDown: JSX.KeyboardEventHandler<HTMLInputElement> = (
-		e: JSX.TargetedKeyboardEvent<HTMLInputElement>
-	) => {
+	const onKeyDown: JSX.KeyboardEventHandler<HTMLInputElement> = (e: JSX.TargetedKeyboardEvent<HTMLInputElement>) => {
 		setRerender(false);
 		const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
 		const ctrlL = e.ctrlKey && e.key.toLowerCase() === 'l';
@@ -105,9 +94,7 @@ export default function usePromptState(): PromptState {
 		}
 	};
 
-	const onPromptChange: JSX.GenericEventHandler<HTMLInputElement> = (
-		e: JSX.TargetedEvent<HTMLInputElement>
-	) => {
+	const onPromptChange: JSX.GenericEventHandler<HTMLInputElement> = (e: JSX.TargetedEvent<HTMLInputElement>) => {
 		setRerender(false);
 		$prompt.set(e.currentTarget.value);
 	};

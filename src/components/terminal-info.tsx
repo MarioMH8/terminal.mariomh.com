@@ -7,8 +7,7 @@ const TerminalInfo = (): JSX.Element => {
 
 	return (
 		<span className='prompt-info'>
-			<span className='prompt-user'>{user}</span>@
-			<span className='terminal-host'>{host}</span>
+			<span className='prompt-user'>{user}</span>@<span className='terminal-host'>{host}</span>
 			{separator}
 		</span>
 	);
