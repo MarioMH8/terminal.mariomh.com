@@ -3,8 +3,9 @@ import './help.css';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
 
-import { generateTabs } from '../fn/generate-tabs';
-import useCommandsState, { ComponentCommand } from '../state/commands';
+import generateTabs from '../fn/generate-tabs';
+import type { ComponentCommand } from '../state/commands';
+import useCommandsState from '../state/commands';
 import { i18n } from '../state/locale';
 
 const helpMessages = i18n('help', {
@@ -50,8 +51,7 @@ const Help: FunctionalComponent = () => {
 					<div key={command}>
 						<span className='command-name'>{command}</span>
 						{generateTabs(MAX_COLUMNS_COMMANDS - command.length)}
-						{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-						{/* @ts-ignore */}
+						{/* @ts-expect-error TS7053: Element implicitly has an any type because expression of type string can't be used to index type*/}
 						<span className='command-description'>- {d[command]}</span>
 					</div>
 					{alias ? (
@@ -61,7 +61,7 @@ const Help: FunctionalComponent = () => {
 							{alias.map((a, i, array) => (
 								<>
 									<span class='command-name'>{a}</span>
-									{i !== array.length - 1 ? ', ' : undefined}
+									{i === array.length - 1 ? undefined : ', '}
 								</>
 							))}
 						</div>

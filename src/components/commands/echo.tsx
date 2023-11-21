@@ -6,9 +6,12 @@ import type { CommandComponentProps, ComponentCommand } from '../state/commands'
 
 const Echo: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
 	let outputStr = join(args, ' ');
-	outputStr = trim(outputStr, "'"); // remove trailing single quotes ''
-	outputStr = trim(outputStr, '"'); // remove trailing double quotes ""
-	outputStr = trim(outputStr, '`'); // remove trailing backtick ``
+	// Remove trailing single quotes ''
+	outputStr = trim(outputStr, "'");
+	// Remove trailing double quotes ""
+	outputStr = trim(outputStr, '"');
+	// Remove trailing backtick ``
+	outputStr = trim(outputStr, '`');
 
 	return <div className='terminal-line-history'>{outputStr}</div>;
 };

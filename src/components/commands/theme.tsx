@@ -18,7 +18,10 @@ const Theme: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
 	const currentCommand = split(history[0], ' ');
 
 	if (checkThemeSwitch(rerender, currentCommand, themes)) {
-		setTheme(currentCommand[2] as string);
+		const current = currentCommand[2];
+		if (current !== undefined) {
+			setTheme(current);
+		}
 	}
 
 	/* ===== check arg is valid ===== */

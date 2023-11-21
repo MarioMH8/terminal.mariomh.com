@@ -23,7 +23,7 @@ Blog Post: https://blog.mariomh.com/posts/terminal-portfolio
 ## Tech Stack
 
 **Frontend** - [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)  
-**Styling** - [Styled-Components](https://styled-components.com/)   
+**Styling** - [Styled-Components](https://styled-components.com/)  
 **State Management** - [ContextAPI](https://reactjs.org/docs/context.html)  
 **Testing** - [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/)  
 **Deployment** - [Firebase](https://firebase.google.com/)

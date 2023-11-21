@@ -1,5 +1,4 @@
 # Yarn
-.pnp.*
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -8,61 +7,31 @@
 !.yarn/sdks
 !.yarn/versions
 
-# All logs
-*.log
+# build output
+dist/
+dist-astro/
 
-# Node modules
-node_modules
+# generated types
+.astro/
 
-# Dist folder
-dist
-dist-ssr
+# dependencies
+node_modules/
 
-# ts
-*.tsbuildinfo
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# test
-coverage
+# environment variables
+.env
+.env.production
 
-# Firebase
-.firebase
-
-# StoryBook
-storybook-static
-
-# ESLint
-.eslintcache
-
-# LOCAL
-*.local
-
-# MacOS
+# macOS-specific files
 .DS_Store
 
-# Cert
-*/**/.cert/*.key
-*/**/.cert/*.csr
-*/**/.cert/*.crt
-*/**/.cert/*.pem
+# firebase
+.firebase
 
-# GitHub Actions
-gha-creds-*.json
 
-.firebaserc
-!/backend/oidc/.env
-
-# .env
-*.env
-.env*
-
-# JWKS
-jwks.json
-jwk.json
-
-# CSV
-*.csv
-*.xls
-*.xlsx
-
-# SQLite
-*.sqlite
+*.log
