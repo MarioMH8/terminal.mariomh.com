@@ -18,7 +18,10 @@ const Locale: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
 	const currentCommand = split(history[0], ' ');
 
 	if (checkLocaleSwitch(rerender, currentCommand, locales)) {
-		setLocale(currentCommand[2] as string);
+		const current = currentCommand[2];
+		if (current !== undefined) {
+			setLocale(current);
+		}
 	}
 
 	/* ===== check arg is valid ===== */

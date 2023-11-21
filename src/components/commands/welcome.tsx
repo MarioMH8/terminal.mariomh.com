@@ -9,9 +9,7 @@ import type { ComponentCommand } from '../state/commands';
 import { i18n } from '../state/locale';
 
 const messages = i18n('welcome', {
-	title: params<{ version: string }>(
-		'Bienvenido a mi portfolio en linea de comandos. (Versión {version})'
-	),
+	title: params<{ version: string }>('Bienvenido a mi portfolio en linea de comandos. (Versión {version})'),
 	project_source: 'Puedes ver el código fuente del proyecto en el siguiente ',
 	repo: 'repositorio de GitHub',
 	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',
@@ -51,10 +49,7 @@ const Welcome: FunctionalComponent = () => {
 				<span>----</span>
 				<p>
 					{t.project_source}
-					<a
-						className='link'
-						target='_blank'
-						href='https://github.com/MarioMH8/terminal.mariomh.com'>
+					<a className='link' target='_blank' href='https://github.com/MarioMH8/terminal.mariomh.com'>
 						{t.repo}
 					</a>
 					.

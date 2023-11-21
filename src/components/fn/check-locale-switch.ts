@@ -9,16 +9,18 @@ import LocaleCommand from '../commands/locale';
  * @param {string[]} locales - the command of the function
  * @returns {boolean} redirect - true | false
  */
-const checkLocaleSwitch = (
-	rerender: boolean,
-	currentCommand: string[],
-	locales: string[]
-): boolean =>
-	rerender && // is submitted
-	currentCommand[0] === LocaleCommand.command && // current command starts with 'locales'
-	currentCommand[1] === 'set' && // first arg is 'set'
-	currentCommand.length > 1 && // current command has arg
-	currentCommand.length < 4 && // if num of arg is valid (not `locales set es-ES sth`)
-	includes(locales, currentCommand[2]); // arg last part is one of id
+const checkLocaleSwitch = (rerender: boolean, currentCommand: string[], locales: string[]): boolean =>
+	// Is submitted
+	rerender &&
+	// Current command starts with 'locales'
+	currentCommand[0] === LocaleCommand.command &&
+	// First arg is 'set'
+	currentCommand[1] === 'set' &&
+	// Current command has arg
+	currentCommand.length > 1 &&
+	// If num of arg is valid (not `locales set es-ES sth`)
+	currentCommand.length < 4 &&
+	// Arg last part is one of id
+	includes(locales, currentCommand[2]);
 
 export default checkLocaleSwitch;

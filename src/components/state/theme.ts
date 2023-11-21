@@ -1,11 +1,5 @@
 import { persistentAtom } from '@nanostores/persistent';
 
-export interface ThemeState {
-	setTheme: (value: string) => void;
-	theme?: string | undefined;
-	themes: string[];
-}
-
 const SYSTEM_THEME = 'system';
 const INTERNAL_AVAILABLE_THEMES = [
 	'dark',
@@ -17,7 +11,7 @@ const INTERNAL_AVAILABLE_THEMES = [
 	'green-goblin',
 	'ubuntu',
 ];
-export const AVAILABLE_THEMES = [SYSTEM_THEME, ...INTERNAL_AVAILABLE_THEMES];
+const AVAILABLE_THEMES = [SYSTEM_THEME, ...INTERNAL_AVAILABLE_THEMES];
 const theme = persistentAtom<string | undefined>('theme', undefined);
 
 function updateTheme(v?: string) {
@@ -36,6 +30,12 @@ theme.listen(v => {
 	updateTheme(v);
 });
 
+interface ThemeState {
+	setTheme: (value: string) => void;
+	theme?: string | undefined;
+	themes: string[];
+}
+
 const useThemeState = (): ThemeState => {
 	return {
 		theme: theme.get(),
@@ -45,5 +45,9 @@ const useThemeState = (): ThemeState => {
 		},
 	};
 };
+
+export type { ThemeState };
+
+export { AVAILABLE_THEMES };
 
 export default useThemeState;

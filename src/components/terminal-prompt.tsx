@@ -12,16 +12,7 @@ interface TerminalPrompt {
 const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
 	const { value, ref, onSubmit, onPromptChange, onKeyDown } = usePromptState();
 
-	return command || command === '' ? (
-		<div>
-			<TerminalInfo />
-			<br className='mobile-br' />
-			<span className='mobile-span'>&#62;</span>
-			<span data-testid='input-command' className='input-command'>
-				{command}
-			</span>
-		</div>
-	) : (
+	return command === undefined ? (
 		<form className='prompt-form' onSubmit={onSubmit}>
 			<label htmlFor='terminal-input'>
 				<TerminalInfo />
@@ -43,6 +34,15 @@ const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
 				onKeyDown={onKeyDown}
 			/>
 		</form>
+	) : (
+		<div>
+			<TerminalInfo />
+			<br className='mobile-br' />
+			<span className='mobile-span'>&#62;</span>
+			<span data-testid='input-command' className='input-command'>
+				{command}
+			</span>
+		</div>
 	);
 };
 

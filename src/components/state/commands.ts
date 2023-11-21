@@ -4,7 +4,7 @@ import type { FunctionalComponent } from 'preact';
 
 import commands from '../commands';
 
-export interface CommandComponentProps {
+interface CommandComponentProps {
 	args?: string[];
 	index: number;
 }
@@ -14,23 +14,25 @@ interface BaseCommand {
 	command: string;
 }
 
-export interface ComponentCommand extends BaseCommand {
+interface ComponentCommand extends BaseCommand {
 	component: FunctionalComponent<CommandComponentProps>;
 }
 
-export interface ActionCommand extends BaseCommand {
+interface ActionCommand extends BaseCommand {
 	action: () => void;
 }
 
-export type WebCommand = ActionCommand | ComponentCommand;
+type WebCommand = ActionCommand | ComponentCommand;
 
-export interface CommandsState {
+interface CommandsState {
 	available: string[];
 	commands: Map<string, WebCommand>;
 	list: WebCommand[];
 }
 
 const $commands = atom<WebCommand[]>(commands);
+
+export type { ActionCommand, CommandComponentProps, CommandsState, ComponentCommand, WebCommand };
 
 export default function useCommandsState(): CommandsState {
 	const commands = useStore($commands);

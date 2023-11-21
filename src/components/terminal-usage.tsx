@@ -3,10 +3,10 @@ import type { FunctionalComponent } from 'preact';
 
 import { i18n } from './state/locale';
 
-type Props = {
+interface Props {
 	cmd: 'locale' | 'projects' | 'socials' | 'themes';
 	marginY?: boolean;
-};
+}
 
 const arg = {
 	locale: { placeholder: 'locale', example: 'es-ES' },

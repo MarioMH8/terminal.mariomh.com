@@ -4,17 +4,6 @@ import { atom } from 'nanostores';
 
 import WelcomeCommand from '../commands/welcome';
 
-export interface HistoryState {
-	addHistory: (command: string) => void;
-	clearHistory: () => void;
-	decrementPointer: () => void;
-	history: string[];
-	incrementPointer: () => void;
-	pointer: number;
-	sessionHistory: string[];
-	setPointer: (value: number) => void;
-}
-
 const $sessionHistory = atom<string[]>([WelcomeCommand.command]);
 const $history = persistentAtom<string[]>('history', [], {
 	encode: JSON.stringify,
@@ -27,6 +16,17 @@ if (lastActualHistory !== WelcomeCommand.command) {
 }
 
 const $pointer = atom<number>(-1);
+
+export interface HistoryState {
+	addHistory: (command: string) => void;
+	clearHistory: () => void;
+	decrementPointer: () => void;
+	history: string[];
+	incrementPointer: () => void;
+	pointer: number;
+	sessionHistory: string[];
+	setPointer: (value: number) => void;
+}
 
 export default function useHistoryState(): HistoryState {
 	const history = useStore($history);
