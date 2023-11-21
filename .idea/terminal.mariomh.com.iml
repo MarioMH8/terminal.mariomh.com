@@ -2,20 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <excludePattern pattern=".*" />
-      <excludePattern pattern="LICENSE" />
-      <excludePattern pattern="tsconfig.*" />
-      <excludePattern pattern="vite.*" />
-      <excludePattern pattern="babel.*" />
-      <excludePattern pattern="*.lock" />
-      <excludePattern pattern="nest-cli.json" />
-      <excludePattern pattern="webpack.config.js" />
-      <excludePattern pattern="renovate.json" />
-      <excludePattern pattern="dist" />
-      <excludePattern pattern="astro.config.ts" />
-      <excludePattern pattern="firebase.json" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

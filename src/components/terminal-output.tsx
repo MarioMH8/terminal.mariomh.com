@@ -8,10 +8,7 @@ interface TerminalOutputProps {
 	index: number;
 }
 
-const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({
-	command,
-	index,
-}: TerminalOutputProps) => {
+const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({ command, index }: TerminalOutputProps) => {
 	if (!command) {
 		return <></>;
 	}

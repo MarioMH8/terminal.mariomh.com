@@ -1,12 +1,12 @@
 import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 
+const $rerender = atom<boolean>(false);
+
 export interface RerenderState {
 	rerender: boolean;
 	setRerender: (rerender: boolean) => void;
 }
-
-const $rerender = atom<boolean>(false);
 
 export default function useRerenderState(): RerenderState {
 	const rerender = useStore($rerender);

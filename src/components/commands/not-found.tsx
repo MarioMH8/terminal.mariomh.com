@@ -7,10 +7,7 @@ const messages = i18n('not_found', {
 	command: 'comando invalido',
 });
 
-const NotFound: FunctionalComponent<{ command?: string | undefined; index: number }> = ({
-	command,
-	index,
-}) => {
+const NotFound: FunctionalComponent<{ command?: string | undefined; index: number }> = ({ command, index }) => {
 	const t = useStore(messages);
 
 	return (
