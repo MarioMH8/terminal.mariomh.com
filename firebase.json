@@ -8,6 +8,6 @@
 				"destination": "/index.html"
 			}
 		],
-		"predeploy": ["bun run build:astro"]
+		"predeploy": ["bun run build"]
 	}
 }
