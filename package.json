@@ -56,7 +56,7 @@
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "8.54.0",
-		"eslint-plugin-astro": "0.29.1",
+		"eslint-plugin-astro": "0.30.0",
 		"eslint-plugin-jsx-a11y": "6.8.0",
 		"typescript": "5.3.2"
 	},
