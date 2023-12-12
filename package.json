@@ -50,7 +50,7 @@
 		"@astrojs/sitemap": "3.0.3",
 		"@hexatool/eslint-config": "2.2.3",
 		"@types/lodash": "4.14.202",
-		"@vite-pwa/astro": "0.1.5",
+		"@vite-pwa/astro": "0.2.0",
 		"astro-compress": "2.2.3",
 		"astro-eslint-parser": "0.16.0",
 		"astro-robots-txt": "1.0.0",
