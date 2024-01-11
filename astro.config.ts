@@ -2,6 +2,7 @@ import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
 import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
+import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
 
@@ -35,5 +36,6 @@ export default defineConfig({
 				globPatterns: ['**/*.{js,css,html,svg,png}'],
 			},
 		}),
+		compress(),
 	],
 });
