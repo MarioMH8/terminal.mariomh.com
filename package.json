@@ -45,7 +45,7 @@
 		"preact": "10.19.3"
 	},
 	"devDependencies": {
-		"@astrojs/check": "0.3.3",
+		"@astrojs/check": "0.4.1",
 		"@astrojs/preact": "3.0.1",
 		"@astrojs/sitemap": "3.0.3",
 		"@hexatool/eslint-config": "2.2.3",
