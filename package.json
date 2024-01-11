@@ -48,7 +48,7 @@
 		"@astrojs/check": "0.3.3",
 		"@astrojs/preact": "3.0.1",
 		"@astrojs/sitemap": "3.0.3",
-		"@hexatool/eslint-config": "2.2.3",
+		"@hexatool/eslint-config": "2.3.0",
 		"@types/lodash": "4.14.202",
 		"@vite-pwa/astro": "0.2.0",
 		"astro-compress": "2.2.5",
