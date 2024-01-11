@@ -14,6 +14,9 @@ jobs:
         permissions:
             contents: 'read'
             id-token: 'write'
+        strategy:
+            matrix:
+                scripts: [ typecheck, lint, build ]
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4
@@ -27,11 +30,5 @@ jobs:
             -   name: Build types
                 run: bun build:types
 
-            -   name: Lint
-                run: bun lint
-
-            -   name: Type check
-                run: bun typecheck
-
-            -   name: Build
-                run: bun run build
+            -   name: ${{ matrix.script }}
+                run: bun run ${{ matrix.script }}
