@@ -47,6 +47,8 @@ jobs:
 
             -   name: Setup bun
                 uses: oven-sh/setup-bun@v1
+                with:
+                    bun-version: 1.0.13
 
             -   name: Install dependencies
                 run: bun install
@@ -68,4 +70,4 @@ jobs:
                     repoToken: ${{ secrets.GITHUB_TOKEN }}
                     firebaseServiceAccount: "${{ env.SERVICE_ACCOUNT_KEY }}"
                     channelId: live
-                    projectId: mariomh-com
+                    projectId: mariomh
