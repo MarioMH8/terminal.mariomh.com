@@ -52,7 +52,7 @@
 		"@types/lodash": "4.14.202",
 		"@vite-pwa/astro": "0.2.0",
 		"astro-compress": "2.2.5",
-		"astro-eslint-parser": "0.16.0",
+		"astro-eslint-parser": "0.16.1",
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "8.56.0",
