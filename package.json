@@ -63,7 +63,7 @@
 	"overrides": {
 		"react": "npm:@preact/compat@latest",
 		"react-dom": "npm:@preact/compat@latest",
-		"sharp": "0.33.1"
+		"sharp": "0.33.2"
 	},
 	"trustedDependencies": [
 		"sharp"
