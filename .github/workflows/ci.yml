@@ -27,8 +27,5 @@ jobs:
             -   name: Install dependencies
                 run: bun install
 
-            -   name: Build types
-                run: bun build:types
-
             -   name: ${{ matrix.script }}
                 run: bun run ${{ matrix.script }}

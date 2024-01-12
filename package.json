@@ -26,10 +26,10 @@
 	"license": "PRIVATE",
 	"scripts": {
 		"build": "astro build",
-		"build:types": "astro sync",
 		"dev": "astro dev",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
+		"postinstall": "astro sync",
 		"start": "astro preview",
 		"typecheck": "tsc --noEmit"
 	},
