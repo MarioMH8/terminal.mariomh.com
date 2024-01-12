@@ -16,7 +16,7 @@ jobs:
             id-token: 'write'
         strategy:
             matrix:
-                scripts: [ typecheck, lint ]
+                command: [ lint, typecheck, test ]
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4
@@ -27,8 +27,8 @@ jobs:
             -   name: Install dependencies
                 run: bun install
 
-            -   name: ${{ matrix.script }}
-                run: bun run ${{ matrix.script }}
+            -   name: ${{ matrix.command }}
+                run: bun ${{ matrix.command }}
 
 
     deploy:
