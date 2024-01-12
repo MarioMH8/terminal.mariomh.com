@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
     check:
-        name: Code check
+        name: Check
         runs-on: ubuntu-latest
         permissions:
             contents: 'read'
