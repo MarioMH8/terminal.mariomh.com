@@ -6,7 +6,7 @@ import isArgInvalid from '../fn/is-arg-invalid';
 import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 import useHistoryState from '../state/history';
 import useRerenderState from '../state/rerender';
-import useThemeState from '../state/theme';
+import useThemeState, { type RpaRequestStatuses } from '../state/theme';
 import Usage from '../terminal-usage';
 
 const Theme: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
@@ -20,7 +20,7 @@ const Theme: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
 	if (checkThemeSwitch(rerender, currentCommand, themes)) {
 		const current = currentCommand[2];
 		if (current !== undefined) {
-			setTheme(current);
+			setTheme(current as RpaRequestStatuses);
 		}
 	}
 
