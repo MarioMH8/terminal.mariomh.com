@@ -56,6 +56,7 @@ Start the server
 ```bash
 bun dev
 ```
+
 ## Deploying the project
 
 Access the GitHub Action [Deploy to Firebase](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/firebase-deploy.yml) and run the workflow.
@@ -65,12 +66,11 @@ Access the GitHub Action [Deploy to Firebase](https://github.com/MarioMH8/termin
 The project is organized into several main directories and files:
 
 - `src/`: This directory contains all the source code for the project.
-    - `components/`: Contains the project-specific components.
-    - `layouts/`: Contains the base layout of the page.
-    - `pages/`: Contains the Astro components that represent the pages of the application.
-    - `styles/`: Contains the global styles of the application.
+  - `components/`: Contains the project-specific components.
+  - `layouts/`: Contains the base layout of the page.
+  - `pages/`: Contains the Astro components that represent the pages of the application.
+  - `styles/`: Contains the global styles of the application.
 - `public/`: This directory contains all the static files.
-
 
 ## Inspiration and Credits
 

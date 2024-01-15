@@ -12,7 +12,9 @@ const INTERNAL_AVAILABLE_THEMES = [
 	'ubuntu',
 ] as const;
 const AVAILABLE_THEMES = [SYSTEM_THEME, ...INTERNAL_AVAILABLE_THEMES];
-export type RpaRequestStatuses = (typeof AVAILABLE_THEMES)[number];
+
+type RpaRequestStatuses = (typeof AVAILABLE_THEMES)[number];
+
 const mainColorMap: Record<RpaRequestStatuses, [string, string]> = {
 	[SYSTEM_THEME]: ['#fdfff5', '#001B16'],
 	dark: ['#001B16', '#001B16'],
@@ -28,11 +30,12 @@ const mainColorMap: Record<RpaRequestStatuses, [string, string]> = {
 const theme = persistentAtom<RpaRequestStatuses | undefined>('theme', undefined);
 
 function updateTheme(v?: RpaRequestStatuses) {
-	const [light, dark] = mainColorMap[v ?? SYSTEM_THEME]
+	const [light, dark] = mainColorMap[v ?? SYSTEM_THEME];
 	document.getElementById('meta-light')?.setAttribute('content', light);
 	document.getElementById('meta-dark')?.setAttribute('content', dark);
 	if (!v || v === SYSTEM_THEME) {
 		document.body.className = '';
+
 		return;
 	}
 
@@ -61,7 +64,7 @@ const useThemeState = (): ThemeState => {
 	};
 };
 
-export type { ThemeState };
+export type { RpaRequestStatuses, ThemeState };
 
 export { AVAILABLE_THEMES };
 
