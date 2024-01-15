@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    Personal portfolio in terminal format
+    Terminal style portfolio website
 </p>
 
 ![mariomh-terminal--portfolio](docs/terminal.mriomh.com.webp)
