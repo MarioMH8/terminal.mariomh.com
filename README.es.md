@@ -12,7 +12,7 @@
 
 - 📱 Diseño responsive
 - 🎨 Soporte para múltiples temas
-- ✨ Autocompletado de comandos  (TAB | Ctrl + i)
+- ✨ Autocompletado de comandos (TAB | Ctrl + i)
 - ⬆️ Ir al comando anterior y siguiente
 - 📖 Ver el historial de comandos
 - 🔥 PWA y soporte offline
@@ -74,8 +74,8 @@ El proyecto está organizado en varios directorios y archivos principales:
 
 ## Inspiración y créditos
 
-Aquí hay algunas inspiraciones para este tipo de sitio web de terminal. 
-Solo algunas características y funcionalidades están inspiradas en los siguientes sitios web. 
+Aquí hay algunas inspiraciones para este tipo de sitio web de terminal.
+Solo algunas características y funcionalidades están inspiradas en los siguientes sitios web.
 Todo el código está escrito por mi cuenta.
 
 - [Terminal Portfolio by Sat Naing](https://terminal.satnaing.dev/)

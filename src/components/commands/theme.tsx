@@ -6,7 +6,8 @@ import isArgInvalid from '../fn/is-arg-invalid';
 import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 import useHistoryState from '../state/history';
 import useRerenderState from '../state/rerender';
-import useThemeState, { type RpaRequestStatuses } from '../state/theme';
+import type { RpaRequestStatuses } from '../state/theme';
+import useThemeState from '../state/theme';
 import Usage from '../terminal-usage';
 
 const Theme: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
