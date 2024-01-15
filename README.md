@@ -1,43 +1,35 @@
-# Terminal Portfolio Website by MarioMH
+<h1 align="center">
+  terminal.mariomh.com
+</h1>
 
-![Terminal Portfolio Website by MarioMH](https://user-images.githubusercontent.com/53733092/194220661-e2ff8b4c-f64a-4b64-a836-c52fae6bbcda.png)
+<p align="center">
+    Terminal style portfolio website
+</p>
 
-![ts](https://badgen.net/badge/Built%20With/TypeScript/blue?style=flat-square)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/81fdb91d-c06f-46c2-b18d-dfc6f090f281/deploy-status)](https://app.netlify.com/sites/terminal-sn/deploys)
-![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)
-
-My portfolio website in terminal version developed with React, TypeScript and Styled-Components. Multiple themes supported and keyboard shortcuts can be used for some functionalities.
-
-Blog Post: https://blog.mariomh.com/posts/terminal-portfolio
+![mariomh-terminal--portfolio](docs/terminal.mriomh.com.webp)
 
 ## Features
 
-- Responsive Design 📱💻
-- Multiple themes 🎨
-- Autocomplete feature ✨ (TAB | Ctrl + i)
-- Go previous and next command ⬆️⬇️
-- View command history 📖
-- PWA and Offline Support 🔥
-- Well-tested ✅
+- 📱 Responsive Design
+- 🎨 Multiple themes
+- ✨ Autocomplete feature (TAB | Ctrl + i)
+- ⬆️ Go previous and next command
+- 📖 View command history
+- 🔥 PWA and Offline Support
+- 🇬🇧 English and 🇪🇸 Spanish support
 
 ## Tech Stack
 
-**Frontend** - [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)  
-**Styling** - [Styled-Components](https://styled-components.com/)  
-**State Management** - [ContextAPI](https://reactjs.org/docs/context.html)  
-**Testing** - [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/)  
-**Deployment** - [Firebase](https://firebase.google.com/)
-
-## Multiple Themes
-
-Currently, this website supports 6 themes. Type `themes` in the terminal for more info.
-![terminal-portfolio-themes](https://user-images.githubusercontent.com/53733092/194221801-94f1c28b-4865-4b7f-a73e-d41132519bea.png)
+- **Runtime** - [Bun](https://bun.sh)
+- **Frontend** - [Astro](https://astro.build/), [Preact](https://preactjs.com/)
+- **Styling** - Plain CSS
+- **Deployment** - [Firebase](https://firebase.google.com/)
+- **Languages** - [TypeScript](https://www.typescriptlang.org/)
+- **State Management** - [nanostores](https://github.com/nanostores/nanostores)
 
 ## Lighthouse Score
 
-<p align="center">
-<img width="710" alt="Sat Naing Terminal Lighthouse Score" src="public/lighthouse-result.svg">
-</p>
+![lighthouse.webp](docs/lighthouse-result.svg)
 
 ## Running Locally
 
@@ -56,14 +48,29 @@ cd terminal.mariomh.com
 Install dependencies
 
 ```bash
-yarn install
+bun install
 ```
 
 Start the server
 
 ```bash
-yarn dev
+bun dev
 ```
+
+## Deploying the project
+
+Access the GitHub Action [Deploy to Firebase](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/firebase-deploy.yml) and run the workflow.
+
+## Project Structure
+
+The project is organized into several main directories and files:
+
+- `src/`: This directory contains all the source code for the project.
+  - `components/`: Contains the project-specific components.
+  - `layouts/`: Contains the base layout of the page.
+  - `pages/`: Contains the Astro components that represent the pages of the application.
+  - `styles/`: Contains the global styles of the application.
+- `public/`: This directory contains all the static files.
 
 ## Inspiration and Credits
 
@@ -72,7 +79,3 @@ Here are some inspiration for this kind of terminal website. Only some features 
 - [Terminal Portfolio by Sat Naing](https://terminal.satnaing.dev/)
 - [term m4tt72](https://term.m4tt72.com/)
 - [Forrest](https://fkcodes.com/)
-
-## Author
-
-- [@MarioMH](https://terminal.mariomh.com)
