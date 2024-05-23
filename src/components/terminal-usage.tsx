@@ -8,11 +8,11 @@ interface Props {
 	marginY?: boolean;
 }
 
-const arg = {
-	locale: { placeholder: 'locale', example: 'es-ES' },
-	themes: { placeholder: 'themes', example: 'ubuntu' },
-	projects: { placeholder: 'project', example: '4' },
-	socials: { placeholder: 'social', example: '1' },
+const argument = {
+	locale: { example: 'es-ES', placeholder: 'locale' },
+	projects: { example: '4', placeholder: 'project' },
+	socials: { example: '1', placeholder: 'social' },
+	themes: { example: 'ubuntu', placeholder: 'themes' },
 };
 
 const messages = i18n('usage', {
@@ -23,10 +23,12 @@ const messages = i18n('usage', {
 const Usage: FunctionalComponent<Props> = ({ cmd }) => {
 	const t = useStore(messages);
 	const action = cmd === 'themes' || cmd === 'locale' ? 'set' : 'go';
-	const info = arg[cmd];
+	const info = argument[cmd];
 
 	return (
-		<div className='terminal-line-history text-200' data-testid={`${cmd}-invalid-arg`}>
+		<div
+			className='terminal-line-history text-200'
+			data-testid={`${cmd}-invalid-arg`}>
 			<span>
 				{t.command}: {cmd} {action} &#60;{info.placeholder}&#62;
 			</span>

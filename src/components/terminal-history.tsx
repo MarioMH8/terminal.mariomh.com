@@ -12,9 +12,14 @@ const TerminalHistory: FunctionalComponent = () => {
 		<>
 			{sessionHistory.map((command, index) => {
 				return (
-					<div className='terminal-line-history' key={uniqueId(`${command}_`)}>
+					<div
+						className='terminal-line-history'
+						key={uniqueId(`${command}_`)}>
 						<TerminalPrompt command={command} />
-						<TerminalOutput index={index} command={command} />
+						<TerminalOutput
+							command={command}
+							index={index}
+						/>
 					</div>
 				);
 			})}

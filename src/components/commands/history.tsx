@@ -11,7 +11,9 @@ const History: FunctionalComponent<CommandComponentProps> = ({ index }) => {
 	const currentHistory = reverse(slice(history, index));
 
 	return (
-		<div className='terminal-line-history sm' data-testid='history'>
+		<div
+			className='terminal-line-history sm'
+			data-testid='history'>
 			{currentHistory.map(cmd => (
 				<div key={uniqueId(`${cmd}_`)}>{cmd}</div>
 			))}

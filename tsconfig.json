@@ -1,8 +1,10 @@
 {
 	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
+		"jsx": "preserve",
 		"lib": ["dom", "es2022"],
-		"jsx": "preserve"
+		"allowImportingTsExtensions": true
 	},
-	"include": ["**/*.ts", "**/*.tsx"]
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules", "dist"]
 }

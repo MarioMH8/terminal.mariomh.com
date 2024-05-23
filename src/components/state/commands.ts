@@ -38,34 +38,32 @@ export default function useCommandsState(): CommandsState {
 	const commands = useStore($commands);
 
 	return {
-		available: commands
-			.map(c => {
-				const arr = [c.command];
-				if (c.alias) {
-					if (typeof c.alias === 'string') {
-						arr.push(c.alias);
-					} else {
-						arr.push(...c.alias);
-					}
-				}
-
-				return arr;
-			})
-			.flat(),
-		commands: commands.reduce((prev, c) => {
+		available: commands.flatMap(c => {
+			const array = [c.command];
 			if (c.alias) {
 				if (typeof c.alias === 'string') {
-					prev.set(c.alias, c);
+					array.push(c.alias);
 				} else {
-					c.alias.forEach(alias => {
-						prev.set(alias, c);
-					});
+					array.push(...c.alias);
 				}
 			}
 
-			prev.set(c.command, c);
+			return array;
+		}),
+		commands: commands.reduce((previous, c) => {
+			if (c.alias) {
+				if (typeof c.alias === 'string') {
+					previous.set(c.alias, c);
+				} else {
+					for (const alias of c.alias) {
+						previous.set(alias, c);
+					}
+				}
+			}
 
-			return prev;
+			previous.set(c.command, c);
+
+			return previous;
 		}, new Map<string, WebCommand>()),
 		list: commands,
 	};

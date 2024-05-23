@@ -29,7 +29,10 @@ const Email: FunctionalComponent = () => {
 	return (
 		<span>
 			{t.caption}
-			<a className='link' href={MAIL_TO} target='_self'>
+			<a
+				className='link'
+				href={MAIL_TO}
+				target='_self'>
 				{EMAIL}
 			</a>
 			.

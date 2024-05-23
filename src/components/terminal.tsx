@@ -11,7 +11,9 @@ const Terminal = (): JSX.Element => {
 	useThemeState();
 
 	return (
-		<section className='terminal-wrapper' data-testid='terminal-wrapper'>
+		<section
+			className='terminal-wrapper'
+			data-testid='terminal-wrapper'>
 			<TerminalHints />
 			<TerminalPrompt />
 			<TerminalHistory />

@@ -28,7 +28,10 @@ const Gui: FunctionalComponent = () => {
 	return (
 		<span>
 			{t.link}{' '}
-			<a className='link' target='_blank' href='https://mariomh.com'>
+			<a
+				className='link'
+				href='https://mariomh.com'
+				target='_blank'>
 				mariomh.com
 			</a>
 			.

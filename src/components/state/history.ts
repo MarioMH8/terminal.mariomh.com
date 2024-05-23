@@ -6,8 +6,8 @@ import WelcomeCommand from '../commands/welcome';
 
 const $sessionHistory = atom<string[]>([WelcomeCommand.command]);
 const $history = persistentAtom<string[]>('history', [], {
-	encode: JSON.stringify,
 	decode: JSON.parse,
+	encode: JSON.stringify,
 });
 const actualHistory = $history.get();
 const lastActualHistory = actualHistory.at(0);
@@ -34,25 +34,25 @@ export default function useHistoryState(): HistoryState {
 	const pointer = useStore($pointer);
 
 	return {
-		pointer,
-		history,
-		sessionHistory,
-		clearHistory() {
-			$history.set([]);
-			$sessionHistory.set([]);
-		},
 		addHistory(command: string) {
 			$history.set([command, ...$history.get()]);
 			$sessionHistory.set([command, ...$sessionHistory.get()]);
 		},
-		setPointer(value: number) {
-			$pointer.set(value);
-		},
-		incrementPointer() {
-			$pointer.set($pointer.get() + 1);
+		clearHistory() {
+			$history.set([]);
+			$sessionHistory.set([]);
 		},
 		decrementPointer() {
 			$pointer.set($pointer.get() - 1);
+		},
+		history,
+		incrementPointer() {
+			$pointer.set($pointer.get() + 1);
+		},
+		pointer,
+		sessionHistory,
+		setPointer(value: number) {
+			$pointer.set(value);
 		},
 	};
 }

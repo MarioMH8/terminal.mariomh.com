@@ -12,7 +12,7 @@ const SYSTEM_LOCALE = 'system';
 const DEFAULT_LOCALES = 'es-ES';
 const INTERNAL_AVAILABLE_LOCALES = [DEFAULT_LOCALES, 'en-EN'];
 const AVAILABLE_LOCALES = [SYSTEM_LOCALE, ...INTERNAL_AVAILABLE_LOCALES];
-const setting = persistentAtom<string | undefined>('locale', undefined);
+const setting = persistentAtom<string | undefined>('locale');
 
 const locale = localeFrom(
 	setting,
@@ -45,10 +45,10 @@ const i18n = createI18n(locale, {
 		if (response.ok) {
 			const jsonData = (await response.json()) as ComponentsJSON;
 
-			return Promise.resolve(jsonData);
+			return jsonData;
 		}
 
-		return Promise.resolve({});
+		return {};
 	},
 });
 

@@ -7,11 +7,11 @@ import type { ComponentCommand } from '../state/commands';
 import { i18n } from '../state/locale';
 
 const messages = i18n('about', {
-	hi: 'Hola, me llamo',
-	im: `Soy`,
-	developer: `un desarrollador JavaScript`,
 	based: `que trabaja desde Madrid, España.`,
 	description: `Apasionado de la programación. Me encanta desarrollar aplicaciones que resuelvan problemas del día a día.`,
+	developer: `un desarrollador JavaScript`,
+	hi: 'Hola, me llamo',
+	im: `Soy`,
 });
 
 const About: FunctionalComponent = () => {

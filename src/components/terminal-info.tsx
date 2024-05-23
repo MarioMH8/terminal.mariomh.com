@@ -3,7 +3,7 @@ import type { JSX } from 'preact';
 import useInfoState from './state/info';
 
 const TerminalInfo = (): JSX.Element => {
-	const { host, user, separator } = useInfoState();
+	const { host, separator, user } = useInfoState();
 
 	return (
 		<span className='prompt-info'>

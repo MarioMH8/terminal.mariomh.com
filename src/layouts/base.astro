@@ -1,47 +1,63 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO } from 'astro-seo';
 
-import AppStyles from '../styles/app.astro'
-import FontsStyles from '../styles/fonts.astro'
-import ResetStyles from '../styles/reset.astro'
-import ScrollbarStyles from '../styles/scrollbar.astro'
+import AppStyles from '../styles/app.astro';
+import FontsStyles from '../styles/fonts.astro';
+import ResetStyles from '../styles/reset.astro';
+import ScrollbarStyles from '../styles/scrollbar.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="es-ES">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!doctype html>
+<html lang='es-ES'>
+	<head>
+		<meta charset='utf-8' />
+		<meta
+			content='width=device-width, initial-scale=1.0'
+			name='viewport'
+		/>
 
-	<SEO
-		title='MarioMH | Línea de comandos'
-		description="Portfolio de MarioMH en línea de comandos."
-		openGraph={{
-			basic: {
-				title: "MarioMH | Línea de comandos",
-				type: "website",
-				image: "/og/mariomh.png",
-			}
-		}}
-		twitter={{
-			creator: "@MarioMH8"
-		}}
-	/>
-	<link rel="sitemap" href="/sitemap-index.xml">
+		<SEO
+			description='Portfolio de MarioMH en línea de comandos.'
+			openGraph={{
+				basic: {
+					image: '/og/mariomh.png',
+					title: 'MarioMH | Línea de comandos',
+					type: 'website',
+				},
+			}}
+			title='MarioMH | Línea de comandos'
+			twitter={{
+				creator: '@MarioMH8',
+			}}
+		/>
+		<link
+			href='/sitemap-index.xml'
+			rel='sitemap'
+		/>
 
-	<meta id='meta-light' name="theme-color" content="#fdfff5" media="(prefers-color-scheme: light)">
-	<meta id='meta-dark' name="theme-color" content="#001B16" media="(prefers-color-scheme: dark)">
+		<meta
+			content='#fdfff5'
+			id='meta-light'
+			media='(prefers-color-scheme: light)'
+			name='theme-color'
+		/>
+		<meta
+			content='#001B16'
+			id='meta-dark'
+			media='(prefers-color-scheme: dark)'
+			name='theme-color'
+		/>
 
-	<script src="/src/pwa.ts"></script>
+		<script src='/src/pwa.ts'></script>
 
-	<AppStyles/>
-	<FontsStyles/>
-	<ResetStyles/>
-	<ScrollbarStyles/>
-</head>
-<body>
-<main>
-	<slot/>
-</main>
-</body>
+		<AppStyles />
+		<FontsStyles />
+		<ResetStyles />
+		<ScrollbarStyles />
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+	</body>
 </html>

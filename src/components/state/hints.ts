@@ -13,10 +13,10 @@ export default function useHintsState(): HintsState {
 	const hints = useStore($hints);
 
 	return {
-		hints,
 		clearHints() {
 			$hints.set([]);
 		},
+		hints,
 		setHints(command: string[]) {
 			$hints.set(command);
 		},

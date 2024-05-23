@@ -1,204 +1,196 @@
 <style is:global>
-    body {
-		--font-family-primary: 'IBM Plex Mono', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	body {
+		--font-family-primary: 'IBM Plex Mono', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+			Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
 		--font-weight-base: 500;
 
-        --size-sm: clamp(0.7rem, 0.26vw + 0.63rem, 0.84rem);
-        --size-base: clamp(0.88rem, 0.45vw + 0.76rem, 1.13rem);
+		--size-sm: clamp(0.7rem, 0.26vw + 0.63rem, 0.84rem);
+		--size-base: clamp(0.88rem, 0.45vw + 0.76rem, 1.13rem);
 
-        --color-text-100: #64748b;
-        --color-text-200: #475569;
-        --color-text-300: #334155;
+		--color-text-100: #64748b;
+		--color-text-200: #475569;
+		--color-text-300: #334155;
 
-        --color-background: #fdfff5;
-        --color-foreground: var(--color-text-100);
-        --color-primary: #83AC2A;
-        --color-primary-200: #648e0a;
-        --color-secondary: #FF9D00;
-        --color-scroll-handle: var(--color-primary);
-        --color-scroll-handle-hover: var(--color-primary-200);
+		--color-background: #fdfff5;
+		--color-foreground: var(--color-text-100);
+		--color-primary: #83ac2a;
+		--color-primary-200: #648e0a;
+		--color-secondary: #ff9d00;
+		--color-scroll-handle: var(--color-primary);
+		--color-scroll-handle-hover: var(--color-primary-200);
 	}
 
 	@media (prefers-color-scheme: dark) {
+		body {
+			--color-text-100: #b4bec8;
+			--color-text-200: #87919b;
+			--color-text-300: #78828c;
 
-        body {
-
-            --color-text-100: #b4bec8;
-            --color-text-200: #87919b;
-            --color-text-300: #78828c;
-
-            --color-background: #001B16;
+			--color-background: #001b16;
 		}
 	}
 
 	body.light {
+		--color-text-100: #64748b;
+		--color-text-200: #475569;
+		--color-text-300: #334155;
 
-        --color-text-100: #64748b;
-        --color-text-200: #475569;
-        --color-text-300: #334155;
-
-        --color-background: #fdfff5;
-        --color-foreground: var(--color-text-100);
-        --color-primary: #83AC2A;
-        --color-primary-200: #648e0a;
-        --color-secondary: #FF9D00;
-        --color-scroll-handle: var(--color-primary);
-        --color-scroll-handle-hover: var(--color-primary-200);
+		--color-background: #fdfff5;
+		--color-foreground: var(--color-text-100);
+		--color-primary: #83ac2a;
+		--color-primary-200: #648e0a;
+		--color-secondary: #ff9d00;
+		--color-scroll-handle: var(--color-primary);
+		--color-scroll-handle-hover: var(--color-primary-200);
 	}
 
 	body.dark {
+		--color-text-100: #b4bec8;
+		--color-text-200: #87919b;
+		--color-text-300: #78828c;
 
-        --color-text-100: #b4bec8;
-        --color-text-200: #87919b;
-        --color-text-300: #78828c;
-
-        --color-background: #001B16;
+		--color-background: #001b16;
 	}
 
 	body.dark-blue {
+		--color-text-100: #cbd5e1;
+		--color-text-200: #b2bdcc;
+		--color-text-300: #64748b;
 
-        --color-text-100: #cbd5e1;
-        --color-text-200: #B2BDCC;
-        --color-text-300: #64748b;
-
-        --color-background: #1D2A35;
-        --color-primary: #05CE91;
-        --color-primary-200: rgba(5, 170, 115, 0.7);
-        --color-secondary: #FF9D00;
-        --color-scroll-handle: #19252E;
-        --color-scroll-handle-hover: #162028;
+		--color-background: #1d2a35;
+		--color-primary: #05ce91;
+		--color-primary-200: rgba(5, 170, 115, 0.7);
+		--color-secondary: #ff9d00;
+		--color-scroll-handle: #19252e;
+		--color-scroll-handle-hover: #162028;
 	}
 
 	body.light-gray {
+		--color-text-100: #334155;
+		--color-text-200: #475569;
+		--color-text-300: #64748b;
 
-        --color-text-100: #334155;
-        --color-text-200: #475569;
-        --color-text-300: #64748b;
-
-        --color-background: #EFF3F3;
-        --color-primary: #027474;
-        --color-primary-200: #006464;
-        --color-secondary: #FF9D00;
-        --color-scroll-handle:  #C1C1C1;
-        --color-scroll-handle-hover:  #AAAAAA;
+		--color-background: #eff3f3;
+		--color-primary: #027474;
+		--color-primary-200: #006464;
+		--color-secondary: #ff9d00;
+		--color-scroll-handle: #c1c1c1;
+		--color-scroll-handle-hover: #aaaaaa;
 	}
 
 	body.blue-matrix {
+		--color-text-100: #ffffff;
+		--color-text-200: #c7c7c7;
+		--color-text-300: #76ff9f;
 
-        --color-text-100: #ffffff;
-        --color-text-200: #c7c7c7;
-        --color-text-300: #76ff9f;
-
-        --color-background: #101116;
-        --color-primary: #00ff9c;
-        --color-primary-200: rgb(0, 210, 130);
-        --color-secondary: #60fdff;
-        --color-scroll-handle: #424242;
-        --color-scroll-handle-hover: #616161;
+		--color-background: #101116;
+		--color-primary: #00ff9c;
+		--color-primary-200: rgb(0, 210, 130);
+		--color-secondary: #60fdff;
+		--color-scroll-handle: #424242;
+		--color-scroll-handle-hover: #616161;
 	}
 
 	body.espresso {
+		--color-text-100: #f7f7f7;
+		--color-text-200: #eeeeee;
+		--color-text-300: #5b5b5b;
 
-        --color-text-100: #F7F7F7;
-        --color-text-200: #EEEEEE;
-        --color-text-300: #5b5b5b;
-
-        --color-background: #323232;
-        --color-primary: #E1E48B;
-        --color-primary-200: rgb(200, 200, 115);
-        --color-secondary: #A5C260;
-        --color-scroll-handle: #5b5b5b;
-        --color-scroll-handle-hover: #393939;
+		--color-background: #323232;
+		--color-primary: #e1e48b;
+		--color-primary-200: rgb(200, 200, 115);
+		--color-secondary: #a5c260;
+		--color-scroll-handle: #5b5b5b;
+		--color-scroll-handle-hover: #393939;
 	}
 
 	body.green-goblin {
+		--color-text-100: #01ff00;
+		--color-text-200: #04a5b2;
+		--color-text-300: #e50101;
 
-        --color-text-100: #01FF00;
-        --color-text-200: #04A5B2;
-        --color-text-300: #E50101;
-
-        --color-background: #000000;
-        --color-primary: #E5E500;
-        --color-primary-200: #bebe00;
-        --color-secondary: #04A500;
-        --color-scroll-handle: #2E2E2E;
-        --color-scroll-handle-hover: #414141;
+		--color-background: #000000;
+		--color-primary: #e5e500;
+		--color-primary-200: #bebe00;
+		--color-secondary: #04a500;
+		--color-scroll-handle: #2e2e2e;
+		--color-scroll-handle-hover: #414141;
 	}
 
 	body.ubuntu {
+		--color-text-100: #ffffff;
+		--color-text-200: #e1e9cc;
+		--color-text-300: #cdcdcd;
 
-        --color-text-100: #FFFFFF;
-        --color-text-200: #E1E9CC;
-        --color-text-300: #CDCDCD;
-
-        --color-background: #2D0922;
-        --color-primary: #80D932;
-        --color-primary-200: #bebe00;
-        --color-secondary: #80D932;
-        --color-scroll-handle: #F47845;
-        --color-scroll-handle-hover: #E65F31;
+		--color-background: #2d0922;
+		--color-primary: #80d932;
+		--color-primary-200: #bebe00;
+		--color-secondary: #80d932;
+		--color-scroll-handle: #f47845;
+		--color-scroll-handle-hover: #e65f31;
 	}
 
-    body {
-        background-color: var(--color-background);
-        font-weight: var(--font-weight-base);
-        font-size: var(--size-base);
-        font-family: var(--font-family-primary);
-        color: var(--color-foreground);
+	body {
+		background-color: var(--color-background);
+		font-weight: var(--font-weight-base);
+		font-size: var(--size-base);
+		font-family: var(--font-family-primary);
+		color: var(--color-foreground);
 
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 
-    *, ::before, ::after {
-        border-width: 0;
-        border-style: solid;
-        border-color: currentColor;
-    }
+	*,
+	::before,
+	::after {
+		border-width: 0;
+		border-style: solid;
+		border-color: currentColor;
+	}
 
-    p {
-        margin: 0;
-    }
+	p {
+		margin: 0;
+	}
 
-    input[type=text] {
-        background-color: var(--color-background);
-        color: var(--color-text-100);
-        caret-color: var(--color-primary);
-    }
+	input[type='text'] {
+		background-color: var(--color-background);
+		color: var(--color-text-100);
+		caret-color: var(--color-primary);
+	}
 
-    input[type=text]:focus-visible {
-        outline: none;
-    }
+	input[type='text']:focus-visible {
+		outline: none;
+	}
 
 	.text-200 {
 		color: var(--color-text-200);
 	}
 
-    .link {
-        display: inline-block;
-        color: var(--color-secondary);
-        text-decoration: none;
-        line-height: 1.5rem;
-        white-space: nowrap;
-        border-bottom: 2px dashed var(--color-secondary);
-    }
+	.link {
+		display: inline-block;
+		color: var(--color-secondary);
+		text-decoration: none;
+		line-height: 1.5rem;
+		white-space: nowrap;
+		border-bottom: 2px dashed var(--color-secondary);
+	}
 
-    .link:hover {
-        border-bottom-style: solid;
-    }
+	.link:hover {
+		border-bottom-style: solid;
+	}
 
-    .sr-only {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-    }
-
+	.sr-only {
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
 </style>

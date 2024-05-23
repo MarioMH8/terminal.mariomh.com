@@ -4,22 +4,24 @@ import { params } from '@nanostores/i18n';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
 
-import pkg from '../../../package.json';
+import package_ from '../../../package.json';
 import type { ComponentCommand } from '../state/commands';
 import { i18n } from '../state/locale';
 
 const messages = i18n('welcome', {
-	title: params<{ version: string }>('Bienvenido a mi portfolio en linea de comandos. (Versión {version})'),
+	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',
 	project_source: 'Puedes ver el código fuente del proyecto en el siguiente ',
 	repo: 'repositorio de GitHub',
-	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',
+	title: params<{ version: string }>('Bienvenido a mi portfolio en linea de comandos. (Versión {version})'),
 });
 
 const Welcome: FunctionalComponent = () => {
 	const t = useStore(messages);
 
 	return (
-		<div className='hero' data-testid='welcome'>
+		<div
+			className='hero'
+			data-testid='welcome'>
 			<div className='info-section'>
 				<pre className='name'>
 					{`___  ___           _      ___  ___ _   _ 
@@ -45,11 +47,14 @@ const Welcome: FunctionalComponent = () => {
     | |  | || | | |        
     \\_|  |_/\\_| |_/`}
 				</pre>
-				<p>{t.title({ version: pkg.version })}</p>
+				<p>{t.title({ version: package_.version })}</p>
 				<span>----</span>
 				<p>
 					{t.project_source}
-					<a className='link' target='_blank' href='https://github.com/MarioMH8/terminal.mariomh.com'>
+					<a
+						className='link'
+						href='https://github.com/MarioMH8/terminal.mariomh.com'
+						target='_blank'>
 						{t.repo}
 					</a>
 					.
