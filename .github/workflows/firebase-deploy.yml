@@ -65,4 +65,4 @@ jobs:
                     repoToken: ${{ secrets.GITHUB_TOKEN }}
                     firebaseServiceAccount: "${{ env.SERVICE_ACCOUNT_KEY }}"
                     channelId: live
-                    projectId: mariomh-com
+                    projectId: mariomh
