@@ -1,6 +1,7 @@
 {
 	"name": "@mariomh/terminal-portfolio",
 	"version": "2.0.2",
+	"author": "MarioMH8",
 	"description": "Mario Menéndez portfolio",
 	"keywords": [
 		"github",
@@ -14,16 +15,16 @@
 		"terminal-style-website",
 		"terminal-styled"
 	],
-	"homepage": "https://github.com/MarioMH8/terminal.mariomh.com",
-	"bugs": {
-		"url": "https://github.com/MarioMH8/terminal.mariomh.com/issues"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MarioMH8/terminal.mariomh.com"
 	},
-	"author": "MarioMH8",
+	"homepage": "https://github.com/MarioMH8/terminal.mariomh.com",
+	"bugs": {
+		"url": "https://github.com/MarioMH8/terminal.mariomh.com/issues"
+	},
 	"license": "PRIVATE",
+	"type": "module",
 	"scripts": {
 		"build": "astro build",
 		"dev": "astro dev",
@@ -34,41 +35,34 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@nanostores/i18n": "0.12.0",
-		"@nanostores/persistent": "0.9.1",
-		"@nanostores/preact": "0.5.0",
-		"astro": "4.1.2",
-		"astro-seo": "0.8.0",
+		"@nanostores/i18n": "0.12.1",
+		"@nanostores/persistent": "0.10.1",
+		"@nanostores/preact": "0.5.1",
+		"astro": "4.8.1",
+		"astro-seo": "0.8.3",
 		"lodash": "4.17.21",
-		"nanostores": "0.9.5",
+		"nanostores": "0.10.3",
 		"normalize.css": "8.0.1",
-		"preact": "10.19.3"
+		"preact": "10.22.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "0.4.1",
-		"@astrojs/preact": "3.1.0",
-		"@astrojs/sitemap": "3.0.4",
-		"@hexatool/eslint-config": "2.3.0",
+		"@astrojs/check": "0.7.0",
+		"@astrojs/preact": "3.3.0",
+		"@astrojs/sitemap": "3.1.5",
+		"@hexadrop/eslint-config": "0.0.1-beta.2",
 		"@types/lodash": "4.14.202",
-		"@vite-pwa/astro": "0.2.0",
-		"astro-compress": "2.2.8",
-		"astro-eslint-parser": "0.16.1",
+		"@vite-pwa/astro": "0.4.0",
+		"astro-compress": "2.2.23",
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
-		"eslint": "8.56.0",
-		"eslint-plugin-astro": "0.31.1",
-		"eslint-plugin-jsx-a11y": "6.8.0",
+		"eslint": "9.3.0",
 		"typescript": "5.3.3"
 	},
 	"overrides": {
 		"react": "npm:@preact/compat@latest",
-		"react-dom": "npm:@preact/compat@latest",
-		"sharp": "0.33.2"
+		"react-dom": "npm:@preact/compat@latest"
 	},
 	"trustedDependencies": [
 		"sharp"
-	],
-	"engines": {
-		"node": "20"
-	}
+	]
 }

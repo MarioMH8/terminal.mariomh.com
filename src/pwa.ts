@@ -1,8 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error TS2307: Cannot find module virtual:pwa-register or its corresponding type declarations.
+// eslint-disable-next-line import/no-unresolved
 import { registerSW } from 'virtual:pwa-register';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+// eslint-disable-next-line typescript/no-unsafe-call
 registerSW({
 	immediate: true,
 });

@@ -12,7 +12,9 @@ const TerminalHints = (): JSX.Element => {
 			{hints.length > 1 && (
 				<div>
 					{hints.map(hint => (
-						<span className='hints' key={hint}>
+						<span
+							className='hints'
+							key={hint}>
 							{hint}
 						</span>
 					))}

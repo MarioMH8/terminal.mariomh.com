@@ -4,16 +4,16 @@ import type { FunctionalComponent } from 'preact';
 
 import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 
-const Echo: FunctionalComponent<CommandComponentProps> = ({ args = [] }) => {
-	let outputStr = join(args, ' ');
+const Echo: FunctionalComponent<CommandComponentProps> = ({ args: arguments_ = [] }) => {
+	let outputString = join(arguments_, ' ');
 	// Remove trailing single quotes ''
-	outputStr = trim(outputStr, "'");
+	outputString = trim(outputString, `'`);
 	// Remove trailing double quotes ""
-	outputStr = trim(outputStr, '"');
+	outputString = trim(outputString, '"');
 	// Remove trailing backtick ``
-	outputStr = trim(outputStr, '`');
+	outputString = trim(outputString, '`');
 
-	return <div className='terminal-line-history'>{outputStr}</div>;
+	return <div className='terminal-line-history'>{outputString}</div>;
 };
 
 const EchoCommand: ComponentCommand = {

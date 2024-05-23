@@ -18,12 +18,12 @@ const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({ command, ind
 	const sanitize = command.trim();
 	const splitCommands = sanitize.split(' ');
 	const first = splitCommands[0] ?? '';
-	const args = splitCommands.slice(1);
+	const commandArguments = splitCommands.slice(1);
 
 	const found = commands.get(first);
 	if (found) {
 		if ('component' in found) {
-			return found.component({ args, index });
+			return found.component({ args: commandArguments, index });
 		}
 		if ('action' in found) {
 			found.action();
@@ -32,7 +32,12 @@ const TerminalOutput: FunctionalComponent<TerminalOutputProps> = ({ command, ind
 		}
 	}
 
-	return <NotFound index={index} command={command} />;
+	return (
+		<NotFound
+			command={command}
+			index={index}
+		/>
+	);
 };
 
 export default TerminalOutput;

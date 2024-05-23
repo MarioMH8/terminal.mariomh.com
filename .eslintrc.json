@@ -1,3 +1,0 @@
-{
-	"extends": ["@hexatool/eslint-config/recommended", "@hexatool/eslint-config/astro"]
-}

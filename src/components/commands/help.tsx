@@ -10,12 +10,12 @@ import { i18n } from '../state/locale';
 
 const helpMessages = i18n('help', {
 	alias: 'alias',
+	ctrl_l: 'Ctrl + l',
+	ctrl_l_desc: 'limpiar la consola',
 	tab_ctrl: 'Tab o Ctrl + i',
 	tab_ctrl_desc: 'autocompleta el comando',
 	up_arrow: 'Flecha arriba',
 	up_arrow_desc: 'muestra el comando previo',
-	ctrl_l: 'Ctrl + l',
-	ctrl_l_desc: 'limpiar la consola',
 });
 
 const descriptionMessages = i18n('commands', {
@@ -27,11 +27,11 @@ const descriptionMessages = i18n('commands', {
 	gui: 'ir a mi portfolio en formato web',
 	help: 'lista de los comandos disponibles',
 	history: 'mostrar el historial de comandos',
+	locale: 'muestra los idiomas disponibles',
 	projects: 'muestra todos mis proyectos',
 	pwd: 'muestra el directorio actual',
 	socials: 'muestra mis redes sociales',
 	themes: 'muestra los temas disponibles',
-	locale: 'muestra los idiomas disponibles',
 	welcome: 'muestra el mensaje de bienvenida',
 	whoami: 'información del usuario',
 });
@@ -45,23 +45,25 @@ const Help: FunctionalComponent = () => {
 	const { list } = useCommandsState();
 
 	return (
-		<div className='terminal-line-history sm' data-testid='help'>
-			{list.map(({ command, alias }) => (
+		<div
+			className='terminal-line-history sm'
+			data-testid='help'>
+			{list.map(({ alias, command }) => (
 				<>
 					<div key={command}>
 						<span className='command-name'>{command}</span>
 						{generateTabs(MAX_COLUMNS_COMMANDS - command.length)}
-						{/* @ts-expect-error TS7053: Element implicitly has an any type because expression of type string can't be used to index type*/}
+						{/* @ts-expect-error TS7053: Element implicitly has an any type because expression of type string can't be used to index type */}
 						<span className='command-description'>- {d[command]}</span>
 					</div>
 					{alias ? (
 						<div key={`${command}-alias`}>
 							{generateTabs(MAX_COLUMNS_COMMANDS + 2)}
 							<span>{h.alias}: </span>
-							{alias.map((a, i, array) => (
+							{alias.map((a, index, array) => (
 								<>
 									<span class='command-name'>{a}</span>
-									{i === array.length - 1 ? undefined : ', '}
+									{index === array.length - 1 ? undefined : ', '}
 								</>
 							))}
 						</div>

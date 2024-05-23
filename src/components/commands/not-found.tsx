@@ -11,7 +11,7 @@ const NotFound: FunctionalComponent<{ command?: string | undefined; index: numbe
 	const t = useStore(messages);
 
 	return (
-		<div data-testid={`not-found-${index}`}>
+		<div data-testid={`not-found-${index.toFixed(0)}`}>
 			{t.command}: {command}
 		</div>
 	);

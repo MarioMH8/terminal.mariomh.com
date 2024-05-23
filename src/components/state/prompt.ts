@@ -23,15 +23,15 @@ export interface PromptState {
 
 export default function usePromptState(): PromptState {
 	const value = useStore($prompt);
-	const ref = createRef<HTMLInputElement>();
-	const { addHistory, setPointer, clearHistory, pointer, history, incrementPointer, decrementPointer } =
+	const reference = createRef<HTMLInputElement>();
+	const { addHistory, clearHistory, decrementPointer, history, incrementPointer, pointer, setPointer } =
 		useHistoryState();
 	const { clearHints, setHints } = useHintsState();
 	const { setRerender } = useRenderState();
 	const { commands } = useCommandsState();
 
-	const onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement>> = (e: TargetedEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const onSubmit: JSX.EventHandler<TargetedEvent<HTMLFormElement>> = (event: TargetedEvent<HTMLFormElement>) => {
+		event.preventDefault();
 
 		addHistory($prompt.get());
 		$prompt.set('');
@@ -40,30 +40,32 @@ export default function usePromptState(): PromptState {
 		setPointer(-1);
 	};
 
-	const onKeyDown: JSX.KeyboardEventHandler<HTMLInputElement> = (e: JSX.TargetedKeyboardEvent<HTMLInputElement>) => {
+	const onKeyDown: JSX.KeyboardEventHandler<HTMLInputElement> = (
+		event: JSX.TargetedKeyboardEvent<HTMLInputElement>
+	) => {
 		setRerender(false);
-		const ctrlI = e.ctrlKey && e.key.toLowerCase() === 'i';
-		const ctrlL = e.ctrlKey && e.key.toLowerCase() === 'l';
-		const tab = e.key === 'Tab';
-		const arrowUp = e.key === 'ArrowUp';
-		const arrowDown = e.key === 'ArrowDown';
+		const ctrlI = event.ctrlKey && event.key.toLowerCase() === 'i';
+		const ctrlL = event.ctrlKey && event.key.toLowerCase() === 'l';
+		const tab = event.key === 'Tab';
+		const arrowUp = event.key === 'ArrowUp';
+		const arrowDown = event.key === 'ArrowDown';
 
 		if (ctrlI || tab) {
-			e.preventDefault();
+			event.preventDefault();
 			const actualValue = $prompt.get().trim().split(' ');
-			const actualValueWithoutLast = actualValue.slice(0, actualValue.length - 2);
+			const actualValueWithoutLast = actualValue.slice(0, -2);
 			const hints = getHints(actualValue, commands);
 			if (hints.length === 1) {
 				const hit = hints[0] ?? '';
 				actualValueWithoutLast.push(hit);
-				$prompt.set(`${actualValueWithoutLast.join(' ')}`);
+				$prompt.set(actualValueWithoutLast.join(' '));
 			} else {
 				setHints(hints);
 			}
 		} else if (ctrlL) {
 			clearHistory();
 		} else if (arrowUp) {
-			e.preventDefault();
+			event.preventDefault();
 			if (pointer >= history.length) {
 				return;
 			}
@@ -74,9 +76,9 @@ export default function usePromptState(): PromptState {
 
 			$prompt.set(history[pointer + 1] ?? '');
 			incrementPointer();
-			ref.current?.blur();
+			reference.current?.blur();
 		} else if (arrowDown) {
-			e.preventDefault();
+			event.preventDefault();
 			if (pointer < 0) {
 				return;
 			}
@@ -90,24 +92,24 @@ export default function usePromptState(): PromptState {
 
 			$prompt.set(history[pointer - 1] ?? '');
 			decrementPointer();
-			ref.current?.blur();
+			reference.current?.blur();
 		}
 	};
 
-	const onPromptChange: JSX.GenericEventHandler<HTMLInputElement> = (e: JSX.TargetedEvent<HTMLInputElement>) => {
+	const onPromptChange: JSX.GenericEventHandler<HTMLInputElement> = (event: JSX.TargetedEvent<HTMLInputElement>) => {
 		setRerender(false);
-		$prompt.set(e.currentTarget.value);
+		$prompt.set(event.currentTarget.value);
 	};
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			ref.current?.focus();
+			reference.current?.focus();
 		}, 1);
 
 		return () => clearTimeout(timer);
-	}, [ref]);
+	}, [reference]);
 	const handleDivClick = () => {
-		ref.current?.focus();
+		reference.current?.focus();
 	};
 	useEffect(() => {
 		document.addEventListener('click', handleDivClick);
@@ -115,13 +117,13 @@ export default function usePromptState(): PromptState {
 		return () => {
 			document.removeEventListener('click', handleDivClick);
 		};
-	}, [ref]);
+	}, [reference]);
 
 	return {
 		onKeyDown,
 		onPromptChange,
 		onSubmit,
+		ref: reference,
 		value,
-		ref,
 	};
 }

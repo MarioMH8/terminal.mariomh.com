@@ -1,11 +1,13 @@
 ---
-import Terminal from '../components/terminal';
+import Terminal from '../components/terminal.tsx';
 import BaseLayout from '../layouts/base.astro';
 ---
 
 <BaseLayout>
-	<h1 class='sr-only' aria-label='Terminal Portfolio'>
+	<h1
+		aria-label='Terminal Portfolio'
+		class='sr-only'>
 		Terminal portfolio
 	</h1>
-	<Terminal client:only="preact" />
+	<Terminal client:only='preact' />
 </BaseLayout>
