@@ -32,7 +32,7 @@
 		"lint:fix": "eslint --fix .",
 		"postinstall": "astro sync",
 		"start": "astro preview",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit && astro check"
 	},
 	"dependencies": {
 		"@nanostores/i18n": "0.12.1",
@@ -51,7 +51,7 @@
 		"@astrojs/sitemap": "3.1.5",
 		"@astrojs/ts-plugin": "1.8.0",
 		"@hexadrop/eslint-config": "0.0.1-beta.3",
-		"@hexadrop/tsconfig": "0.0.3",
+		"@hexadrop/tsconfig": "0.0.4",
 		"@types/lodash": "4.17.4",
 		"@vite-pwa/astro": "0.4.0",
 		"astro-compress": "2.2.23",
