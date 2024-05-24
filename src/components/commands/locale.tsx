@@ -2,7 +2,7 @@ import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
 
 import checkLocaleSwitch from '../fn/check-locale-switch';
-import isArgumentInvalid from '../fn/is-argument-invalid.ts';
+import isArgumentInvalid from '../fn/is-argument-invalid';
 import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 import useHistoryState from '../state/history';
 import useLocaleState from '../state/locale';
