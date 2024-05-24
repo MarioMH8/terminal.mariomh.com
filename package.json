@@ -61,7 +61,7 @@
 		"typescript": "5.4.5"
 	},
 	"overrides": {
-		"react": "npm:@preact/compat@10.22.0",
+		"react": "npm:@preact/compat@17.1.2",
 		"react-dom": "npm:@preact/compat@17.1.2"
 	}
 }
