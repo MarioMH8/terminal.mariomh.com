@@ -2,6 +2,7 @@
 	"extends": "@hexadrop/tsconfig",
 	"compilerOptions": {
 		"jsxImportSource": "preact",
+		"baseUrl": ".",
 		"plugins": [
 			{
 				"name": "@astrojs/ts-plugin"

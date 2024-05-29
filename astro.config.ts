@@ -35,7 +35,6 @@ export default defineConfig({
 				globPatterns: ['**/*.{js,css,html,svg,png}'],
 			},
 		}),
-		// @ts-expect-error TS2322: Type AstroIntegration is not assignable to type
 		compress(),
 	],
 	site: 'https://terminal.mariomh.com',
