@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"jsxImportSource": "preact",
 		"baseUrl": ".",
+		"allowImportingTsExtensions": true,
 		"plugins": [
 			{
 				"name": "@astrojs/ts-plugin"
