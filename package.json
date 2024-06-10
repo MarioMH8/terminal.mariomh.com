@@ -39,7 +39,7 @@
 		"@nanostores/persistent": "0.10.1",
 		"@nanostores/preact": "0.5.1",
 		"astro": "4.9.2",
-		"astro-seo": "0.8.3",
+		"astro-seo": "0.8.4",
 		"lodash": "4.17.21",
 		"nanostores": "0.10.3",
 		"normalize.css": "8.0.1",
