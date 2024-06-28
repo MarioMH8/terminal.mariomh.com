@@ -50,7 +50,7 @@
 		"@astrojs/preact": "3.5.0",
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/ts-plugin": "1.8.0",
-		"@hexadrop/eslint-config": "0.0.1-beta.13",
+		"@hexadrop/eslint-config": "0.0.1-beta.14",
 		"@hexadrop/tsconfig": "0.0.5",
 		"@types/lodash": "4.17.6",
 		"@vite-pwa/astro": "0.4.0",
