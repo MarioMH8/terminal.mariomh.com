@@ -58,7 +58,7 @@
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "9.7.0",
-		"typescript": "5.5.3"
+		"typescript": "5.5.4"
 	},
 	"overrides": {
 		"react": "npm:@preact/compat@17.1.2",
