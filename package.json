@@ -46,7 +46,7 @@
 		"preact": "10.22.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "0.8.2",
+		"@astrojs/check": "0.8.3",
 		"@astrojs/preact": "3.5.0",
 		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/ts-plugin": "1.9.0",
