@@ -62,6 +62,6 @@
 	},
 	"overrides": {
 		"react": "npm:@preact/compat@17.1.2",
-		"react-dom": "npm:@preact/compat@17.1.2"
+		"react-dom": "npm:@preact/compat@18.3.1"
 	}
 }
