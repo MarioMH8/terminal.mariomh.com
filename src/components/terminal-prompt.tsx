@@ -31,7 +31,7 @@ const TerminalPrompt = ({ command }: TerminalPrompt): JSX.Element => {
 					onInput={onPromptChange}
 					onKeyDown={onKeyDown}
 					ref={ref}
-					spellCheck={false}
+					spellcheck={false}
 					title='terminal-input'
 					type='text'
 					value={value}
