@@ -18,7 +18,6 @@ type RpaRequestStatuses = (typeof AVAILABLE_THEMES)[number];
 const SYSTEM_THEME_COLORS: [string, string] = ['#fdfff5', '#001B16'];
 
 const mainColorMap: Record<RpaRequestStatuses, [string, string]> = {
-	[SYSTEM_THEME]: SYSTEM_THEME_COLORS,
 	'blue-matrix': ['#101116', '#101116'],
 	dark: ['#001B16', '#001B16'],
 	'dark-blue': ['#1D2A35', '#1D2A35'],
@@ -26,6 +25,7 @@ const mainColorMap: Record<RpaRequestStatuses, [string, string]> = {
 	'green-goblin': ['#000000', '#000000'],
 	light: ['#fdfff5', '#fdfff5'],
 	'light-gray': ['#EFF3F3', '#EFF3F3'],
+	[SYSTEM_THEME]: SYSTEM_THEME_COLORS,
 	ubuntu: ['#2D0922', '#2D0922'],
 } as const;
 

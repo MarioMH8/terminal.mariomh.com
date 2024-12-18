@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 
-const $host = atom(window.location.hostname);
+const $host = atom(globalThis.location.hostname);
 const $separator = atom(':~$');
 const $user = atom('visitor');
 
