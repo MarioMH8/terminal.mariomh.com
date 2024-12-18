@@ -36,7 +36,7 @@
 	},
 	"dependencies": {
 		"@nanostores/i18n": "0.12.2",
-		"@nanostores/persistent": "0.10.1",
+		"@nanostores/persistent": "0.10.2",
 		"@nanostores/preact": "0.5.1",
 		"astro": "4.10.2",
 		"astro-seo": "0.8.4",
