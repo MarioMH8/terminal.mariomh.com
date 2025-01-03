@@ -43,7 +43,7 @@
 		"lodash": "4.17.21",
 		"nanostores": "0.11.3",
 		"normalize.css": "8.0.1",
-		"preact": "10.25.3"
+		"preact": "10.25.4"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
