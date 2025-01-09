@@ -54,7 +54,7 @@
 		"@hexadrop/tsconfig": "0.0.5",
 		"@types/lodash": "4.17.14",
 		"@vite-pwa/astro": "0.5.0",
-		"astro-compress": "2.3.5",
+		"astro-compress": "2.3.6",
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "9.17.0",
