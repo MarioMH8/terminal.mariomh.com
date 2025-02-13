@@ -38,7 +38,7 @@
 		"@nanostores/i18n": "0.12.2",
 		"@nanostores/persistent": "0.10.2",
 		"@nanostores/preact": "0.5.2",
-		"astro": "5.0.9",
+		"astro": "5.3.0",
 		"astro-seo": "0.8.4",
 		"lodash": "4.17.21",
 		"nanostores": "0.11.3",
@@ -47,7 +47,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/preact": "4.0.0",
+		"@astrojs/preact": "4.0.4",
 		"@astrojs/sitemap": "3.2.1",
 		"@astrojs/ts-plugin": "1.10.4",
 		"@hexadrop/eslint-config": "0.1.0",
