@@ -38,12 +38,12 @@
 		"@nanostores/i18n": "0.12.2",
 		"@nanostores/persistent": "0.10.2",
 		"@nanostores/preact": "0.5.2",
-		"astro": "5.0.9",
+		"astro": "5.3.1",
 		"astro-seo": "0.8.4",
 		"lodash": "4.17.21",
-		"nanostores": "0.11.3",
+		"nanostores": "0.11.4",
 		"normalize.css": "8.0.1",
-		"preact": "10.25.3"
+		"preact": "10.26.3"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
