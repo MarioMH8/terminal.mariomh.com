@@ -1,5 +1,5 @@
-import type { ActionCommand } from '../state/commands';
-import useHistoryState from '../state/history';
+import type { ActionCommand } from '@commands';
+import useHistoryState from '@history';
 
 const ClearCommand: ActionCommand = {
 	action: () => {

@@ -1,8 +1,7 @@
+import WelcomeCommand from '@commands/welcome';
 import { persistentAtom } from '@nanostores/persistent';
 import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
-
-import WelcomeCommand from '../commands/welcome';
 
 const $sessionHistory = atom<string[]>([WelcomeCommand.command]);
 const $history = persistentAtom<string[]>('history', [], {

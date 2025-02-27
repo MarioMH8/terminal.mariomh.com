@@ -59,7 +59,7 @@ bun dev
 
 ## Desplegar proyecto
 
-Accede a la GitHub Action [Deploy to Firebase](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/firebase-deploy.yml) y ejecuta el workflow.
+Accede a la GitHub Action [Deploy](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/deploy.yml) y ejecuta el workflow.
 
 ## Estructura del proyecto
 

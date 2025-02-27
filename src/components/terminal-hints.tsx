@@ -1,8 +1,7 @@
-import './terminal-hints.css';
+import '@components/terminal-hints.css';
 
+import useHintsState from '@hints';
 import type { JSX } from 'preact';
-
-import useHintsState from './state/hints';
 
 const TerminalHints = (): JSX.Element => {
 	const { hints } = useHintsState();

@@ -1,15 +1,14 @@
+import useCommandsState from '@commands';
+import getHints from '@fn/get-hints';
+import useHintsState from '@hints';
+import useHistoryState from '@history';
 import { useStore } from '@nanostores/preact';
+import useRenderState from '@rerender';
 import { atom } from 'nanostores';
 import type { JSX, RefObject } from 'preact';
 import { createRef } from 'preact';
 import type { TargetedEvent } from 'preact/compat';
 import { useEffect } from 'preact/hooks';
-
-import getHints from '../fn/get-hints';
-import useCommandsState from './commands';
-import useHintsState from './hints';
-import useHistoryState from './history';
-import useRenderState from './rerender';
 
 const $prompt = atom<string>('');
 

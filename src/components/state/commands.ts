@@ -1,8 +1,7 @@
+import commands from '@components/commands';
 import { useStore } from '@nanostores/preact';
 import { atom } from 'nanostores';
 import type { FunctionalComponent } from 'preact';
-
-import commands from '../commands';
 
 interface CommandComponentProps {
 	args?: string[];

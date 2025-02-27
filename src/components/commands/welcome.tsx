@@ -1,12 +1,11 @@
-import './welcome.css';
+import '@commands/welcome.css';
 
+import type { ComponentCommand } from '@commands';
+import { i18n } from '@locale';
 import { params } from '@nanostores/i18n';
 import { useStore } from '@nanostores/preact';
+import package_ from '@package';
 import type { FunctionalComponent } from 'preact';
-
-import package_ from '../../../package.json';
-import type { ComponentCommand } from '../state/commands';
-import { i18n } from '../state/locale';
 
 const messages = i18n('welcome', {
 	available_commands: 'Para ver una lista de los comandos disponibles, escribe ',

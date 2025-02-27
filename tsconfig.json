@@ -3,6 +3,22 @@
 	"compilerOptions": {
 		"jsxImportSource": "preact",
 		"baseUrl": ".",
+		"paths": {
+			"@commands": ["src/components/state/commands.ts"],
+			"@commands/*": ["src/components/commands/*"],
+			"@components/*": ["src/components/*"],
+			"@fn/*": ["src/components/fn/*"],
+			"@hints": ["src/components/state/hints.ts"],
+			"@history": ["src/components/state/history.ts"],
+			"@info": ["src/components/state/info.ts"],
+			"@layout": ["src/layouts/layout.astro"],
+			"@locale": ["src/components/state/locale.ts"],
+			"@package": ["package.json"],
+			"@prompt": ["src/components/state/prompt.ts"],
+			"@rerender": ["src/components/state/rerender.ts"],
+			"@styles/*": ["src/styles/*"],
+			"@theme": ["src/components/state/theme.ts"]
+		},
 		"allowImportingTsExtensions": true,
 		"plugins": [
 			{

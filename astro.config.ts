@@ -1,17 +1,21 @@
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
+import resume from '@mariomh/resume';
 import pwa from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
-import webmanifest from 'astro-webmanifest';
+import type { WebmanifestOptions } from 'astro-webmanifest';
+import manifest from 'astro-webmanifest';
+
+const { name = '', nameShort, summary } = resume.basics ?? {};
 
 export default defineConfig({
 	integrations: [
 		preact(),
 		sitemap(),
 		robotsTxt(),
-		webmanifest({
+		manifest({
 			background_color: '#FDFFF5',
 
 			config: {
@@ -19,20 +23,19 @@ export default defineConfig({
 				insertThemeColorMeta: false,
 			},
 
-			description: 'Portfolio de MarioMH en línea de comandos.',
+			description: summary,
 			display: 'standalone',
 			icon: 'public/favicon.svg',
-			name: 'MarioMH | Línea de comandos',
-			short_name: 'MarioMH',
+			name,
+			short_name: typeof nameShort === 'string' ? nameShort : undefined,
 			start_url: '/',
 
 			theme_color: '#C6F118',
-		}),
+		} as WebmanifestOptions),
 		pwa({
-			includeAssets: ['fonts/**/*.otf', 'translations/**/*.json', 'fonts/**/*.woff2', '**/*.svg', '**/*.png'],
 			registerType: 'autoUpdate',
 			workbox: {
-				globPatterns: ['**/*.{js,css,html,svg,png}'],
+				globPatterns: ['**/*.{js,css,html,svg,png,otf,json,woff2}'],
 			},
 		}),
 		compress(),

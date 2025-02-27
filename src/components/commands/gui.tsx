@@ -1,11 +1,10 @@
+import type { ComponentCommand } from '@commands';
+import useHistoryState from '@history';
+import { i18n } from '@locale';
 import { useStore } from '@nanostores/preact';
+import useRerenderState from '@rerender';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
-
-import type { ComponentCommand } from '../state/commands';
-import useHistoryState from '../state/history';
-import { i18n } from '../state/locale';
-import useRerenderState from '../state/rerender';
 
 const messages = i18n('gui', {
 	link: 'Enlace a mi portfolio web',

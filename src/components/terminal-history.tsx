@@ -1,9 +1,8 @@
+import TerminalOutput from '@components/terminal-output';
+import TerminalPrompt from '@components/terminal-prompt';
+import uniqueId from '@fn/unique-id';
+import useHistoryState from '@history';
 import type { FunctionalComponent } from 'preact';
-
-import uniqueId from './fn/unique-id';
-import useHistoryState from './state/history';
-import TerminalOutput from './terminal-output';
-import TerminalPrompt from './terminal-prompt';
 
 const TerminalHistory: FunctionalComponent = () => {
 	const { sessionHistory } = useHistoryState();

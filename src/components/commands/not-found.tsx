@@ -1,7 +1,6 @@
+import { i18n } from '@locale';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
-
-import { i18n } from '../state/locale';
 
 const messages = i18n('not_found', {
 	command: 'comando invalido',

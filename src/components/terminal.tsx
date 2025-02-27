@@ -1,11 +1,10 @@
-import './terminal.css';
+import '@components/terminal.css';
 
+import TerminalHints from '@components/terminal-hints';
+import TerminalHistory from '@components/terminal-history';
+import TerminalPrompt from '@components/terminal-prompt';
+import useThemeState from '@theme';
 import type { JSX } from 'preact';
-
-import useThemeState from './state/theme';
-import TerminalHints from './terminal-hints';
-import TerminalHistory from './terminal-history';
-import TerminalPrompt from './terminal-prompt';
 
 const Terminal = (): JSX.Element => {
 	useThemeState();
