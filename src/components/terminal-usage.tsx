@@ -1,7 +1,6 @@
+import { i18n } from '@locale';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
-
-import { i18n } from './state/locale';
 
 interface Props {
 	cmd: 'locale' | 'projects' | 'socials' | 'themes';

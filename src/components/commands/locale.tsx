@@ -1,13 +1,12 @@
+import type { CommandComponentProps, ComponentCommand } from '@commands';
+import Usage from '@components/terminal-usage';
+import checkLocaleSwitch from '@fn/check-locale-switch';
+import isArgumentInvalid from '@fn/is-argument-invalid';
+import useHistoryState from '@history';
+import useLocaleState from '@locale';
+import useRerenderState from '@rerender';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
-
-import checkLocaleSwitch from '../fn/check-locale-switch';
-import isArgumentInvalid from '../fn/is-argument-invalid';
-import type { CommandComponentProps, ComponentCommand } from '../state/commands';
-import useHistoryState from '../state/history';
-import useLocaleState from '../state/locale';
-import useRerenderState from '../state/rerender';
-import Usage from '../terminal-usage';
 
 const Locale: FunctionalComponent<CommandComponentProps> = ({ args: commandArguments = [] }) => {
 	const { rerender } = useRerenderState();

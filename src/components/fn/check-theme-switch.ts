@@ -1,6 +1,5 @@
+import ThemeCommand from '@commands/theme';
 import includes from 'lodash/includes';
-
-import ThemeCommand from '../commands/theme';
 
 /**
  * Check current render makes redirect for theme

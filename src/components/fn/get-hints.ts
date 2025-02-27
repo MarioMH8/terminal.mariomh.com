@@ -1,4 +1,4 @@
-import type { WebCommand } from '../state/commands';
+import type { WebCommand } from '@commands';
 
 export default function getHints(value: string[], commands: Map<string, WebCommand>): string[] {
 	const baseCommand = value[0];

@@ -1,12 +1,11 @@
-import './help.css';
+import '@commands/help.css';
 
+import type { ComponentCommand } from '@commands';
+import useCommandsState from '@commands';
+import generateTabs from '@fn/generate-tabs';
+import { i18n } from '@locale';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
-
-import generateTabs from '../fn/generate-tabs';
-import type { ComponentCommand } from '../state/commands';
-import useCommandsState from '../state/commands';
-import { i18n } from '../state/locale';
 
 const helpMessages = i18n('help', {
 	alias: 'alias',
@@ -30,6 +29,7 @@ const descriptionMessages = i18n('commands', {
 	locale: 'muestra los idiomas disponibles',
 	projects: 'muestra todos mis proyectos',
 	pwd: 'muestra el directorio actual',
+	resume: 'ir mi curriculum vitae en formato web',
 	socials: 'muestra mis redes sociales',
 	themes: 'muestra los temas disponibles',
 	welcome: 'muestra el mensaje de bienvenida',

@@ -1,8 +1,7 @@
+import type { CommandComponentProps, ComponentCommand } from '@commands';
 import join from 'lodash/join';
 import trim from 'lodash/trim';
 import type { FunctionalComponent } from 'preact';
-
-import type { CommandComponentProps, ComponentCommand } from '../state/commands';
 
 const Echo: FunctionalComponent<CommandComponentProps> = ({ args: arguments_ = [] }) => {
 	let outputString = join(arguments_, ' ');

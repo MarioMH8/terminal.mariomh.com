@@ -1,17 +1,16 @@
-import './about.css';
+import '@commands/about.css';
 
+import type { ComponentCommand } from '@commands';
+import { i18n } from '@locale';
 import { useStore } from '@nanostores/preact';
 import type { FunctionalComponent } from 'preact';
 
-import type { ComponentCommand } from '../state/commands';
-import { i18n } from '../state/locale';
-
 const messages = i18n('about', {
 	based: `que trabaja desde Madrid, España.`,
-	description: `Apasionado de la programación. Me encanta desarrollar aplicaciones que resuelvan problemas del día a día.`,
-	developer: `un desarrollador JavaScript`,
+	description: `+10 años de experiencia como Desarrollador Web. He trabajado acelerando el desarrollo de start-ups y liderando equipos de empresas multinacionales.`,
+	developer: `Arquitecto de Soluciones`,
 	hi: 'Hola, me llamo',
-	im: `Soy`,
+	im: `Soy un`,
 });
 
 const About: FunctionalComponent = () => {

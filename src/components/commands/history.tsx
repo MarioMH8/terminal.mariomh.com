@@ -1,10 +1,9 @@
+import type { CommandComponentProps, ComponentCommand } from '@commands';
+import useHistoryState from '@history';
 import reverse from 'lodash/reverse';
 import slice from 'lodash/slice';
 import uniqueId from 'lodash/uniqueId';
 import type { FunctionalComponent } from 'preact';
-
-import type { CommandComponentProps, ComponentCommand } from '../state/commands';
-import useHistoryState from '../state/history';
 
 const History: FunctionalComponent<CommandComponentProps> = ({ index }) => {
 	const { history } = useHistoryState();

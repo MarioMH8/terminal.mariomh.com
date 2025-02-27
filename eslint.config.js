@@ -2,11 +2,9 @@ import { default as hexadrop } from '@hexadrop/eslint-config';
 
 export default hexadrop(
 	{
-		module: {
-			ignore: ['astro-seo'],
-		},
 		rules: {
 			'import/no-cycle': 'off',
+			'import/no-unresolved': 'off',
 		},
 	},
 	{

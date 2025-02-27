@@ -1,0 +1,80 @@
+---
+import resume from '@mariomh/resume';
+import AppStyles from '@styles/app.astro';
+import FontsStyles from '@styles/fonts.astro';
+import ResetStyles from '@styles/reset.astro';
+import ScrollbarStyles from '@styles/scrollbar.astro';
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { SEO } from 'astro-seo';
+
+type Props<Tag extends HTMLTag = 'body'> = Polymorphic<{ as: Tag }> & {
+	title?: string;
+	description?: string;
+};
+
+const { description, title, ...properties } = Astro.props;
+const { label, name } = resume.basics ?? {};
+const nameLabel = [name, label].filter(Boolean).join(' - ');
+const summary = resume.basics?.summary;
+const titleName = [title, name].filter(Boolean).join(' - ');
+const computedTitle = title ? titleName : nameLabel;
+const computedDescription = description ?? (typeof summary === 'string' ? summary : '');
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='utf8' />
+
+		<meta
+			content='width=device-width, initial-scale=1.0'
+			name='viewport'
+		/>
+
+		<meta
+			content='#fdfff5'
+			id='meta-light'
+			media='(prefers-color-scheme: light)'
+			name='theme-color'
+		/>
+
+		<meta
+			content='#001B16'
+			id='meta-dark'
+			media='(prefers-color-scheme: dark)'
+			name='theme-color'
+		/>
+
+		<meta
+			content={Astro.generator}
+			name='generator'
+		/>
+
+		<link
+			href='/sitemap-index.xml'
+			rel='sitemap'
+		/>
+
+		<SEO
+			description={computedDescription}
+			openGraph={{
+				basic: {
+					image: '/og.webp',
+					title: nameLabel,
+					type: 'website',
+				},
+			}}
+			title={computedTitle}
+		/>
+
+		<script src='/src/pwa.ts'></script>
+
+		<AppStyles />
+		<FontsStyles />
+		<ResetStyles />
+		<ScrollbarStyles />
+	</head>
+	<body {...properties}>
+		<slot />
+	</body>
+</html>

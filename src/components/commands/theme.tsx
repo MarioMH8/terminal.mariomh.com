@@ -1,13 +1,12 @@
+import type { CommandComponentProps, ComponentCommand } from '@commands';
+import Usage from '@components/terminal-usage';
+import checkThemeSwitch from '@fn/check-theme-switch';
+import isArgumentInvalid from '@fn/is-argument-invalid';
+import useHistoryState from '@history';
+import useRerenderState from '@rerender';
+import useThemeState from '@theme';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
-
-import checkThemeSwitch from '../fn/check-theme-switch';
-import isArgumentInvalid from '../fn/is-argument-invalid';
-import type { CommandComponentProps, ComponentCommand } from '../state/commands';
-import useHistoryState from '../state/history';
-import useRerenderState from '../state/rerender';
-import useThemeState from '../state/theme';
-import Usage from '../terminal-usage';
 
 const Theme: FunctionalComponent<CommandComponentProps> = ({ args: commandArguments = [] }) => {
 	const { rerender } = useRerenderState();

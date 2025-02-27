@@ -1,7 +1,6 @@
+import type { CommandComponentProps, ComponentCommand } from '@commands';
+import useInfoState from '@info';
 import type { FunctionalComponent } from 'preact';
-
-import type { CommandComponentProps, ComponentCommand } from '../state/commands';
-import useInfoState from '../state/info';
 
 const Whoami: FunctionalComponent<CommandComponentProps> = () => {
 	const { user } = useInfoState();

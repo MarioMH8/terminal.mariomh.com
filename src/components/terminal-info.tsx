@@ -1,6 +1,5 @@
+import useInfoState from '@info';
 import type { JSX } from 'preact';
-
-import useInfoState from './state/info';
 
 const TerminalInfo = (): JSX.Element => {
 	const { host, separator, user } = useInfoState();

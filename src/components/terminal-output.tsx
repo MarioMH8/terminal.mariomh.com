@@ -1,7 +1,6 @@
+import useCommandsState from '@commands';
+import NotFound from '@commands/not-found';
 import type { FunctionalComponent } from 'preact';
-
-import NotFound from './commands/not-found';
-import useCommandsState from './state/commands';
 
 interface TerminalOutputProps {
 	command?: string | undefined;

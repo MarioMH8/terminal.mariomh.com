@@ -1,9 +1,8 @@
-import './terminal-prompt.css';
+import '@components/terminal-prompt.css';
 
+import TerminalInfo from '@components/terminal-info';
+import usePromptState from '@prompt';
 import type { JSX } from 'preact';
-
-import usePromptState from './state/prompt';
-import TerminalInfo from './terminal-info';
 
 interface TerminalPrompt {
 	command?: string;

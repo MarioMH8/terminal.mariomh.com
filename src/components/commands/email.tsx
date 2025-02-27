@@ -1,13 +1,13 @@
+import type { ComponentCommand } from '@commands';
+import useHistoryState from '@history';
+import { i18n } from '@locale';
+import resume from '@mariomh/resume';
 import { useStore } from '@nanostores/preact';
+import useRerenderState from '@rerender';
 import split from 'lodash/split';
 import type { FunctionalComponent } from 'preact';
 
-import type { ComponentCommand } from '../state/commands';
-import useHistoryState from '../state/history';
-import { i18n } from '../state/locale';
-import useRerenderState from '../state/rerender';
-
-const EMAIL = 'hola@mariomh.com';
+const EMAIL = resume.basics?.email ?? '';
 const MAIL_TO = `mailto:${EMAIL}`;
 
 const messages = i18n('email', {

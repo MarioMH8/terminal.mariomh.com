@@ -1,6 +1,5 @@
+import LocaleCommand from '@commands/locale';
 import includes from 'lodash/includes';
-
-import LocaleCommand from '../commands/locale';
 
 /**
  * Check current render makes redirect for locale
