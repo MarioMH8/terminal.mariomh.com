@@ -47,7 +47,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/preact": "4.0.0",
+		"@astrojs/preact": "4.0.4",
 		"@astrojs/sitemap": "3.2.1",
 		"@astrojs/ts-plugin": "1.10.4",
 		"@hexadrop/eslint-config": "0.1.0",
