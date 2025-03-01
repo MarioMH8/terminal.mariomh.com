@@ -53,7 +53,7 @@
 		"@astrojs/ts-plugin": "1.10.4",
 		"@hexadrop/eslint-config": "0.1.0",
 		"@hexadrop/tsconfig": "0.0.5",
-		"@types/lodash": "4.17.15",
+		"@types/lodash": "4.17.16",
 		"@vite-pwa/astro": "0.5.0",
 		"astro-compress": "2.3.6",
 		"astro-robots-txt": "1.0.0",
