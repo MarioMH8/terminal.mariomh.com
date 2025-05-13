@@ -38,7 +38,7 @@
 		"@mariomh/resume": "0.0.2",
 		"@nanostores/i18n": "0.12.2",
 		"@nanostores/persistent": "0.10.2",
-		"@nanostores/preact": "0.5.2",
+		"@nanostores/preact": "1.0.0",
 		"astro": "5.7.12",
 		"astro-seo": "0.8.4",
 		"lodash": "4.17.21",
