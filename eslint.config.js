@@ -1,4 +1,4 @@
-import { default as hexadrop } from '@hexadrop/eslint-config';
+import hexadrop from '@hexadrop/eslint-config';
 
 export default hexadrop(
 	{
