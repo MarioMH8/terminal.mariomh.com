@@ -1,9 +1,9 @@
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
 import resume from '@mariomh/resume';
+import compress from '@playform/compress';
 import pwa from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
-import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import type { WebmanifestOptions } from 'astro-webmanifest';
 import manifest from 'astro-webmanifest';
