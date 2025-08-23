@@ -49,7 +49,7 @@
 	"devDependencies": {
 		"@astrojs/check": "0.9.4",
 		"@astrojs/preact": "4.1.0",
-		"@astrojs/sitemap": "3.4.2",
+		"@astrojs/sitemap": "3.5.1",
 		"@astrojs/ts-plugin": "1.10.4",
 		"@hexadrop/eslint-config": "0.1.5",
 		"@hexadrop/tsconfig": "0.0.5",
