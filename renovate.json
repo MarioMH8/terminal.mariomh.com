@@ -1,7 +1,5 @@
 {
 	"extends": ["github>hexadrop/renovate-config"],
 	"npmrc": "@mariomh:registry=https://europe-npm.pkg.dev/mariomh/npm/\\n//europe-npm.pkg.dev/mariomh/npm/:always-auth=true\\n//europe-npm.pkg.dev/mariomh/npm/:_password=${MEND_MARIOMH_GOOGLE_ARTIFACT_REGISTRY_PASSWORD}\\n//europe-npm.pkg.dev/mariomh/npm/:username=_json_key_base64",
-	"customEnvVariables": {
-		"MEND_MARIOMH_GOOGLE_ARTIFACT_REGISTRY_PASSWORD": "{{ secrets.MEND_MARIOMH_GOOGLE_ARTIFACT_REGISTRY_PASSWORD }}"
-	}
+	"exposeAllEnv": true
 }
