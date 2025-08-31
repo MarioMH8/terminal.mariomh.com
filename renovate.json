@@ -1,3 +1,16 @@
 {
-	"extends": ["github>hexadrop/renovate-config"]
+	"extends": ["github>hexadrop/renovate-config"],
+	"packageRules": [
+		{
+			"matchDatasources": [
+				"npm"
+			],
+			"matchPackageNames": [
+				"@mariomh/**"
+			],
+			"registryUrls": [
+				"https://europe-npm.pkg.dev/mariomh/npm/"
+			]
+		}
+	]
 }
