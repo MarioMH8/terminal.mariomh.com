@@ -58,7 +58,7 @@
 		"@vite-pwa/astro": "1.1.0",
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
-		"eslint": "9.33.0",
+		"eslint": "9.35.0",
 		"typescript": "5.9.2"
 	},
 	"overrides": {
