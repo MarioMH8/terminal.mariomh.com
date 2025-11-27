@@ -37,9 +37,9 @@
 	"dependencies": {
 		"@mariomh/resume": "0.0.3",
 		"@nanostores/i18n": "1.2.2",
-		"@nanostores/persistent": "1.1.0",
+		"@nanostores/persistent": "1.2.0",
 		"@nanostores/preact": "1.0.0",
-		"astro": "5.13.7",
+		"astro": "5.15.9",
 		"astro-seo": "0.8.4",
 		"lodash": "4.17.21",
 		"nanostores": "1.1.0",
@@ -54,12 +54,12 @@
 		"@hexadrop/eslint-config": "0.1.15",
 		"@hexadrop/tsconfig": "0.0.5",
 		"@playform/compress": "0.2.0",
-		"@types/lodash": "4.17.20",
-		"@vite-pwa/astro": "1.1.0",
+		"@types/lodash": "4.17.21",
+		"@vite-pwa/astro": "1.1.1",
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "9.39.1",
-		"typescript": "5.9.2"
+		"typescript": "5.9.3"
 	},
 	"overrides": {
 		"react": "npm:@preact/compat@18.3.1",
