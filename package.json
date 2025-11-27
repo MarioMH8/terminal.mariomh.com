@@ -51,7 +51,7 @@
 		"@astrojs/preact": "4.1.1",
 		"@astrojs/sitemap": "3.5.1",
 		"@astrojs/ts-plugin": "1.10.4",
-		"@hexadrop/eslint-config": "0.1.6",
+		"@hexadrop/eslint-config": "0.1.15",
 		"@hexadrop/tsconfig": "0.0.5",
 		"@playform/compress": "0.2.0",
 		"@types/lodash": "4.17.20",
