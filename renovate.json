@@ -8,5 +8,6 @@
 			"hostType": "npm"
 		}
 	],
+	"ignoreNpmrcFile": true,
 	"npmrc": "@mariomh:registry=https://europe-npm.pkg.dev/mariomh/npm/"
 }
