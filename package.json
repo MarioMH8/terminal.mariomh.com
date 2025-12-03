@@ -44,7 +44,7 @@
 		"lodash": "4.17.21",
 		"nanostores": "1.1.0",
 		"normalize.css": "8.0.1",
-		"preact": "10.27.2"
+		"preact": "10.28.0"
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.6",
