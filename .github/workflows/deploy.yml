@@ -37,8 +37,6 @@ jobs:
 
             - name: Update .npmrc
               run: bunx google-artifactregistry-auth --credential-config .npmrc
-              env:
-                  GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
 
             -   name: Install dependencies
                 run: bun install
@@ -74,8 +72,6 @@ jobs:
 
             - name: Update .npmrc
               run: bunx google-artifactregistry-auth --credential-config .npmrc
-              env:
-                  GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
 
             -   name: Install dependencies
                 run: bun install
