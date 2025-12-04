@@ -32,8 +32,8 @@ jobs:
                 uses: google-github-actions/auth@v3
                 with:
                     create_credentials_file: true
-                    workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_POOL_PROVIDER}}
-                    service_account: ${{ secrets.SERVICE_ACCOUNT}}
+                    project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+                    workload_identity_provider: ${{ secrets.GOOGLE_PROJECT_WORKLOAD_IDENTITY_POOL_PROVIDER}}
 
             - name: Update .npmrc
               run: bunx google-artifactregistry-auth --credential-config .npmrc
@@ -69,8 +69,8 @@ jobs:
                 uses: google-github-actions/auth@v3
                 with:
                     create_credentials_file: true
-                    workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_POOL_PROVIDER}}
-                    service_account: ${{ secrets.SERVICE_ACCOUNT}}
+                    project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+                    workload_identity_provider: ${{ secrets.GOOGLE_PROJECT_WORKLOAD_IDENTITY_POOL_PROVIDER}}
 
             - name: Update .npmrc
               run: bunx google-artifactregistry-auth --credential-config .npmrc
