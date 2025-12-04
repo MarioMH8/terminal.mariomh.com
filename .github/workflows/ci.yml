@@ -1,44 +1,44 @@
 name: Continuous integration
 
 on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
-        types: [ opened, synchronize ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize ]
 
 jobs:
-    check:
-        name: Check
-        runs-on: ubuntu-latest
-        permissions:
-            contents: 'read'
-            id-token: 'write'
-        strategy:
-            matrix:
-                command: [ lint, typecheck ]
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v6
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    strategy:
+      matrix:
+        command: [ lint, typecheck ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
 
-            -   name: Setup bun
-                uses: oven-sh/setup-bun@v2
-                with:
-                    bun-version: latest
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
-            -   name: Authorize Google Cloud SDK
-                id: auth
-                uses: google-github-actions/auth@v3
-                with:
-                    create_credentials_file: true
-                    project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
-                    workload_identity_provider: ${{ secrets.GOOGLE_PROJECT_WORKLOAD_IDENTITY_POOL_PROVIDER}}
+      - name: Authorize Google Cloud SDK
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          create_credentials_file: true
+          project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+          workload_identity_provider: ${{ secrets.GOOGLE_PROJECT_WORKLOAD_IDENTITY_POOL_PROVIDER}}
 
-            - name: Update .npmrc
-              run: bunx google-artifactregistry-auth --credential-config .npmrc
+      - name: Update .npmrc
+        run: bunx google-artifactregistry-auth --credential-config .npmrc
 
-            -   name: Install dependencies
-                run: bun install
+      - name: Install dependencies
+        run: bun install
 
-            -   name: ${{ matrix.command }}
-                run: bun ${{ matrix.command }}
+      - name: ${{ matrix.command }}
+        run: bun ${{ matrix.command }}
