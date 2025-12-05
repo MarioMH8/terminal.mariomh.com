@@ -68,7 +68,11 @@ const computedDescription = description ?? (typeof summary === 'string' ? summar
 			title={computedTitle}
 		/>
 
-		<script src='/src/pwa.ts'></script>
+		<ClientRouter />
+
+		<script src='/src/pwa.ts'>
+			// PWA Service Worker
+		</script>
 
 		<AppStyles />
 		<FontsStyles />
