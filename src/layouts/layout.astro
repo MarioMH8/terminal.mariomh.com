@@ -5,6 +5,7 @@ import FontsStyles from '@styles/fonts.astro';
 import ResetStyles from '@styles/reset.astro';
 import ScrollbarStyles from '@styles/scrollbar.astro';
 import type { HTMLTag, Polymorphic } from 'astro/types';
+import { ClientRouter } from 'astro:transitions';
 import { SEO } from 'astro-seo';
 
 type Props<Tag extends HTMLTag = 'body'> = Polymorphic<{ as: Tag }> & {
