@@ -1,20 +1,27 @@
 <style is:global>
-	/* ===== Custom Scroll Bar ===== */
-	/* width */
 	::-webkit-scrollbar {
-		width: 8px;
+		width: 10px;
 	}
-	/* Track */
+
 	::-webkit-scrollbar-track {
 		background: var(--color-background);
 	}
-	/* Handle */
+
 	::-webkit-scrollbar-thumb {
 		background: var(--color-scroll-handle);
 		border-radius: 6px;
+		border: 2px solid var(--color-background);
 	}
-	/* Handle on hover */
+
 	::-webkit-scrollbar-thumb:hover {
 		background: var(--color-scroll-handle-hover);
+	}
+
+	@supports not selector(::-webkit-scrollbar) {
+		* {
+			scrollbar-color: var(--color-scroll-handle) transparent;
+			scrollbar-gutter: auto;
+			scrollbar-width: thin;
+		}
 	}
 </style>
