@@ -1,3 +1,12 @@
 {
-	"extends": ["github>MarioMH8/renovate-config"]
+	"extends": ["github>MarioMH8/renovate-config"],
+	"hostRules": [
+		{
+			"matchHost": "europe-npm.pkg.dev",
+			"username": "_json_key_base64",
+			"password": "{{ secrets.RENOVATE_SERVICE_ACCOUNT_KEY }}",
+			"hostType": "npm"
+		}
+	],
+	"npmrc": "@mariomh:registry=https://europe-npm.pkg.dev/mariomh/npm/"
 }
