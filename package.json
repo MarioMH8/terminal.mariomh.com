@@ -35,7 +35,7 @@
 		"typecheck": "tsc --noEmit && astro check"
 	},
 	"dependencies": {
-		"@mariomh/resume": "0.0.3",
+		"@mariomh/resume": "0.0.5",
 		"@nanostores/i18n": "1.2.2",
 		"@nanostores/persistent": "1.2.0",
 		"@nanostores/preact": "1.0.0",
