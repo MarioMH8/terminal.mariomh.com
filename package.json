@@ -37,7 +37,7 @@
 	"dependencies": {
 		"@mariomh/resume": "0.0.5",
 		"@nanostores/i18n": "1.2.2",
-		"@nanostores/persistent": "1.2.0",
+		"@nanostores/persistent": "1.3.3",
 		"@nanostores/preact": "1.0.0",
 		"astro": "5.16.5",
 		"astro-seo": "0.8.4",
