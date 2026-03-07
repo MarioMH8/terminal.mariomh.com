@@ -35,7 +35,7 @@
   },
   "overrides": {
     "react": "npm:@preact/compat@18.3.1",
-    "react-dom": "npm:@preact/compat@18.3.1",
+    "react-dom": "npm:@preact/compat@18.3.2",
   },
   "packages": {
     "@apideck/better-ajv-errors": ["@apideck/better-ajv-errors@0.3.6", "", { "dependencies": { "json-schema": "^0.4.0", "jsonpointer": "^5.0.0", "leven": "^3.1.0" }, "peerDependencies": { "ajv": ">=8" } }, "sha512-P+ZygBLZtkp0qqOAJJVX4oX/sFo5JR3eBWwwuqHHhK0GIgQOKWrAfiAaWX0aArHkRWHMuggFEgAZNxVPwPZYaA=="],
