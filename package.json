@@ -41,7 +41,7 @@
 		"@nanostores/preact": "1.0.0",
 		"astro": "5.16.5",
 		"astro-seo": "0.8.4",
-		"lodash": "4.17.21",
+		"lodash": "4.17.23",
 		"nanostores": "1.1.0",
 		"normalize.css": "8.0.1",
 		"preact": "10.28.0"
