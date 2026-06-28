@@ -42,7 +42,7 @@
 		"astro": "5.16.5",
 		"astro-seo": "1.1.0",
 		"lodash": "4.18.1",
-		"nanostores": "1.1.0",
+		"nanostores": "1.4.0",
 		"normalize.css": "8.0.1",
 		"preact": "10.28.2"
 	},
