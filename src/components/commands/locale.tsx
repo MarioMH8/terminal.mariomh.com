@@ -1,7 +1,7 @@
 import type { CommandComponentProps, ComponentCommand } from '@commands';
 import Usage from '@components/terminal-usage';
-import checkLocaleSwitch from '@fn/check-locale-switch';
 import isArgumentInvalid from '@fn/is-argument-invalid';
+import shouldLocaleSwitch from '@fn/should-locale-switch.ts';
 import useHistoryState from '@history';
 import useLocaleState from '@locale';
 import useRerenderState from '@rerender';
@@ -16,7 +16,7 @@ const Locale: FunctionalComponent<CommandComponentProps> = ({ args: commandArgum
 	/* ===== get current command ===== */
 	const currentCommand = split(history[0], ' ');
 
-	if (checkLocaleSwitch(rerender, currentCommand, locales)) {
+	if (shouldLocaleSwitch(rerender, currentCommand, locales)) {
 		const current = currentCommand[2];
 		if (current !== undefined) {
 			setLocale(current);

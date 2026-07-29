@@ -47,13 +47,13 @@ export default function usePromptState(): PromptState {
 
 	const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event: TargetedKeyboardEvent<HTMLInputElement>) => {
 		setRerender(false);
-		const ctrlI = event.ctrlKey && event.key.toLowerCase() === 'i';
-		const ctrlL = event.ctrlKey && event.key.toLowerCase() === 'l';
-		const tab = event.key === 'Tab';
-		const arrowUp = event.key === 'ArrowUp';
-		const arrowDown = event.key === 'ArrowDown';
+		const isCtrlI = event.ctrlKey && event.key.toLowerCase() === 'i';
+		const isCtrlL = event.ctrlKey && event.key.toLowerCase() === 'l';
+		const isTab = event.key === 'Tab';
+		const isArrowUp = event.key === 'ArrowUp';
+		const isArrowDown = event.key === 'ArrowDown';
 
-		if (ctrlI || tab) {
+		if (isCtrlI || isTab) {
 			event.preventDefault();
 			const actualValue = $prompt.get().trim().split(' ');
 			const actualValueWithoutLast = actualValue.slice(0, -2);
@@ -65,9 +65,9 @@ export default function usePromptState(): PromptState {
 			} else {
 				setHints(hints);
 			}
-		} else if (ctrlL) {
+		} else if (isCtrlL) {
 			clearHistory();
-		} else if (arrowUp) {
+		} else if (isArrowUp) {
 			event.preventDefault();
 			if (pointer >= history.length) {
 				return;
@@ -80,7 +80,7 @@ export default function usePromptState(): PromptState {
 			$prompt.set(history[pointer + 1] ?? '');
 			incrementPointer();
 			reference.current?.blur();
-		} else if (arrowDown) {
+		} else if (isArrowDown) {
 			event.preventDefault();
 			if (pointer < 0) {
 				return;

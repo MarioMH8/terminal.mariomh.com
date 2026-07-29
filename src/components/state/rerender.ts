@@ -5,16 +5,16 @@ const $rerender = atom<boolean>(false);
 
 export interface RerenderState {
 	rerender: boolean;
-	setRerender: (rerender: boolean) => void;
+	setRerender: (isRerender: boolean) => void;
 }
 
 export default function useRerenderState(): RerenderState {
-	const rerender = useStore($rerender);
+	const isRerender = useStore($rerender);
 
 	return {
-		rerender,
-		setRerender(rerender: boolean) {
-			$rerender.set(rerender);
+		rerender: isRerender,
+		setRerender(isRerender: boolean) {
+			$rerender.set(isRerender);
 		},
 	};
 }

@@ -1,7 +1,7 @@
 import type { CommandComponentProps, ComponentCommand } from '@commands';
 import Usage from '@components/terminal-usage';
-import checkThemeSwitch from '@fn/check-theme-switch';
 import isArgumentInvalid from '@fn/is-argument-invalid';
+import shouldThemeSwitch from '@fn/should-theme-switch.ts';
 import useHistoryState from '@history';
 import useRerenderState from '@rerender';
 import useThemeState from '@theme';
@@ -16,7 +16,7 @@ const Theme: FunctionalComponent<CommandComponentProps> = ({ args: commandArgume
 	/* ===== get current command ===== */
 	const currentCommand = split(history[0], ' ');
 
-	if (checkThemeSwitch(rerender, currentCommand, themes)) {
+	if (shouldThemeSwitch(rerender, currentCommand, themes)) {
 		const current = currentCommand[2];
 		if (current !== undefined) {
 			setTheme(current);

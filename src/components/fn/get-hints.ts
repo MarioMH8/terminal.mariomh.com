@@ -9,7 +9,7 @@ export default function getHints(value: string[], commands: Map<string, WebComma
 	if (command) {
 		return [];
 	}
-	const availableBaseCommands = [...commands.keys()];
+	const availableBaseCommands = commands.keys().toArray();
 
 	return availableBaseCommands.filter(a => a.startsWith(baseCommand));
 }

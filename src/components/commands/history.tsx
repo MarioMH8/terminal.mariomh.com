@@ -13,8 +13,8 @@ const History: FunctionalComponent<CommandComponentProps> = ({ index }) => {
 		<div
 			className='terminal-line-history sm'
 			data-testid='history'>
-			{currentHistory.map(cmd => (
-				<div key={uniqueId(`${cmd}_`)}>{cmd}</div>
+			{currentHistory.map(command => (
+				<div key={uniqueId(`${command}_`)}>{command}</div>
 			))}
 		</div>
 	);
