@@ -12,5 +12,11 @@ export default hexadrop(
 		rules: {
 			'unicorn/filename-case': 'off',
 		},
+	},
+	{
+		files: ['src/components/state/locale.ts', 'src/components/state/theme.ts'],
+		rules: {
+			'unicorn/no-top-level-side-effects': 'off',
+		},
 	}
 );

@@ -3,14 +3,14 @@ import includes from 'lodash/includes';
 
 /**
  * Check current render makes redirect for theme
- * @param {boolean} rerender - is submitted or not
+ * @param {boolean} isRerender - is submitted or not
  * @param {string[]} currentCommand - current submitted command
  * @param {string[]} themes - the command of the function
  * @returns {boolean} redirect - true | false
  */
-const checkThemeSwitch = (rerender: boolean, currentCommand: string[], themes: string[]): boolean =>
+const shouldThemeSwitch = (isRerender: boolean, currentCommand: string[], themes: string[]): boolean =>
 	// Is submitted
-	rerender &&
+	isRerender &&
 	// Current command starts with 'themes'
 	currentCommand[0] === ThemeCommand.command &&
 	// First arg is 'set'
@@ -22,4 +22,4 @@ const checkThemeSwitch = (rerender: boolean, currentCommand: string[], themes: s
 	// Arg last part is one of id
 	includes(themes, currentCommand[2]);
 
-export default checkThemeSwitch;
+export default shouldThemeSwitch;

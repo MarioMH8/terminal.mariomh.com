@@ -1,7 +1,7 @@
 const generateTabs = (number = 0): string => {
-	let tabs = '\u00A0\u00A0';
+	let tabs = '\u{A0}\u{A0}';
 	for (let index = 0; index < number; index++) {
-		tabs += '\u00A0';
+		tabs += '\u{A0}';
 	}
 
 	return tabs;
