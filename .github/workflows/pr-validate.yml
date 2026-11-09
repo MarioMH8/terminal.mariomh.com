@@ -1,0 +1,23 @@
+name: "Pull Request: Validate"
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled, ready_for_review]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  validate:
+    name: "Pull Request: Validate"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate pull request metadata
+        uses: hexadrop/validate-pr-action@v1.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          skip-validation-labels: 'release,internal:*'
+          changeset-required-for: ''
+          linked-issue-keywords: 'closes,fixes,resolves'

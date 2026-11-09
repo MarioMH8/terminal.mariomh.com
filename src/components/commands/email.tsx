@@ -1,7 +1,7 @@
 import type { ComponentCommand } from '@commands';
 import useHistoryState from '@history';
 import { i18n } from '@locale';
-import resume from '@mariomh/resume';
+import resume from '@mariomh8/resume';
 import { useStore } from '@nanostores/preact';
 import useRerenderState from '@rerender';
 import split from 'lodash/split';
@@ -19,7 +19,9 @@ const Email: FunctionalComponent = () => {
 	const { history } = useHistoryState();
 	const t = useStore(messages);
 
-	/* ===== get current command ===== */
+	/*
+	 *===== get current command =====
+	 */
 	const currentCommand = split(history[0], ' ');
 
 	if (rerender && currentCommand[0] === 'email' && currentCommand.length <= 1) {

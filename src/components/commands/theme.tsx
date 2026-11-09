@@ -13,7 +13,9 @@ const Theme: FunctionalComponent<CommandComponentProps> = ({ args: commandArgume
 	const { history } = useHistoryState();
 	const { setTheme, themes } = useThemeState();
 
-	/* ===== get current command ===== */
+	/*
+	 *===== get current command =====
+	 */
 	const currentCommand = split(history[0], ' ');
 
 	if (shouldThemeSwitch(rerender, currentCommand, themes)) {
@@ -23,7 +25,9 @@ const Theme: FunctionalComponent<CommandComponentProps> = ({ args: commandArgume
 		}
 	}
 
-	/* ===== check arg is valid ===== */
+	/*
+	 *===== check arg is valid =====
+	 */
 	const checkArgument = () => (isArgumentInvalid(commandArguments, 'set', themes) ? <Usage cmd='themes' /> : <></>);
 
 	if (commandArguments.length > 0 || commandArguments.length > 2) {

@@ -16,10 +16,14 @@ const Resume: FunctionalComponent = () => {
 
 	const t = useStore(messages);
 
-	/* ===== get current command ===== */
+	/*
+	 *===== get current command =====
+	 */
 	const currentCommand = split(history[0], ' ');
 
-	/* ===== check current command makes redirect ===== */
+	/*
+	 *===== check current command makes redirect =====
+	 */
 	if (rerender && currentCommand[0] === 'resume') {
 		window.open('https://resume.mariomh.com/', '_blank');
 	}

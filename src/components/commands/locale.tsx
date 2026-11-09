@@ -13,7 +13,9 @@ const Locale: FunctionalComponent<CommandComponentProps> = ({ args: commandArgum
 	const { history } = useHistoryState();
 	const { locales, setLocale } = useLocaleState();
 
-	/* ===== get current command ===== */
+	/*
+	 *===== get current command =====
+	 */
 	const currentCommand = split(history[0], ' ');
 
 	if (shouldLocaleSwitch(rerender, currentCommand, locales)) {
@@ -23,7 +25,9 @@ const Locale: FunctionalComponent<CommandComponentProps> = ({ args: commandArgum
 		}
 	}
 
-	/* ===== check arg is valid ===== */
+	/*
+	 *===== check arg is valid =====
+	 */
 	const checkArgument = () => (isArgumentInvalid(commandArguments, 'set', locales) ? <Usage cmd='locale' /> : <></>);
 
 	if (commandArguments.length > 0 || commandArguments.length > 2) {
