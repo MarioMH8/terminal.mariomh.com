@@ -24,5 +24,6 @@
 				"name": "@astrojs/ts-plugin"
 			}
 		]
-	}
+	},
+	"exclude": ["dist", "dist-astro", ".astro", "node_modules"]
 }
