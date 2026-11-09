@@ -23,7 +23,7 @@
 - **Runtime** - [Bun](https://bun.sh)
 - **Frontend** - [Astro](https://astro.build/), [Preact](https://preactjs.com/)
 - **Styling** - Plain CSS
-- **Deployment** - [Firebase](https://firebase.google.com/)
+- **Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)
 - **Languages** - [TypeScript](https://www.typescriptlang.org/)
 - **State Management** - [nanostores](https://github.com/nanostores/nanostores)
 
@@ -51,15 +51,17 @@ Install dependencies
 bun install
 ```
 
-Start the server
+Start the development server
 
 ```bash
-bun dev
+bun run dev
 ```
+
+The site consumes `@mariomh8/resume` from GitHub Packages. Local installs need a classic GitHub personal access token with `read:packages` in your user-level npm configuration. CI uses the `PACKAGES_TOKEN` Actions secret. See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete setup.
 
 ## Deploying the project
 
-Access the GitHub Action [Deploy](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/deploy.yml) and run the workflow.
+The site deploys automatically after the `Continuous integration` workflow succeeds on `main`. You can also run the [Deploy](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/deploy.yml) workflow manually with `workflow_dispatch`.
 
 ## Project Structure
 

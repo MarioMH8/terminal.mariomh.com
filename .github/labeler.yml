@@ -1,0 +1,9 @@
+scope:site:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**", "public/**", "astro.config.ts", "tsconfig.json"]
+scope:docs:
+  - changed-files:
+      - any-glob-to-any-file: ["*.md", "docs/**"]
+scope:ci:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**", "package.json", "bun.lock", "*.config.*", "commitlint.config.ts", "eslint.config.js", "lint-staged.config.js"]

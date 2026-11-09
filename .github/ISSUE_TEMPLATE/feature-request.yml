@@ -1,0 +1,50 @@
+name: Feature request
+description: Propose an improvement to the MarioMH design system.
+title: "feat: "
+labels: ["type:feature", "status:needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the user problem and desired outcome. Do not include credentials, access tokens, or other personal data.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and did not find this request.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should this solve?
+      description: Describe the current limitation or workflow pain.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+      description: Describe the desired behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe workarounds or other solutions you considered.
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Who benefits and how often?
+      options:
+        - High — unblocks core workflows
+        - Medium — improves a common workflow
+        - Low — useful enhancement
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add links or mockups. Remove personal and sensitive information.

@@ -1,0 +1,3 @@
+bun run typecheck
+bun run typecheck:astro
+bun run lint:fix

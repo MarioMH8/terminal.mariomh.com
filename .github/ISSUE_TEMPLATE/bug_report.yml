@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a reproducible problem with terminal.mariomh.com.
+title: "bug: "
+labels: ["type:bug", "status:needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the issue without including credentials, access tokens, or other personal data.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and did not find this report.
+          required: true
+        - label: I can reproduce this issue.
+          required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Provide a concise description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can we reproduce it?
+      description: List the steps and any non-sensitive configuration needed.
+      placeholder: |
+        1. Open ...
+        2. Choose ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Critical (component or package unusable)
+        - High (major workflow unavailable)
+        - Medium (partial impact or workaround available)
+        - Low (minor issue)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package or site version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Remove personal data, secrets, and tokens before posting.
+      render: shell
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Share screenshots or other details, with all sensitive information removed.
