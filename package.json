@@ -1,5 +1,5 @@
 {
-	"name": "@mariomh/terminal-portfolio",
+	"name": "terminal.mariomh.com",
 	"version": "2.0.2",
 	"author": "MarioMH8",
 	"description": "Mario Menéndez portfolio",
@@ -24,22 +24,27 @@
 		"url": "https://github.com/MarioMH8/terminal.mariomh.com/issues"
 	},
 	"license": "PRIVATE",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"build": "astro build",
+		"commitlint": "commitlint --edit",
 		"dev": "astro dev",
 		"lint": "eslint .",
-		"lint:fix": "eslint --fix .",
+		"lint:ci": "eslint --cache --cache-strategy content .",
+		"lint:fix": "eslint --cache --fix .",
 		"postinstall": "astro sync",
+		"prepare": "husky",
 		"start": "astro preview",
-		"typecheck": "tsc --noEmit && astro check"
+		"typecheck": "tsc --noEmit",
+		"typecheck:astro": "astro check"
 	},
 	"dependencies": {
-		"@mariomh/resume": "0.0.5",
+		"@mariomh8/resume": "0.1.0",
 		"@nanostores/i18n": "1.3.3",
 		"@nanostores/persistent": "1.3.5",
 		"@nanostores/preact": "1.1.1",
-		"astro": "7.4.2",
+		"astro": "7.4.8",
 		"astro-seo": "1.2.0",
 		"lodash": "4.18.1",
 		"nanostores": "1.5.5",
@@ -48,10 +53,12 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "0.9.12",
-		"@astrojs/preact": "6.1.1",
+		"@astrojs/preact": "6.1.2",
 		"@astrojs/sitemap": "3.7.4",
 		"@astrojs/ts-plugin": "1.10.12",
-		"@hexadrop/eslint-config": "1.0.6",
+		"@commitlint/cli": "21.2.4",
+		"@commitlint/config-conventional": "21.2.4",
+		"@hexadrop/eslint-config": "1.3.1",
 		"@hexadrop/tsconfig": "0.0.5",
 		"@playform/compress": "0.2.5",
 		"@types/lodash": "4.17.27",
@@ -59,10 +66,13 @@
 		"astro-robots-txt": "1.0.0",
 		"astro-webmanifest": "1.0.0",
 		"eslint": "10.14.0",
+		"husky": "9.1.7",
+		"lint-staged": "17.6.0",
 		"typescript": "6.0.3"
 	},
 	"overrides": {
 		"react": "npm:@preact/compat@18.3.2",
 		"react-dom": "npm:@preact/compat@18.3.2"
-	}
+	},
+	"packageManager": "bun@1.4.4"
 }

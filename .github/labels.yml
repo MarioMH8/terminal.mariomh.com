@@ -1,0 +1,57 @@
+- name: dependencies
+  color: ededed
+  description: Dependency updates and maintenance
+- name: renovate
+  color: ededed
+  description: Automated dependency updates
+- name: release
+  color: 0e8a16
+  description: Release-related work
+- name: status:approved
+  color: f1c40f
+  description: Approved and ready for implementation
+- name: status:blocked
+  color: f1c40f
+  description: Work is blocked
+- name: status:in-progress
+  color: f1c40f
+  description: Work is in progress
+- name: status:needs-review
+  color: f1c40f
+  description: Awaiting review
+- name: status:wont-fix
+  color: f1c40f
+  description: This issue will not be addressed
+- name: type:bug
+  color: 1d76db
+  description: A defect or unexpected behavior
+- name: type:chore
+  color: 1d76db
+  description: Maintenance work
+- name: type:docs
+  color: 1d76db
+  description: Documentation change
+- name: type:feature
+  color: 1d76db
+  description: New functionality
+- name: type:refactor
+  color: 1d76db
+  description: Code restructuring without behavior changes
+- name: type:breaking-change
+  color: 1d76db
+  description: A change that is not backward compatible
+- name: internal:no-issue
+  color: ededed
+  description: Internal tooling that does not need a linked issue
+- name: internal:sync
+  color: ededed
+  description: Automated branch synchronization
+- name: scope:site
+  color: c5def5
+  description: Astro site
+- name: scope:docs
+  color: c5def5
+  description: Documentation
+- name: scope:ci
+  color: c5def5
+  description: CI and repository configuration
