@@ -3,80 +3,130 @@
 </h1>
 
 <p align="center">
-    Terminal style portfolio website
+  A terminal-style portfolio that runs in the browser.
 </p>
 
-![mariomh-terminal--portfolio](docs/terminal.mriomh.com.webp)
+<p align="center">
+  <a href="https://terminal.mariomh.com"><img src="https://img.shields.io/badge/live-terminal.mariomh.com-blue?style=flat-square" alt="Live site"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
+</p>
+
+![terminal.mariomh.com](docs/terminal.mriomh.com.webp)
+
+## Table of contents
+
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Lighthouse score](#lighthouse-score)
+- [Requirements](#requirements)
+- [Running locally](#running-locally)
+- [Commands](#commands)
+- [Deploying the site](#deploying-the-site)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
+- [Security](#security)
+- [License](#license)
+- [Inspiration and credits](#inspiration-and-credits)
 
 ## Features
 
-- 📱 Responsive Design
-- 🎨 Multiple themes
-- ✨ Autocomplete feature (TAB | Ctrl + i)
-- ⬆️ Go previous and next command
-- 📖 View command history
-- 🔥 PWA and Offline Support
-- 🇬🇧 English and 🇪🇸 Spanish support
+- 📱 Responsive design.
+- 🎨 Multiple themes.
+- ✨ Autocomplete with `Tab` or `Ctrl + I`.
+- ⬆️ Previous and next command history.
+- 📖 View the command history.
+- 🔥 PWA and offline support.
+- 🇬🇧 English and 🇪🇸 Spanish support.
 
-## Tech Stack
+## Tech stack
 
-- **Runtime** - [Bun](https://bun.sh)
-- **Frontend** - [Astro](https://astro.build/), [Preact](https://preactjs.com/)
+- **Runtime and package manager** - [Bun](https://bun.sh) 1.4.4
+- **Frontend** - [Astro](https://astro.build) and [Preact](https://preactjs.com)
 - **Styling** - Plain CSS
-- **Deployment** - [Cloudflare Pages](https://pages.cloudflare.com/)
-- **Languages** - [TypeScript](https://www.typescriptlang.org/)
-- **State Management** - [nanostores](https://github.com/nanostores/nanostores)
+- **State management** - [nanostores](https://github.com/nanostores/nanostores)
+- **Language** - [TypeScript](https://www.typescriptlang.org)
+- **Deployment** - [Cloudflare Pages](https://pages.cloudflare.com)
 
-## Lighthouse Score
+## Lighthouse score
 
-![lighthouse.webp](docs/lighthouse-result.svg)
+![Lighthouse result](docs/lighthouse-result.svg)
 
-## Running Locally
+## Requirements
 
-Clone the project
+- Bun 1.4.4
+- Git
+- A GitHub personal access token with `read:packages` to install `@mariomh8/resume`
+
+## Running locally
+
+Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/MarioMH8/terminal.mariomh.com.git
-```
-
-Go to the project directory
-
-```bash
 cd terminal.mariomh.com
-```
-
-Install dependencies
-
-```bash
 bun install
 ```
 
-Start the development server
+Start the development server:
 
 ```bash
 bun run dev
 ```
 
-The site consumes `@mariomh8/resume` from GitHub Packages. Local installs need a classic GitHub personal access token with `read:packages` in your user-level npm configuration. CI uses the `PACKAGES_TOKEN` Actions secret. See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete setup.
+The site consumes the private `@mariomh8/resume` package. Add the scope and your token to your user-level npm configuration:
 
-## Deploying the project
+```ini
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+@mariomh8:registry=https://npm.pkg.github.com/
+```
+
+Export `NPM_TOKEN` with a classic GitHub personal access token that has the `read:packages` permission. In CI the check workflow uses `GITHUB_TOKEN` with `packages: read`.
+
+## Commands
+
+| Task | Command |
+| --- | --- |
+| Run the development server | `bun run dev` |
+| Build the site | `bun run build` |
+| Preview the build | `bun run start` |
+| Type-check | `bun run typecheck` |
+| Type-check the Astro sources | `bun run typecheck:astro` |
+| Lint without writing changes | `bun run lint:ci` |
+| Lint and fix | `bun run lint:fix` |
+
+## Deploying the site
 
 The site deploys automatically after the `Continuous integration` workflow succeeds on `main`. You can also run the [Deploy](https://github.com/MarioMH8/terminal.mariomh.com/actions/workflows/deploy.yml) workflow manually with `workflow_dispatch`.
 
-## Project Structure
+## Project structure
 
-The project is organized into several main directories and files:
+```text
+src/               Astro and Preact site: components, commands, layouts, pages and styles
+public/            Static files, icons and the web app manifest
+docs/              Screenshots, the Lighthouse result and the agent guides
+.github/           Workflows, issue templates and CODEOWNERS
+```
 
-- `src/`: This directory contains all the source code for the project.
-  - `components/`: Contains the project-specific components.
-  - `layouts/`: Contains the base layout of the page.
-  - `pages/`: Contains the Astro components that represent the pages of the application.
-  - `styles/`: Contains the global styles of the application.
-- `public/`: This directory contains all the static files.
+## Contributing
 
-## Inspiration and Credits
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or a pull request. The project follows an issue-first workflow, Conventional Commits and GitFlow with `develop` as the integration branch and `main` for stable releases.
 
-Here are some inspiration for this kind of terminal website. Only some features and functionalities are inspired by these following websites. All codes are written on my own.
+- [AGENTS.md](AGENTS.md): entry point for the repository guides.
+- [docs/agents/](docs/agents/): architecture, conventions, development, releases, pull requests and branches.
+
+## Security
+
+Do not report vulnerabilities in a public issue. Follow [SECURITY.md](SECURITY.md) and use GitHub's private vulnerability reporting.
+
+## License
+
+The source code is licensed under the [MIT License](LICENSE).
+
+The terminal messages, translations, images and documentation prose are **all rights reserved**. See [CONTENT-LICENSE.md](CONTENT-LICENSE.md) for the exact scope.
+
+## Inspiration and credits
+
+Some features and interactions are inspired by these terminal sites. All the code is written from scratch.
 
 - [Terminal Portfolio by Sat Naing](https://terminal.satnaing.dev/)
 - [term m4tt72](https://term.m4tt72.com/)

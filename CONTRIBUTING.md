@@ -1,6 +1,6 @@
 # Contributing to terminal.mariomh.com
 
-This repository contains the private terminal-style portfolio at [terminal.mariomh.com](https://terminal.mariomh.com). `develop` is the default branch and `main` holds stable releases.
+This repository contains the terminal-style portfolio at [terminal.mariomh.com](https://terminal.mariomh.com). The source is public and the `@mariomh8/resume` package it consumes stays private in GitHub Packages. `develop` is the default branch and `main` holds stable releases.
 
 For a quick orientation, read [AGENTS.md](AGENTS.md); for the detailed guides, see [docs/agents/](docs/agents/).
 
@@ -83,7 +83,7 @@ Commit messages follow Conventional Commits through `commitlint.config.ts`. Add 
 - Add exactly one `type:*` label. Scope labels are applied automatically.
 - Run `bun run lint:ci`, `bun run typecheck`, `bun run typecheck:astro` and `bun run build` before opening the pull request.
 
-The repository is private on GitHub Free, so there are no rulesets or branch protection. The checks run, but GitHub does not block a merge when they fail. Maintainers must wait for green checks and verify the policy manually.
+The `Protected branches` ruleset on `develop` and `main` requires a pull request, blocks force pushes and deletions, and requires the `Pull Request: Validate` and `Check` workflows to pass. It allows zero approving reviews; administrators and the Hexadrop app can bypass it.
 
 Use a **squash merge** for work branches into `develop` and for hotfixes into `main`. Use a **merge commit** for `internal/sync-from-main-to-develop` into `develop`.
 
@@ -98,10 +98,4 @@ The site deploys automatically after the `Continuous integration` workflow succe
 
 ## Code of conduct
 
-Be respectful. We are building something together.
-
-- Critique code, not people.
-- Be constructive in reviews.
-- Welcome newcomers.
-
-Violations may result in removal from the project.
+This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). Be respectful: critique code, not people, be constructive in reviews and welcome newcomers. Report unacceptable behavior privately to the maintainer through GitHub.

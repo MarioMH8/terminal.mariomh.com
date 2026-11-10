@@ -23,7 +23,7 @@
 	"bugs": {
 		"url": "https://github.com/MarioMH8/terminal.mariomh.com/issues"
 	},
-	"license": "PRIVATE",
+	"license": "MIT",
 	"private": true,
 	"type": "module",
 	"scripts": {

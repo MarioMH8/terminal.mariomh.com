@@ -54,4 +54,4 @@ CI uses the `PACKAGES_TOKEN` Actions secret because `@mariomh8/resume` is publis
 
 The deploy workflow calls the same check workflow with `ref` pinned to the commit that passed CI, then builds and deploys to Cloudflare Pages.
 
-Because the repository is private on GitHub Free, the checks run but GitHub cannot enforce them through rulesets or branch protection. Maintainers must wait for green checks manually.
+The `Protected branches` ruleset makes these checks required on `develop` and `main`, together with the `Pull Request: Validate` workflow. It allows zero approving reviews; administrators and the Hexadrop app can bypass it.
