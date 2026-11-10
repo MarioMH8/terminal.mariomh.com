@@ -5,7 +5,7 @@
     "": {
       "name": "@mariomh/terminal-portfolio",
       "dependencies": {
-        "@mariomh8/resume": "0.1.1",
+        "@mariomh8/resume": "0.1.2",
         "@nanostores/i18n": "1.3.3",
         "@nanostores/persistent": "1.3.5",
         "@nanostores/preact": "1.1.1",
@@ -494,7 +494,7 @@
 
     "@keyv/serialize": ["@keyv/serialize@1.1.1", "", {}, "sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA=="],
 
-    "@mariomh8/resume": ["@mariomh8/resume@0.1.1", "https://npm.pkg.github.com/download/@mariomh8/resume/0.1.1/2b90ec9ff53de628e63949594aaae5ca74258196", {}, "sha512-Frhf7ResH4gLy39lsHzUdWrU2QeNXDDKW0LAep4XUIUPI/Pnzfdm8Lh9gduyVaEsW6Rqxj/41TKOYyixvGhHmg=="],
+    "@mariomh8/resume": ["@mariomh8/resume@0.1.2", "https://npm.pkg.github.com/download/@mariomh8/resume/0.1.2/41057e3c40ac01c3cf8a74f4f983cbbfaad97daf", {}, "sha512-XRHWTvNXFDxIrxHhdYseakLF+DR18cQSSNn31wRblA4ioASofryeUMn7rvowy9atnYKziLyupvd/921ChOMElA=="],
 
     "@nanostores/i18n": ["@nanostores/i18n@1.3.3", "", { "peerDependencies": { "nanostores": "^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0" } }, "sha512-hwuTKJ+DKCOuszmmOuNfDeA8j86WJWLLzjzE1BYm+mabMcD5JYDnTd0wPMwgGJ+U//ApRaxviRvOtvk50F+RCg=="],
 
