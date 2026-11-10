@@ -31,7 +31,7 @@ Rules:
 
 Examples: `feat/command-palette`, `fix/print-layout`, `docs/agents-and-contributing`, `release/2.1.0`, `hotfix/deploy-token`.
 
-The repository has no branch protection, so this naming is a convention rather than an enforced rule.
+The `Protected branches` ruleset enforces the pull request flow on `develop` and `main`, so this naming is a convention rather than an enforced rule.
 
 ## Commit convention
 

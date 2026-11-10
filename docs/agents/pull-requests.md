@@ -33,7 +33,7 @@ Add exactly one `type:*` label. Scope labels are applied automatically by `.gith
 
 A pull request is ready when these checks and the pull request validation are green.
 
-The repository is private on GitHub Free, so it has no rulesets or branch protection. GitHub runs the checks and `validate-pr-action` but does not block a merge when they fail. Maintainers must verify the checks and the policy manually before merging.
+The `Protected branches` ruleset on `develop` and `main` requires a pull request, blocks force pushes and deletions, and requires the `Pull Request: Validate` and `Check` workflows. It allows zero approving reviews; administrators and the Hexadrop app can bypass it.
 
 ## Merge methods
 

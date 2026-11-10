@@ -1,6 +1,6 @@
 # Agent guide for terminal.mariomh.com
 
-Private Astro + Preact terminal portfolio. `develop` is the default branch; `main` holds stable releases.
+Astro + Preact terminal portfolio. `develop` is the default branch; `main` holds stable releases.
 
 - **Package manager:** Bun 1.4.4 (`bun`)
 - **Build:** `bun run build`
