@@ -6,7 +6,6 @@ export default await hexadrop(
 			'import/no-cycle': 'off',
 			'import/no-unresolved': 'off',
 		},
-		typescript: ['./tsconfig.json'],
 	},
 	{
 		files: ['public/translations/**/*.json'],
