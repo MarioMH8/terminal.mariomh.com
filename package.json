@@ -67,7 +67,7 @@
 		"astro-webmanifest": "1.0.0",
 		"eslint": "10.15.0",
 		"husky": "9.1.7",
-		"lint-staged": "17.6.0",
+		"lint-staged": "17.6.1",
 		"typescript": "6.0.3"
 	},
 	"overrides": {
