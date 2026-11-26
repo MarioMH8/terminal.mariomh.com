@@ -74,5 +74,5 @@
 		"react": "npm:@preact/compat@18.3.2",
 		"react-dom": "npm:@preact/compat@18.3.2"
 	},
-	"packageManager": "bun@1.4.4"
+	"packageManager": "bun@1.4.5"
 }
